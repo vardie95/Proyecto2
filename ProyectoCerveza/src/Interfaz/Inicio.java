@@ -5,26 +5,39 @@
  */
 package Interfaz;
 
+import Registro.RegistroCerveza;
+import Registro.RegistroColor2;
+import Registro.RegistroCuerpo2;
+import Registro.RegistroEstilo2;
+import Registro.RegistroFamilia2;
+import Registro.RegistroFermentacion2;
+import Registro.RegistroPersona;
+import Registro.RegistroTipo2;
 import java.awt.Panel;
-
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Luis Diego
  */
-public class Inicio extends javax.swing.JFrame {
 
+public class Inicio extends javax.swing.JFrame {
+    static boolean Inicio_Secion;
     /**
      * Creates new form Inicio
      */
     public Inicio() {
+        
         initComponents();
         PanelInicio panelIni= new PanelInicio();
         jPanel1.removeAll();
         jPanel1.add(panelIni);
         jPanel1.repaint();
         jPanel1.revalidate();
+        
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,11 +50,19 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jM_Persona = new javax.swing.JMenuItem();
+        jM_Cerveza = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
 
@@ -49,43 +70,53 @@ public class Inicio extends javax.swing.JFrame {
         setLocation(new java.awt.Point(250, 100));
         setMinimumSize(new java.awt.Dimension(800, 560));
 
+        jPanel1.setToolTipText("Cerveceria");
         jPanel1.setLayout(new java.awt.CardLayout());
 
         jMenuBar1.setPreferredSize(new java.awt.Dimension(56, 50));
 
         jMenu1.setText("                   Inicio");
         jMenu1.setPreferredSize(new java.awt.Dimension(190, 19));
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu1);
 
-        jMenuItem2.setText("Volver a Inicio");
+        jMenu3.setText("               Registro");
+        jMenu3.setPreferredSize(new java.awt.Dimension(190, 19));
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
+
+        jM_Persona.setText("Persona");
+        jM_Persona.setPreferredSize(new java.awt.Dimension(150, 20));
+        jM_Persona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_PersonaActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jM_Persona);
+
+        jM_Cerveza.setText("Cerveza");
+        jM_Cerveza.setPreferredSize(new java.awt.Dimension(150, 20));
+        jM_Cerveza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_CervezaActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jM_Cerveza);
+
+        jMenuItem2.setText("Cuerpo");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu3.setText("               Registro");
-        jMenu3.setPreferredSize(new java.awt.Dimension(190, 19));
-
-        jMenuItem1.setText("Persona");
-        jMenuItem1.setPreferredSize(new java.awt.Dimension(150, 20));
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem1);
-
-        jMenuItem3.setText("Cerveza");
-        jMenuItem3.setPreferredSize(new java.awt.Dimension(150, 20));
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem3);
+        jMenu3.add(jMenuItem2);
 
         jMenuItem4.setText("Fermentación");
         jMenuItem4.setPreferredSize(new java.awt.Dimension(150, 20));
@@ -95,6 +126,70 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         jMenu3.add(jMenuItem4);
+
+        jMenuItem6.setText("Estilo");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem6);
+
+        jMenuItem7.setText("Familia");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem7);
+
+        jMenuItem8.setText("Color");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem8);
+
+        jMenuItem5.setText("Tipo");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem5);
+
+        jMenuItem9.setText("Distrito");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem9);
+
+        jMenuItem10.setText("Cantón");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem10);
+
+        jMenuItem11.setText("Provincia");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem11);
+
+        jMenuItem12.setText("País");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem12);
 
         jMenuBar1.add(jMenu3);
 
@@ -122,43 +217,131 @@ public class Inicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    
+    
+    private void jM_PersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_PersonaActionPerformed
            // TODO add your handling code here:
+           
         RegistroPersona panelRegistro= new RegistroPersona();
         jPanel1.removeAll();
         jPanel1.add(panelRegistro);
         jPanel1.repaint();
         jPanel1.revalidate();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jM_PersonaActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        PanelInicio panelIni= new PanelInicio();
-        jPanel1.removeAll();
-        jPanel1.add(panelIni);
-        jPanel1.repaint();
-        jPanel1.revalidate();
-       
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jM_CervezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_CervezaActionPerformed
         // TODO add your handling code here:
         RegistroCerveza panelIni= new RegistroCerveza();
         jPanel1.removeAll();
         jPanel1.add(panelIni);
         jPanel1.repaint();
         jPanel1.revalidate();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_jM_CervezaActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-         RegistroFermentacion panelIni= new RegistroFermentacion();
+         RegistroFermentacion2 panelIni= new RegistroFermentacion2();
         jPanel1.removeAll();
         jPanel1.add(panelIni);
         jPanel1.repaint();
         jPanel1.revalidate();
     
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        // TODO add your handling code here:
+        PanelInicio panelIni= new PanelInicio();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        RegistroEstilo2 panelIni= new RegistroEstilo2();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        RegistroCuerpo2 panelIni= new RegistroCuerpo2();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();  
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        RegistroFamilia2 panelIni= new RegistroFamilia2();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        RegistroColor2 panelIni= new RegistroColor2();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+        Registro.RegistroDistrito panelIni= new Registro.RegistroDistrito();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        RegistroTipo2 panelIni= new RegistroTipo2();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+        Registro.RegistroProvincia panelIni= new Registro.RegistroProvincia();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        Registro.RegistroCanton panelIni= new Registro.RegistroCanton();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+        Registro.RegistroPais panelIni= new Registro.RegistroPais();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,21 +373,39 @@ public class Inicio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inicio().setVisible(true);
+                
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jM_Cerveza;
+    private javax.swing.JMenuItem jM_Persona;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
+    public javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public void Fermentacion(){
+        RegistroFermentacion2 panelIni= new RegistroFermentacion2();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    
+    }
 }

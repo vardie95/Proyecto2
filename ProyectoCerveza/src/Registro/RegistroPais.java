@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaz;
+package Registro;
 
 /**
  *
  * @author Luis Diego
  */
-public class RegistroFermentacion extends javax.swing.JPanel {
+public class RegistroPais extends javax.swing.JPanel {
 
     /**
      * Creates new form RegistroFermentacion
      */
-    public RegistroFermentacion() {
+    public RegistroPais() {
         initComponents();
     }
 
@@ -27,25 +27,18 @@ public class RegistroFermentacion extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
 
         setLayout(null);
-        add(jTextField1);
-        jTextField1.setBounds(290, 210, 225, 31);
 
-        jLabel1.setText("Nombre: ");
+        jLabel1.setText("Pais: ");
         add(jLabel1);
         jLabel1.setBounds(160, 140, 74, 31);
-
-        jLabel2.setText("Tiempo: ");
-        add(jLabel2);
-        jLabel2.setBounds(160, 220, 80, 20);
         add(jTextField2);
         jTextField2.setBounds(290, 140, 225, 31);
 
@@ -60,6 +53,11 @@ public class RegistroFermentacion extends javax.swing.JPanel {
         jButton3.setText("Eliminar");
         add(jButton3);
         jButton3.setBounds(510, 360, 130, 50);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setText("Registro Pais");
+        add(jLabel12);
+        jLabel12.setBounds(320, 50, 180, 22);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -68,8 +66,7 @@ public class RegistroFermentacion extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

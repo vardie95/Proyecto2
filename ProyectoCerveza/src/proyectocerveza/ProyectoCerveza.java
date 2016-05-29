@@ -21,6 +21,7 @@ public class ProyectoCerveza {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
       public void run() {
         new Inicio().setVisible(true);
+        //new Interfaz.InicioSesion().setVisible(true);
       }
     });
     }

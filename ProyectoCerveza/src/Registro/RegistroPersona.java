@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaz;
+package Registro;
 
 /**
  *
@@ -37,15 +37,18 @@ public class RegistroPersona extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox2 = new javax.swing.JComboBox<String>();
+        jComboBox3 = new javax.swing.JComboBox<String>();
+        jComboBox4 = new javax.swing.JComboBox<String>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         BT_Agregar = new javax.swing.JButton();
         BT_AgregarFoto = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        TF_Apellido3 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 255, 255));
         setLayout(null);
@@ -62,51 +65,51 @@ public class RegistroPersona extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(140, 60, 90, 14);
         add(TF_Nombre);
-        TF_Nombre.setBounds(250, 110, 167, 20);
+        TF_Nombre.setBounds(250, 100, 167, 20);
         add(TF_Apellido1);
-        TF_Apellido1.setBounds(250, 160, 167, 20);
+        TF_Apellido1.setBounds(250, 150, 167, 20);
         add(TF_Apellido2);
-        TF_Apellido2.setBounds(250, 210, 167, 20);
+        TF_Apellido2.setBounds(250, 200, 167, 20);
 
         TF_Direccion.setColumns(20);
         TF_Direccion.setRows(5);
         jScrollPane1.setViewportView(TF_Direccion);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(120, 320, 443, 129);
+        jScrollPane1.setBounds(120, 340, 443, 129);
 
         jLabel2.setText("Nombre:");
         add(jLabel2);
-        jLabel2.setBounds(140, 110, 68, 14);
+        jLabel2.setBounds(140, 100, 68, 14);
 
         jLabel3.setText("Apellido 1: ");
         add(jLabel3);
-        jLabel3.setBounds(140, 160, 68, 14);
+        jLabel3.setBounds(140, 150, 68, 14);
 
-        jLabel4.setText("Apellido 2: ");
+        jLabel4.setText("Dirección: ");
         add(jLabel4);
-        jLabel4.setBounds(140, 210, 68, 14);
+        jLabel4.setBounds(120, 320, 68, 14);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "País" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "País" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
         add(jComboBox1);
-        jComboBox1.setBounds(120, 270, 103, 20);
+        jComboBox1.setBounds(120, 280, 103, 20);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Provincia" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Provincia" }));
         add(jComboBox2);
-        jComboBox2.setBounds(230, 270, 103, 20);
+        jComboBox2.setBounds(230, 280, 103, 20);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cantón" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cantón" }));
         add(jComboBox3);
-        jComboBox3.setBounds(350, 270, 103, 20);
+        jComboBox3.setBounds(350, 280, 103, 20);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Distrito" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Distrito" }));
         add(jComboBox4);
-        jComboBox4.setBounds(460, 270, 103, 20);
+        jComboBox4.setBounds(460, 280, 103, 20);
 
         jLabel5.setBackground(new java.awt.Color(204, 204, 204));
         jLabel5.setOpaque(true);
@@ -115,7 +118,7 @@ public class RegistroPersona extends javax.swing.JPanel {
 
         jLabel6.setText("Foto:");
         add(jLabel6);
-        jLabel6.setBounds(560, 60, 34, 14);
+        jLabel6.setBounds(570, 70, 34, 14);
 
         BT_Agregar.setText("Agregar");
         BT_Agregar.addActionListener(new java.awt.event.ActionListener() {
@@ -130,9 +133,19 @@ public class RegistroPersona extends javax.swing.JPanel {
         add(BT_AgregarFoto);
         BT_AgregarFoto.setBounds(610, 210, 110, 20);
 
+        jLabel8.setText("Apellido 2: ");
+        add(jLabel8);
+        jLabel8.setBounds(140, 200, 68, 14);
+
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         add(jLabel7);
         jLabel7.setBounds(0, 0, 830, 550);
+        add(TF_Apellido3);
+        TF_Apellido3.setBounds(250, 240, 167, 20);
+
+        jLabel9.setText("Correo:");
+        add(jLabel9);
+        jLabel9.setBounds(140, 240, 68, 14);
     }// </editor-fold>//GEN-END:initComponents
 
     private void TF_IdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_IdentificacionActionPerformed
@@ -153,6 +166,7 @@ public class RegistroPersona extends javax.swing.JPanel {
     private javax.swing.JButton BT_AgregarFoto;
     private javax.swing.JTextField TF_Apellido1;
     private javax.swing.JTextField TF_Apellido2;
+    private javax.swing.JTextField TF_Apellido3;
     private javax.swing.JTextArea TF_Direccion;
     private javax.swing.JTextField TF_Identificacion;
     private javax.swing.JTextField TF_Nombre;
@@ -167,6 +181,8 @@ public class RegistroPersona extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
