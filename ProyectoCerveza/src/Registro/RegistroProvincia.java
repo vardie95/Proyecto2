@@ -37,6 +37,8 @@ public class RegistroProvincia extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox();
 
         setLayout(null);
+
+        jTextField1.setBackground(new java.awt.Color(217, 217, 148));
         add(jTextField1);
         jTextField1.setBounds(290, 210, 225, 31);
 

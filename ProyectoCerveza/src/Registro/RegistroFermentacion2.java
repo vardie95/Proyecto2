@@ -37,6 +37,8 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
 
         setLayout(null);
+
+        jTextField1.setBackground(new java.awt.Color(217, 217, 148));
         add(jTextField1);
         jTextField1.setBounds(290, 210, 225, 31);
 
@@ -47,6 +49,8 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         jLabel2.setText("Tiempo: ");
         add(jLabel2);
         jLabel2.setBounds(160, 220, 80, 20);
+
+        jTextField2.setBackground(new java.awt.Color(217, 217, 148));
         add(jTextField2);
         jTextField2.setBounds(290, 140, 225, 31);
 

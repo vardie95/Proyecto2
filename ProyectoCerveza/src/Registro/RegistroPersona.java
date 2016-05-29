@@ -46,9 +46,9 @@ public class RegistroPersona extends javax.swing.JPanel {
         BT_Agregar = new javax.swing.JButton();
         BT_AgregarFoto = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         TF_Apellido3 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 255, 255));
         setLayout(null);
@@ -136,16 +136,16 @@ public class RegistroPersona extends javax.swing.JPanel {
         jLabel8.setText("Apellido 2: ");
         add(jLabel8);
         jLabel8.setBounds(140, 200, 68, 14);
+        add(TF_Apellido3);
+        TF_Apellido3.setBounds(250, 250, 167, 20);
+
+        jLabel9.setText("Correo:");
+        add(jLabel9);
+        jLabel9.setBounds(140, 250, 68, 14);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         add(jLabel7);
         jLabel7.setBounds(0, 0, 830, 550);
-        add(TF_Apellido3);
-        TF_Apellido3.setBounds(250, 240, 167, 20);
-
-        jLabel9.setText("Correo:");
-        add(jLabel9);
-        jLabel9.setBounds(140, 240, 68, 14);
     }// </editor-fold>//GEN-END:initComponents
 
     private void TF_IdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_IdentificacionActionPerformed

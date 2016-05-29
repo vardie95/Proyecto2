@@ -59,6 +59,7 @@ public class RegistroCerveza extends javax.swing.JPanel {
 
         setLayout(null);
 
+        TF_Descripcion.setBackground(new java.awt.Color(217, 217, 148));
         TF_Descripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_DescripcionActionPerformed(evt);
@@ -119,6 +120,7 @@ public class RegistroCerveza extends javax.swing.JPanel {
         add(jComboBox6);
         jComboBox6.setBounds(200, 360, 160, 20);
 
+        TF_Descripcion1.setBackground(new java.awt.Color(217, 217, 148));
         TF_Descripcion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_Descripcion1ActionPerformed(evt);
@@ -135,6 +137,7 @@ public class RegistroCerveza extends javax.swing.JPanel {
         add(jLabel9);
         jLabel9.setBounds(80, 400, 87, 14);
 
+        TF_Descripcion2.setBackground(new java.awt.Color(217, 217, 148));
         TF_Descripcion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_Descripcion2ActionPerformed(evt);
@@ -214,6 +217,7 @@ public class RegistroCerveza extends javax.swing.JPanel {
         add(jLabel10);
         jLabel10.setBounds(380, 400, 87, 14);
 
+        TF_Descripcion3.setBackground(new java.awt.Color(217, 217, 148));
         TF_Descripcion3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_Descripcion3ActionPerformed(evt);

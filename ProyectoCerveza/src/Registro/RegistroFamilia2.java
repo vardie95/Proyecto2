@@ -39,6 +39,8 @@ public class RegistroFamilia2 extends javax.swing.JPanel {
         jLabel1.setText("Nombre: ");
         add(jLabel1);
         jLabel1.setBounds(160, 140, 74, 31);
+
+        jTextField2.setBackground(new java.awt.Color(217, 217, 148));
         add(jTextField2);
         jTextField2.setBounds(290, 140, 225, 31);
 
