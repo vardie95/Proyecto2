@@ -7,7 +7,7 @@ package Interfaz;
 
 import Registro.RegistroCerveza;
 import Registro.RegistroColor2;
-import Registro.RegistroCuerpo;
+import Registro.RegistroCuerpo2;
 import Registro.RegistroEstilo2;
 import Registro.RegistroFamilia2;
 import Registro.RegistroFermentacion2;
@@ -337,7 +337,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        RegistroCuerpo panelIni= new RegistroCuerpo();
+        RegistroCuerpo2 panelIni= new RegistroCuerpo2();
         jPanel1.removeAll();
         jPanel1.add(panelIni);
         jPanel1.repaint();

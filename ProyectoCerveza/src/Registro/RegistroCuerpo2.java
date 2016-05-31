@@ -14,35 +14,33 @@ import javax.swing.JOptionPane;
  *
  * @author Luis Diego
  */
-
-public class RegistroPais extends javax.swing.JPanel {
+public class RegistroCuerpo2 extends javax.swing.JPanel {
 
     /**
      * Creates new form RegistroFermentacion
      */
-    public RegistroPais() {
+    public RegistroCuerpo2() {
         initComponents();
         Modificar.setVisible(false);
         Eliminar.setVisible(false);
     }
-    
-    public void InsertPais(){
+    public void InsertCuerpo(){
         Connection con= null;
             String puesto=jTextField3.getText();
-            con=proyectocerveza.dbConnection.conectDB();
+            con= proyectocerveza.dbConnection.conectDB();
             try {
-                CallableStatement proc= con.prepareCall("{call insertPais(?)}");
+                
+                CallableStatement proc= con.prepareCall("{call insertCuerpo(?)}");
                 proc.setString(1, puesto);
                 proc.execute();
-                JOptionPane.showMessageDialog(this, "País Agregado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Cuerpo Agregado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
                 jTextField3.setText("");
                 con.close();
                 
             } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
 
             }
-    
     }
 
     /**
@@ -56,28 +54,25 @@ public class RegistroPais extends javax.swing.JPanel {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
         Registro = new javax.swing.JPanel();
-        jLayeredPane2 = new javax.swing.JLayeredPane();
         jLabel2 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jLabel13 = new javax.swing.JLabel();
         Modificar = new javax.swing.JPanel();
-        jLayeredPane3 = new javax.swing.JLayeredPane();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel4 = new javax.swing.JLabel();
         Eliminar = new javax.swing.JPanel();
-        jLayeredPane4 = new javax.swing.JLayeredPane();
-        jLabel5 = new javax.swing.JLabel();
-        jButton10 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
+        jButton12 = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox();
 
         setLayout(null);
@@ -85,16 +80,19 @@ public class RegistroPais extends javax.swing.JPanel {
         jLayeredPane1.setLayout(new javax.swing.OverlayLayout(jLayeredPane1));
 
         Registro.setLayout(null);
-        Registro.add(jLayeredPane2);
-        jLayeredPane2.setBounds(10, 40, 70, 60);
 
-        jLabel2.setText("Pais: ");
+        jLabel2.setText("Nombre: ");
         Registro.add(jLabel2);
-        jLabel2.setBounds(200, 140, 74, 31);
+        jLabel2.setBounds(160, 140, 74, 31);
 
         jTextField3.setBackground(new java.awt.Color(217, 217, 148));
         Registro.add(jTextField3);
         jTextField3.setBounds(290, 140, 225, 31);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setText("Registro Cuerpo");
+        Registro.add(jLabel12);
+        jLabel12.setBounds(320, 50, 180, 22);
 
         jButton4.setText("Agregar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +101,7 @@ public class RegistroPais extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton4);
-        jButton4.setBounds(160, 360, 120, 50);
+        jButton4.setBounds(160, 330, 120, 50);
 
         jButton5.setText("Modificar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +110,7 @@ public class RegistroPais extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton5);
-        jButton5.setBounds(330, 360, 130, 50);
+        jButton5.setBounds(330, 330, 130, 50);
 
         jButton6.setText("Eliminar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -121,35 +119,36 @@ public class RegistroPais extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton6);
-        jButton6.setBounds(510, 360, 130, 50);
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel13.setText("Eliminar Pais");
-        Registro.add(jLabel13);
-        jLabel13.setBounds(330, 50, 180, 22);
+        jButton6.setBounds(510, 330, 130, 50);
 
         jLayeredPane1.add(Registro);
 
         Modificar.setLayout(null);
-        Modificar.add(jLayeredPane3);
-        jLayeredPane3.setBounds(10, 40, 70, 60);
 
-        jLabel3.setText("Nuevo Pais:");
-        Modificar.add(jLabel3);
-        jLabel3.setBounds(210, 200, 74, 31);
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setText("Modificar Cuerpo");
+        Modificar.add(jLabel13);
+        jLabel13.setBounds(320, 50, 180, 22);
 
-        jTextField4.setBackground(new java.awt.Color(217, 217, 148));
-        Modificar.add(jTextField4);
-        jTextField4.setBounds(290, 200, 225, 31);
+        jLabel5.setText("Nuevo Cuerpo:");
+        Modificar.add(jLabel5);
+        jLabel5.setBounds(190, 190, 100, 31);
+
+        jTextField6.setBackground(new java.awt.Color(217, 217, 148));
+        Modificar.add(jTextField6);
+        jTextField6.setBounds(290, 190, 225, 31);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Modificar.add(jComboBox1);
+        jComboBox1.setBounds(290, 140, 220, 30);
+
+        jLabel6.setText("Cuerpo:");
+        Modificar.add(jLabel6);
+        jLabel6.setBounds(190, 140, 74, 31);
 
         jButton8.setText("Modificar");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
         Modificar.add(jButton8);
-        jButton8.setBounds(220, 360, 130, 50);
+        jButton8.setBounds(240, 330, 130, 50);
 
         jButton9.setText("Volver");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -158,77 +157,58 @@ public class RegistroPais extends javax.swing.JPanel {
             }
         });
         Modificar.add(jButton9);
-        jButton9.setBounds(420, 360, 130, 50);
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel14.setText("Modificar Pais");
-        Modificar.add(jLabel14);
-        jLabel14.setBounds(300, 50, 180, 22);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Modificar.add(jComboBox1);
-        jComboBox1.setBounds(290, 140, 220, 30);
-
-        jLabel4.setText("Pais: ");
-        Modificar.add(jLabel4);
-        jLabel4.setBounds(210, 140, 74, 31);
+        jButton9.setBounds(420, 330, 130, 50);
 
         jLayeredPane1.add(Modificar);
 
         Eliminar.setLayout(null);
-        Eliminar.add(jLayeredPane4);
-        jLayeredPane4.setBounds(10, 40, 70, 60);
 
-        jLabel5.setText("Pais: ");
-        Eliminar.add(jLabel5);
-        jLabel5.setBounds(210, 170, 74, 31);
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setText("Eliminar Cuerpo");
+        Eliminar.add(jLabel14);
+        jLabel14.setBounds(320, 50, 180, 22);
 
-        jButton10.setText("Volver");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-        Eliminar.add(jButton10);
-        jButton10.setBounds(420, 360, 130, 50);
+        jLabel4.setText("Cuerpo:");
+        Eliminar.add(jLabel4);
+        jLabel4.setBounds(190, 140, 74, 31);
 
         jButton11.setText("Eliminar");
         Eliminar.add(jButton11);
-        jButton11.setBounds(230, 360, 130, 50);
+        jButton11.setBounds(220, 320, 130, 50);
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel15.setText("Registro Pais");
-        Eliminar.add(jLabel15);
-        jLabel15.setBounds(320, 50, 180, 22);
+        jButton12.setText("Volver");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        Eliminar.add(jButton12);
+        jButton12.setBounds(400, 320, 130, 50);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Eliminar.add(jComboBox2);
-        jComboBox2.setBounds(290, 170, 230, 30);
+        jComboBox2.setBounds(290, 140, 220, 30);
 
         jLayeredPane1.add(Eliminar);
 
         add(jLayeredPane1);
-        jLayeredPane1.setBounds(0, 0, 780, 450);
+        jLayeredPane1.setBounds(0, 0, 840, 430);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        Modificar.setVisible(false);
+        Registro.setVisible(true);
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-        Registro.setVisible(true);
-        Eliminar.setVisible(false);
-    }//GEN-LAST:event_jButton10ActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        Registro.setVisible(false);
         Modificar.setVisible(true);
+        Registro.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -237,19 +217,19 @@ public class RegistroPais extends javax.swing.JPanel {
         Eliminar.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-        Modificar.setVisible(false);
         Registro.setVisible(true);
-    }//GEN-LAST:event_jButton9ActionPerformed
+        Eliminar.setVisible(false);
+    }//GEN-LAST:event_jButton12ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Eliminar;
     private javax.swing.JPanel Modificar;
     private javax.swing.JPanel Registro;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -257,18 +237,15 @@ public class RegistroPais extends javax.swing.JPanel {
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JLayeredPane jLayeredPane2;
-    private javax.swing.JLayeredPane jLayeredPane3;
-    private javax.swing.JLayeredPane jLayeredPane4;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }
