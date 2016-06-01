@@ -58,7 +58,7 @@ private void TotalEmpleados(){
         try {
             Statement cstmt = con.createStatement();
             if ("Pais".equals(CB_Nombre.getSelectedItem().toString())){
-                 consulta="{call cerveceria.estadistica_pais}";
+                 //consulta="{call cerveceria.estadistica_pais}";
             }
            
             ResultSet rs = cstmt.executeQuery(consulta);
