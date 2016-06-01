@@ -87,6 +87,7 @@ public class RegistroProvincia extends javax.swing.JPanel {
         jButton6 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
         Modificar = new javax.swing.JPanel();
         jTextField3 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -97,6 +98,7 @@ public class RegistroProvincia extends javax.swing.JPanel {
         jButton13 = new javax.swing.JButton();
         jComboBox5 = new javax.swing.JComboBox();
         jLabel9 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         Eliminar = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -105,6 +107,7 @@ public class RegistroProvincia extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox();
         jComboBox6 = new javax.swing.JComboBox();
+        jLabel10 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -116,10 +119,12 @@ public class RegistroProvincia extends javax.swing.JPanel {
         Registro.add(jTextField2);
         jTextField2.setBounds(290, 210, 225, 31);
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Pais: ");
         Registro.add(jLabel3);
         jLabel3.setBounds(200, 140, 74, 31);
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Provincia: ");
         Registro.add(jLabel4);
         jLabel4.setBounds(200, 220, 80, 20);
@@ -152,12 +157,17 @@ public class RegistroProvincia extends javax.swing.JPanel {
         jButton6.setBounds(510, 360, 130, 50);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Registro Provincia");
         Registro.add(jLabel13);
         jLabel13.setBounds(320, 50, 180, 22);
 
         Registro.add(jComboBox2);
         jComboBox2.setBounds(290, 140, 230, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Registro.add(jLabel1);
+        jLabel1.setBounds(-20, -40, 840, 590);
 
         jLayeredPane1.add(Registro);
 
@@ -167,10 +177,12 @@ public class RegistroProvincia extends javax.swing.JPanel {
         Modificar.add(jTextField3);
         jTextField3.setBounds(290, 270, 225, 31);
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Pais: ");
         Modificar.add(jLabel5);
         jLabel5.setBounds(190, 140, 74, 31);
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nueva Provincia:");
         Modificar.add(jLabel6);
         jLabel6.setBounds(190, 280, 100, 20);
@@ -180,6 +192,7 @@ public class RegistroProvincia extends javax.swing.JPanel {
         jButton9.setBounds(250, 360, 130, 50);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Modificar Provincia");
         Modificar.add(jLabel14);
         jLabel14.setBounds(320, 50, 180, 22);
@@ -199,18 +212,25 @@ public class RegistroProvincia extends javax.swing.JPanel {
         Modificar.add(jComboBox5);
         jComboBox5.setBounds(290, 140, 230, 30);
 
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Provincia: ");
         Modificar.add(jLabel9);
         jLabel9.setBounds(190, 210, 80, 20);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Modificar.add(jLabel2);
+        jLabel2.setBounds(-20, -40, 840, 590);
 
         jLayeredPane1.add(Modificar);
 
         Eliminar.setLayout(null);
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Pais: ");
         Eliminar.add(jLabel7);
         jLabel7.setBounds(200, 140, 74, 31);
 
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Provincia: ");
         Eliminar.add(jLabel8);
         jLabel8.setBounds(200, 220, 80, 20);
@@ -229,6 +249,7 @@ public class RegistroProvincia extends javax.swing.JPanel {
         jButton12.setBounds(250, 360, 130, 50);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Eliminar Provincia");
         Eliminar.add(jLabel15);
         jLabel15.setBounds(320, 50, 180, 22);
@@ -238,6 +259,10 @@ public class RegistroProvincia extends javax.swing.JPanel {
 
         Eliminar.add(jComboBox6);
         jComboBox6.setBounds(290, 140, 230, 30);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Eliminar.add(jLabel10);
+        jLabel10.setBounds(-20, -40, 840, 590);
 
         jLayeredPane1.add(Eliminar);
 
@@ -297,9 +322,12 @@ public class RegistroProvincia extends javax.swing.JPanel {
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JComboBox jComboBox6;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

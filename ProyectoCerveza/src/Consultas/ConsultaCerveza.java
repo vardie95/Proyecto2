@@ -22,6 +22,7 @@ public class ConsultaCerveza extends javax.swing.JPanel {
      * Creates new form RegistroFermentacion
      */
     public ConsultaCerveza() {
+        
         initComponents();
         UpdateTable();
         

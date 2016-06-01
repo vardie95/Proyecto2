@@ -28,6 +28,7 @@ public class RegistroCanton extends javax.swing.JPanel {
     public RegistroCanton() {
         initComponents();
         Eliminar.setVisible(false);
+        Modificar.setVisible(false);
         llenarpais();
        
     }
@@ -112,27 +113,49 @@ public class RegistroCanton extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
-        CB_Pais = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
+        CB_Pais = new javax.swing.JComboBox<String>();
         jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         Eliminar = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox();
-        CB_Pais1 = new javax.swing.JComboBox<>();
+        CB_Pais1 = new javax.swing.JComboBox<String>();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox();
+        jLabel16 = new javax.swing.JLabel();
+        Modificar = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox();
+        CB_Pais2 = new javax.swing.JComboBox<String>();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
 
         setLayout(null);
 
         jLayeredPane1.setLayout(new javax.swing.OverlayLayout(jLayeredPane1));
 
-        jTextField1.setBackground(new java.awt.Color(217, 217, 148));
+        Registro.setLayout(null);
 
+        jTextField1.setBackground(new java.awt.Color(217, 217, 148));
+        Registro.add(jTextField1);
+        jTextField1.setBounds(270, 280, 225, 31);
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Canton: ");
+        Registro.add(jLabel2);
+        jLabel2.setBounds(190, 280, 80, 20);
 
         jButton1.setText("Agregar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +163,8 @@ public class RegistroCanton extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        Registro.add(jButton1);
+        jButton1.setBounds(139, 383, 120, 50);
 
         jButton2.setText("Modificar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +172,8 @@ public class RegistroCanton extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
+        Registro.add(jButton2);
+        jButton2.setBounds(310, 383, 130, 50);
 
         jButton3.setText("Eliminar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -154,9 +181,14 @@ public class RegistroCanton extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
+        Registro.add(jButton3);
+        jButton3.setBounds(514, 383, 130, 50);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Registro Cantón");
+        Registro.add(jLabel12);
+        jLabel12.setBounds(300, 80, 180, 30);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -164,87 +196,44 @@ public class RegistroCanton extends javax.swing.JPanel {
                 jComboBox1ActionPerformed(evt);
             }
         });
+        Registro.add(jComboBox1);
+        jComboBox1.setBounds(270, 220, 230, 30);
 
         CB_Pais.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        CB_Pais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Costa Rica" }));
+        CB_Pais.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Costa Rica" }));
         CB_Pais.setToolTipText("");
         CB_Pais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CB_PaisActionPerformed(evt);
             }
         });
+        Registro.add(CB_Pais);
+        CB_Pais.setBounds(270, 170, 230, 30);
 
-        jLabel3.setText("Provincia:");
-
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Pais:");
+        Registro.add(jLabel4);
+        jLabel4.setBounds(190, 170, 50, 14);
 
-        javax.swing.GroupLayout RegistroLayout = new javax.swing.GroupLayout(Registro);
-        Registro.setLayout(RegistroLayout);
-        RegistroLayout.setHorizontalGroup(
-            RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RegistroLayout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addGroup(RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(RegistroLayout.createSequentialGroup()
-                            .addGap(135, 135, 135)
-                            .addGroup(RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(RegistroLayout.createSequentialGroup()
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(20, 20, 20)
-                                    .addComponent(CB_Pais, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(RegistroLayout.createSequentialGroup()
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistroLayout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(RegistroLayout.createSequentialGroup()
-                            .addGap(236, 236, 236)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(RegistroLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(681, Short.MAX_VALUE))
-        );
-        RegistroLayout.setVerticalGroup(
-            RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RegistroLayout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addGroup(RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RegistroLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel4))
-                    .addComponent(CB_Pais, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RegistroLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel3))
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(67, 67, 67)
-                .addGroup(RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(334, Short.MAX_VALUE))
-        );
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Provincia:");
+        Registro.add(jLabel3);
+        jLabel3.setBounds(190, 220, 60, 14);
+
+        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        jLabel1.setOpaque(true);
+        Registro.add(jLabel1);
+        jLabel1.setBounds(0, 0, 800, 550);
 
         jLayeredPane1.add(Registro);
 
+        Eliminar.setLayout(null);
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Canton: ");
+        Eliminar.add(jLabel5);
+        jLabel5.setBounds(220, 240, 80, 20);
 
         jButton5.setText("Volver");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -252,11 +241,18 @@ public class RegistroCanton extends javax.swing.JPanel {
                 jButton5ActionPerformed(evt);
             }
         });
+        Eliminar.add(jButton5);
+        jButton5.setBounds(405, 354, 120, 50);
 
         jButton7.setText("Eliminar");
+        Eliminar.add(jButton7);
+        jButton7.setBounds(219, 354, 130, 50);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Eliminar Cantón");
+        Eliminar.add(jLabel13);
+        jLabel13.setBounds(310, 49, 180, 22);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -264,19 +260,29 @@ public class RegistroCanton extends javax.swing.JPanel {
                 jComboBox2ActionPerformed(evt);
             }
         });
+        Eliminar.add(jComboBox2);
+        jComboBox2.setBounds(286, 160, 230, 30);
 
         CB_Pais1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        CB_Pais1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Costa Rica" }));
+        CB_Pais1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Costa Rica" }));
         CB_Pais1.setToolTipText("");
         CB_Pais1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CB_Pais1ActionPerformed(evt);
             }
         });
+        Eliminar.add(CB_Pais1);
+        CB_Pais1.setBounds(286, 110, 230, 30);
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Provincia:");
+        Eliminar.add(jLabel6);
+        jLabel6.setBounds(216, 170, 60, 14);
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Pais:");
+        Eliminar.add(jLabel7);
+        jLabel7.setBounds(216, 120, 50, 14);
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
@@ -284,66 +290,98 @@ public class RegistroCanton extends javax.swing.JPanel {
                 jComboBox3ActionPerformed(evt);
             }
         });
+        Eliminar.add(jComboBox3);
+        jComboBox3.setBounds(286, 235, 230, 30);
 
-        javax.swing.GroupLayout EliminarLayout = new javax.swing.GroupLayout(Eliminar);
-        Eliminar.setLayout(EliminarLayout);
-        EliminarLayout.setHorizontalGroup(
-            EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EliminarLayout.createSequentialGroup()
-                .addContainerGap(202, Short.MAX_VALUE)
-                .addGroup(EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EliminarLayout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(CB_Pais1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EliminarLayout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EliminarLayout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EliminarLayout.createSequentialGroup()
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)))
-                .addGap(254, 254, 254))
-            .addGroup(EliminarLayout.createSequentialGroup()
-                .addGap(219, 219, 219)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        EliminarLayout.setVerticalGroup(
-            EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EliminarLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel13)
-                .addGap(39, 39, 39)
-                .addGroup(EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(EliminarLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel7))
-                    .addComponent(CB_Pais1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(EliminarLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel6))
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addGroup(EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46))
-        );
+        jLabel16.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        jLabel16.setOpaque(true);
+        Eliminar.add(jLabel16);
+        jLabel16.setBounds(0, 0, 800, 550);
 
         jLayeredPane1.add(Eliminar);
+
+        Modificar.setLayout(null);
+
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Canton: ");
+        Modificar.add(jLabel8);
+        jLabel8.setBounds(210, 220, 80, 20);
+
+        jButton6.setText("Volver");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        Modificar.add(jButton6);
+        jButton6.setBounds(405, 354, 120, 50);
+
+        jButton8.setText("Modificar");
+        Modificar.add(jButton8);
+        jButton8.setBounds(219, 354, 130, 50);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Modificar Cantón");
+        Modificar.add(jLabel14);
+        jLabel14.setBounds(310, 49, 180, 22);
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox4ActionPerformed(evt);
+            }
+        });
+        Modificar.add(jComboBox4);
+        jComboBox4.setBounds(286, 160, 230, 30);
+
+        CB_Pais2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        CB_Pais2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Costa Rica" }));
+        CB_Pais2.setToolTipText("");
+        CB_Pais2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_Pais2ActionPerformed(evt);
+            }
+        });
+        Modificar.add(CB_Pais2);
+        CB_Pais2.setBounds(286, 110, 230, 30);
+
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Provincia:");
+        Modificar.add(jLabel9);
+        jLabel9.setBounds(210, 170, 60, 14);
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Pais:");
+        Modificar.add(jLabel10);
+        jLabel10.setBounds(210, 120, 50, 14);
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox5ActionPerformed(evt);
+            }
+        });
+        Modificar.add(jComboBox5);
+        jComboBox5.setBounds(290, 210, 230, 30);
+
+        jTextField2.setBackground(new java.awt.Color(217, 217, 148));
+        Modificar.add(jTextField2);
+        jTextField2.setBounds(290, 270, 225, 31);
+
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Nuevo Canton: ");
+        Modificar.add(jLabel11);
+        jLabel11.setBounds(210, 280, 100, 20);
+
+        jLabel15.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        jLabel15.setOpaque(true);
+        Modificar.add(jLabel15);
+        jLabel15.setBounds(0, 0, 800, 550);
+
+        jLayeredPane1.add(Modificar);
 
         add(jLayeredPane1);
         jLayeredPane1.setBounds(8, -1, 770, 450);
@@ -366,8 +404,8 @@ public class RegistroCanton extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Registro.setVisible(false);
+        Modificar.setVisible(true);
        
-        //Modificaciones.ModificacionCanton panelMod= new Modificaciones.ModificacionCanton();
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -405,29 +443,62 @@ public class RegistroCanton extends javax.swing.JPanel {
         Eliminar.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        Modificar.setVisible(false);
+        Registro.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void CB_Pais2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_Pais2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CB_Pais2ActionPerformed
+
+    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox5ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CB_Pais;
     private javax.swing.JComboBox<String> CB_Pais1;
+    private javax.swing.JComboBox<String> CB_Pais2;
     private javax.swing.JPanel Eliminar;
+    private javax.swing.JPanel Modificar;
     private javax.swing.JPanel Registro;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
+    private javax.swing.JComboBox jComboBox4;
+    private javax.swing.JComboBox jComboBox5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,10 +36,12 @@ public class ConsultaLugar extends javax.swing.JPanel {
         CB_Ubicacion = new javax.swing.JComboBox<String>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(null);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Consulta Mejores Compradores por Lugar");
         add(jLabel11);
         jLabel11.setBounds(190, 50, 370, 22);
@@ -63,6 +65,7 @@ public class ConsultaLugar extends javax.swing.JPanel {
         PT_Nombre.setBounds(230, 150, 150, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Buscar por: ");
         add(jLabel4);
         jLabel4.setBounds(120, 120, 100, 15);
@@ -87,6 +90,10 @@ public class ConsultaLugar extends javax.swing.JPanel {
 
         add(jScrollPane1);
         jScrollPane1.setBounds(30, 200, 740, 210);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        add(jLabel1);
+        jLabel1.setBounds(-20, -40, 840, 590);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BT_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_BuscarActionPerformed
@@ -103,6 +110,7 @@ public class ConsultaLugar extends javax.swing.JPanel {
     private javax.swing.JButton BT_Buscar;
     private javax.swing.JComboBox<String> CB_Ubicacion;
     private javax.swing.JFormattedTextField PT_Nombre;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;

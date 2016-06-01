@@ -124,60 +124,59 @@ public class RegistroDistrito extends javax.swing.JPanel {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
         Registro = new javax.swing.JPanel();
-        jLayeredPane2 = new javax.swing.JLayeredPane();
         jTextField2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
-        CB_Pais1 = new javax.swing.JComboBox<>();
+        CB_Pais1 = new javax.swing.JComboBox<String>();
         jComboBox3 = new javax.swing.JComboBox();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<String>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         Modificar = new javax.swing.JPanel();
-        jLayeredPane3 = new javax.swing.JLayeredPane();
         jTextField3 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        CB_Pais2 = new javax.swing.JComboBox<>();
+        CB_Pais2 = new javax.swing.JComboBox<String>();
         jComboBox5 = new javax.swing.JComboBox();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        jComboBox6 = new javax.swing.JComboBox<String>();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jComboBox9 = new javax.swing.JComboBox<>();
+        jComboBox9 = new javax.swing.JComboBox<String>();
         jLabel11 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         Eliminar = new javax.swing.JPanel();
-        jLayeredPane4 = new javax.swing.JLayeredPane();
         jLabel17 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        CB_Pais3 = new javax.swing.JComboBox<>();
+        CB_Pais3 = new javax.swing.JComboBox<String>();
         jComboBox7 = new javax.swing.JComboBox();
-        jComboBox8 = new javax.swing.JComboBox<>();
+        jComboBox8 = new javax.swing.JComboBox<String>();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jComboBox10 = new javax.swing.JComboBox<>();
+        jComboBox10 = new javax.swing.JComboBox<String>();
+        jLabel3 = new javax.swing.JLabel();
 
         setLayout(null);
 
         jLayeredPane1.setLayout(new javax.swing.OverlayLayout(jLayeredPane1));
 
         Registro.setLayout(null);
-        Registro.add(jLayeredPane2);
-        jLayeredPane2.setBounds(50, 120, 0, 0);
 
         jTextField2.setBackground(new java.awt.Color(217, 217, 148));
         Registro.add(jTextField2);
         jTextField2.setBounds(280, 250, 225, 31);
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Distrito: ");
         Registro.add(jLabel6);
         jLabel6.setBounds(200, 260, 80, 20);
@@ -201,6 +200,7 @@ public class RegistroDistrito extends javax.swing.JPanel {
         jButton6.setBounds(510, 360, 130, 50);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Registro Distrito");
         Registro.add(jLabel12);
         jLabel12.setBounds(320, 50, 180, 22);
@@ -215,7 +215,7 @@ public class RegistroDistrito extends javax.swing.JPanel {
         jButton7.setBounds(170, 360, 120, 50);
 
         CB_Pais1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        CB_Pais1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Costa Rica" }));
+        CB_Pais1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Costa Rica" }));
         CB_Pais1.setToolTipText("");
         CB_Pais1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,7 +234,7 @@ public class RegistroDistrito extends javax.swing.JPanel {
         Registro.add(jComboBox3);
         jComboBox3.setBounds(280, 150, 230, 30);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox4ActionPerformed(evt);
@@ -243,28 +243,34 @@ public class RegistroDistrito extends javax.swing.JPanel {
         Registro.add(jComboBox4);
         jComboBox4.setBounds(280, 200, 230, 30);
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Provincia:");
         Registro.add(jLabel7);
         jLabel7.setBounds(200, 160, 60, 14);
 
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Pais:");
         Registro.add(jLabel8);
         jLabel8.setBounds(200, 110, 50, 14);
 
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Canton:");
         Registro.add(jLabel9);
         jLabel9.setBounds(203, 210, 50, 14);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Registro.add(jLabel1);
+        jLabel1.setBounds(-20, -40, 840, 590);
+
         jLayeredPane1.add(Registro);
 
         Modificar.setLayout(null);
-        Modificar.add(jLayeredPane3);
-        jLayeredPane3.setBounds(50, 120, 0, 0);
 
         jTextField3.setBackground(new java.awt.Color(217, 217, 148));
         Modificar.add(jTextField3);
         jTextField3.setBounds(280, 300, 225, 31);
 
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Nuevo Distrito:");
         Modificar.add(jLabel10);
         jLabel10.setBounds(190, 310, 100, 20);
@@ -288,12 +294,13 @@ public class RegistroDistrito extends javax.swing.JPanel {
         jButton9.setBounds(400, 360, 130, 50);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Modificar Distrito");
         Modificar.add(jLabel13);
         jLabel13.setBounds(320, 50, 180, 22);
 
         CB_Pais2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        CB_Pais2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Costa Rica" }));
+        CB_Pais2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Costa Rica" }));
         CB_Pais2.setToolTipText("");
         CB_Pais2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -312,36 +319,43 @@ public class RegistroDistrito extends javax.swing.JPanel {
         Modificar.add(jComboBox5);
         jComboBox5.setBounds(280, 150, 230, 30);
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Modificar.add(jComboBox6);
         jComboBox6.setBounds(280, 250, 230, 30);
 
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Provincia:");
         Modificar.add(jLabel14);
         jLabel14.setBounds(190, 160, 60, 14);
 
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Pais:");
         Modificar.add(jLabel15);
         jLabel15.setBounds(190, 110, 50, 14);
 
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Canton:");
         Modificar.add(jLabel16);
-        jLabel16.setBounds(200, 210, 50, 14);
+        jLabel16.setBounds(190, 210, 50, 14);
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Modificar.add(jComboBox9);
         jComboBox9.setBounds(280, 200, 230, 30);
 
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Distrito: ");
         Modificar.add(jLabel11);
         jLabel11.setBounds(190, 260, 80, 20);
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Modificar.add(jLabel2);
+        jLabel2.setBounds(-20, -40, 840, 590);
+
         jLayeredPane1.add(Modificar);
 
         Eliminar.setLayout(null);
-        Eliminar.add(jLayeredPane4);
-        jLayeredPane4.setBounds(50, 120, 0, 0);
 
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Distrito: ");
         Eliminar.add(jLabel17);
         jLabel17.setBounds(200, 260, 80, 20);
@@ -365,12 +379,13 @@ public class RegistroDistrito extends javax.swing.JPanel {
         jButton12.setBounds(220, 360, 130, 50);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Eliminar Distrito");
         Eliminar.add(jLabel18);
         jLabel18.setBounds(320, 50, 180, 22);
 
         CB_Pais3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        CB_Pais3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Costa Rica" }));
+        CB_Pais3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Costa Rica" }));
         CB_Pais3.setToolTipText("");
         CB_Pais3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -389,25 +404,32 @@ public class RegistroDistrito extends javax.swing.JPanel {
         Eliminar.add(jComboBox7);
         jComboBox7.setBounds(280, 150, 230, 30);
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Eliminar.add(jComboBox8);
         jComboBox8.setBounds(280, 250, 230, 30);
 
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Provincia:");
         Eliminar.add(jLabel19);
         jLabel19.setBounds(200, 160, 60, 14);
 
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Pais:");
         Eliminar.add(jLabel20);
         jLabel20.setBounds(200, 110, 30, 14);
 
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Canton:");
         Eliminar.add(jLabel21);
         jLabel21.setBounds(203, 210, 50, 14);
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Eliminar.add(jComboBox10);
         jComboBox10.setBounds(280, 200, 230, 30);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Eliminar.add(jLabel3);
+        jLabel3.setBounds(-20, -40, 840, 590);
 
         jLayeredPane1.add(Eliminar);
 
@@ -520,6 +542,7 @@ public class RegistroDistrito extends javax.swing.JPanel {
     private javax.swing.JComboBox jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JComboBox<String> jComboBox9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -530,16 +553,15 @@ public class RegistroDistrito extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JLayeredPane jLayeredPane2;
-    private javax.swing.JLayeredPane jLayeredPane3;
-    private javax.swing.JLayeredPane jLayeredPane4;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables

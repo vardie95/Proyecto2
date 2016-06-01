@@ -136,6 +136,7 @@ public void InsertTipo(){
         jButton6 = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         Modificar = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -148,6 +149,7 @@ public void InsertTipo(){
         jLabel9 = new javax.swing.JLabel();
         jComboBox6 = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         Eliminar = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -156,6 +158,7 @@ public void InsertTipo(){
         jComboBox4 = new javax.swing.JComboBox();
         jLabel14 = new javax.swing.JLabel();
         jComboBox7 = new javax.swing.JComboBox();
+        jLabel11 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -163,10 +166,12 @@ public void InsertTipo(){
 
         Registro.setLayout(null);
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombre: ");
         Registro.add(jLabel3);
         jLabel3.setBounds(160, 140, 74, 31);
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Familia: ");
         Registro.add(jLabel4);
         jLabel4.setBounds(160, 220, 80, 20);
@@ -212,18 +217,25 @@ public void InsertTipo(){
         jComboBox2.setBounds(290, 210, 230, 30);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Registro Tipo");
         Registro.add(jLabel12);
         jLabel12.setBounds(320, 50, 180, 22);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Registro.add(jLabel1);
+        jLabel1.setBounds(-20, -40, 840, 590);
 
         jLayeredPane1.add(Registro);
 
         Modificar.setLayout(null);
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nuevo Nombre:");
         Modificar.add(jLabel5);
         jLabel5.setBounds(180, 220, 100, 31);
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nueva Familia:");
         Modificar.add(jLabel6);
         jLabel6.setBounds(180, 270, 110, 30);
@@ -256,6 +268,7 @@ public void InsertTipo(){
         jComboBox3.setBounds(290, 110, 230, 30);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Modificar Tipo");
         Modificar.add(jLabel13);
         jLabel13.setBounds(320, 50, 180, 22);
@@ -268,6 +281,7 @@ public void InsertTipo(){
         Modificar.add(jTextField6);
         jTextField6.setBounds(290, 220, 225, 31);
 
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Nombre: ");
         Modificar.add(jLabel9);
         jLabel9.setBounds(180, 160, 74, 31);
@@ -276,18 +290,25 @@ public void InsertTipo(){
         Modificar.add(jComboBox6);
         jComboBox6.setBounds(290, 160, 230, 30);
 
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Familia: ");
         Modificar.add(jLabel10);
         jLabel10.setBounds(180, 110, 80, 20);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Modificar.add(jLabel2);
+        jLabel2.setBounds(-20, -40, 840, 590);
 
         jLayeredPane1.add(Modificar);
 
         Eliminar.setLayout(null);
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Nombre: ");
         Eliminar.add(jLabel7);
         jLabel7.setBounds(190, 210, 74, 31);
 
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Familia: ");
         Eliminar.add(jLabel8);
         jLabel8.setBounds(190, 140, 80, 30);
@@ -315,6 +336,7 @@ public void InsertTipo(){
         jComboBox4.setBounds(290, 140, 230, 30);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Eliminar Tipo");
         Eliminar.add(jLabel14);
         jLabel14.setBounds(320, 50, 180, 22);
@@ -322,6 +344,10 @@ public void InsertTipo(){
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Eliminar.add(jComboBox7);
         jComboBox7.setBounds(290, 210, 230, 30);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Eliminar.add(jLabel11);
+        jLabel11.setBounds(-20, -40, 840, 590);
 
         jLayeredPane1.add(Eliminar);
 
@@ -405,10 +431,13 @@ public void InsertTipo(){
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JComboBox jComboBox6;
     private javax.swing.JComboBox jComboBox7;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

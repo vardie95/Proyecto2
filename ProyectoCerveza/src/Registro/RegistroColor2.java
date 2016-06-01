@@ -106,7 +106,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         Modificar = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -122,6 +122,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox();
+        jLabel8 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -177,11 +178,9 @@ public class RegistroColor2 extends javax.swing.JPanel {
         Registro.add(jButton6);
         jButton6.setBounds(510, 330, 130, 50);
 
-        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
-        jLabel7.setOpaque(true);
-        Registro.add(jLabel7);
-        jLabel7.setBounds(0, -50, 850, 650);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Registro.add(jLabel3);
+        jLabel3.setBounds(-20, -40, 840, 590);
 
         jLayeredPane1.add(Registro);
 
@@ -234,21 +233,21 @@ public class RegistroColor2 extends javax.swing.JPanel {
         Modificar.add(jButton9);
         jButton9.setBounds(420, 330, 130, 50);
 
-        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         Modificar.add(jLabel1);
-        jLabel1.setBounds(0, 0, 840, 630);
+        jLabel1.setBounds(-20, -40, 840, 590);
 
         jLayeredPane1.add(Modificar);
 
         Eliminar.setLayout(null);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Eliminar Color");
         Eliminar.add(jLabel14);
         jLabel14.setBounds(320, 50, 180, 22);
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Color:");
         Eliminar.add(jLabel4);
         jLabel4.setBounds(190, 140, 74, 31);
@@ -269,6 +268,10 @@ public class RegistroColor2 extends javax.swing.JPanel {
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Eliminar.add(jComboBox2);
         jComboBox2.setBounds(290, 140, 220, 30);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Eliminar.add(jLabel8);
+        jLabel8.setBounds(-20, -40, 840, 590);
 
         jLayeredPane1.add(Eliminar);
 
@@ -336,10 +339,11 @@ public class RegistroColor2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField6;

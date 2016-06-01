@@ -112,6 +112,7 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         Modificar = new javax.swing.JPanel();
         jTextField5 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -122,6 +123,7 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         jButton9 = new javax.swing.JButton();
         jComboBox3 = new javax.swing.JComboBox();
         jLabel9 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         Eliminar = new javax.swing.JPanel();
         jTextField7 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -130,6 +132,7 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox();
+        jLabel10 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -141,10 +144,12 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         Registro.add(jTextField3);
         jTextField3.setBounds(290, 210, 225, 31);
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombre: ");
         Registro.add(jLabel3);
         jLabel3.setBounds(180, 140, 74, 31);
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Tiempo: ");
         Registro.add(jLabel4);
         jLabel4.setBounds(180, 220, 80, 20);
@@ -154,6 +159,7 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         jTextField4.setBounds(290, 140, 225, 31);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Registro Fermentación");
         Registro.add(jLabel12);
         jLabel12.setBounds(290, 60, 180, 22);
@@ -185,6 +191,12 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         Registro.add(jButton6);
         jButton6.setBounds(510, 330, 130, 50);
 
+        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        jLabel1.setOpaque(true);
+        Registro.add(jLabel1);
+        jLabel1.setBounds(0, 0, 800, 550);
+
         jLayeredPane1.add(Registro);
 
         Modificar.setLayout(null);
@@ -193,10 +205,12 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         Modificar.add(jTextField5);
         jTextField5.setBounds(290, 240, 225, 31);
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Fermentación:");
         Modificar.add(jLabel5);
         jLabel5.setBounds(160, 120, 120, 31);
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nuevo Tiempo:");
         Modificar.add(jLabel6);
         jLabel6.setBounds(160, 250, 110, 20);
@@ -206,6 +220,7 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         jTextField6.setBounds(290, 190, 225, 31);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Modificar Fermentación");
         Modificar.add(jLabel13);
         jLabel13.setBounds(280, 60, 200, 22);
@@ -232,9 +247,16 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         Modificar.add(jComboBox3);
         jComboBox3.setBounds(290, 120, 220, 30);
 
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Nueva Fermentación:");
         Modificar.add(jLabel9);
         jLabel9.setBounds(160, 190, 130, 31);
+
+        jLabel2.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        jLabel2.setOpaque(true);
+        Modificar.add(jLabel2);
+        jLabel2.setBounds(0, 0, 800, 550);
 
         jLayeredPane1.add(Modificar);
 
@@ -245,15 +267,18 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         Eliminar.add(jTextField7);
         jTextField7.setBounds(290, 210, 225, 31);
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Nombre: ");
         Eliminar.add(jLabel7);
         jLabel7.setBounds(180, 140, 74, 31);
 
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Tiempo: ");
         Eliminar.add(jLabel8);
         jLabel8.setBounds(180, 220, 80, 20);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Eliminar Fermentación");
         Eliminar.add(jLabel14);
         jLabel14.setBounds(290, 60, 180, 22);
@@ -274,6 +299,12 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Eliminar.add(jComboBox2);
         jComboBox2.setBounds(290, 140, 220, 30);
+
+        jLabel10.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        jLabel10.setOpaque(true);
+        Eliminar.add(jLabel10);
+        jLabel10.setBounds(0, 0, 800, 550);
 
         jLayeredPane1.add(Eliminar);
 
@@ -337,9 +368,12 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

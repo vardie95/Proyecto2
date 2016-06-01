@@ -410,6 +410,7 @@ public class RegistroPersona extends javax.swing.JPanel {
 
     private void BT_Agregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_Agregar1ActionPerformed
         // TODO add your handling code here:
+        InsertPersona();
     }//GEN-LAST:event_BT_Agregar1ActionPerformed
 
 

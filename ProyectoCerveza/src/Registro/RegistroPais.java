@@ -63,6 +63,7 @@ public class RegistroPais extends javax.swing.JPanel {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         Modificar = new javax.swing.JPanel();
         jLayeredPane3 = new javax.swing.JLayeredPane();
         jLabel3 = new javax.swing.JLabel();
@@ -72,6 +73,7 @@ public class RegistroPais extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         Eliminar = new javax.swing.JPanel();
         jLayeredPane4 = new javax.swing.JLayeredPane();
         jLabel5 = new javax.swing.JLabel();
@@ -79,6 +81,7 @@ public class RegistroPais extends javax.swing.JPanel {
         jButton11 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox();
+        jLabel7 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -88,6 +91,7 @@ public class RegistroPais extends javax.swing.JPanel {
         Registro.add(jLayeredPane2);
         jLayeredPane2.setBounds(10, 40, 70, 60);
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Pais: ");
         Registro.add(jLabel2);
         jLabel2.setBounds(200, 140, 74, 31);
@@ -124,9 +128,14 @@ public class RegistroPais extends javax.swing.JPanel {
         jButton6.setBounds(510, 360, 130, 50);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel13.setText("Eliminar Pais");
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Registro Pais");
         Registro.add(jLabel13);
         jLabel13.setBounds(330, 50, 180, 22);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Registro.add(jLabel1);
+        jLabel1.setBounds(-20, -40, 840, 590);
 
         jLayeredPane1.add(Registro);
 
@@ -134,6 +143,7 @@ public class RegistroPais extends javax.swing.JPanel {
         Modificar.add(jLayeredPane3);
         jLayeredPane3.setBounds(10, 40, 70, 60);
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nuevo Pais:");
         Modificar.add(jLabel3);
         jLabel3.setBounds(210, 200, 74, 31);
@@ -161,6 +171,7 @@ public class RegistroPais extends javax.swing.JPanel {
         jButton9.setBounds(420, 360, 130, 50);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Modificar Pais");
         Modificar.add(jLabel14);
         jLabel14.setBounds(300, 50, 180, 22);
@@ -169,9 +180,14 @@ public class RegistroPais extends javax.swing.JPanel {
         Modificar.add(jComboBox1);
         jComboBox1.setBounds(290, 140, 220, 30);
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Pais: ");
         Modificar.add(jLabel4);
         jLabel4.setBounds(210, 140, 74, 31);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Modificar.add(jLabel6);
+        jLabel6.setBounds(-20, -40, 840, 590);
 
         jLayeredPane1.add(Modificar);
 
@@ -179,6 +195,7 @@ public class RegistroPais extends javax.swing.JPanel {
         Eliminar.add(jLayeredPane4);
         jLayeredPane4.setBounds(10, 40, 70, 60);
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Pais: ");
         Eliminar.add(jLabel5);
         jLabel5.setBounds(210, 170, 74, 31);
@@ -197,6 +214,7 @@ public class RegistroPais extends javax.swing.JPanel {
         jButton11.setBounds(230, 360, 130, 50);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Registro Pais");
         Eliminar.add(jLabel15);
         jLabel15.setBounds(320, 50, 180, 22);
@@ -204,6 +222,10 @@ public class RegistroPais extends javax.swing.JPanel {
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Eliminar.add(jComboBox2);
         jComboBox2.setBounds(290, 170, 230, 30);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Eliminar.add(jLabel7);
+        jLabel7.setBounds(-20, -40, 840, 590);
 
         jLayeredPane1.add(Eliminar);
 
@@ -264,6 +286,7 @@ public class RegistroPais extends javax.swing.JPanel {
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -271,6 +294,8 @@ public class RegistroPais extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JLayeredPane jLayeredPane3;

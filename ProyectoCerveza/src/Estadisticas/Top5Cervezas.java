@@ -7,6 +7,11 @@ package Estadisticas;
 
 import Consultas.*;
 import Registro.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -19,8 +24,27 @@ public class Top5Cervezas extends javax.swing.JPanel {
      */
     public Top5Cervezas() {
         initComponents();
+        UpdateTable();
     }
-
+private void UpdateTable(){
+         String consulta;
+        Connection con = proyectocerveza.dbConnection.conectDB();
+        try {
+            Statement cstmt = con.createStatement();
+            consulta="{call top5_cervezas}";
+            
+            ResultSet rs = cstmt.executeQuery(consulta);
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+            con.close();
+            rs.close();
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            
+        }
+  
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,10 +57,12 @@ public class Top5Cervezas extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(null);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Top 5 Cervezas más Compradas");
         add(jLabel11);
         jLabel11.setBounds(250, 60, 270, 22);
@@ -59,10 +85,15 @@ public class Top5Cervezas extends javax.swing.JPanel {
 
         add(jScrollPane1);
         jScrollPane1.setBounds(20, 150, 740, 110);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        add(jLabel1);
+        jLabel1.setBounds(-20, -40, 840, 590);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

@@ -121,6 +121,7 @@ public class RegistroCuerpo2 extends javax.swing.JPanel {
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(800, 550));
         setLayout(null);
@@ -243,10 +244,12 @@ public class RegistroCuerpo2 extends javax.swing.JPanel {
         Eliminar.setLayout(null);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Eliminar Cuerpo");
         Eliminar.add(jLabel14);
         jLabel14.setBounds(320, 50, 180, 22);
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Cuerpo:");
         Eliminar.add(jLabel4);
         jLabel4.setBounds(190, 140, 74, 31);
@@ -267,6 +270,10 @@ public class RegistroCuerpo2 extends javax.swing.JPanel {
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Eliminar.add(jComboBox2);
         jComboBox2.setBounds(290, 140, 220, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Eliminar.add(jLabel1);
+        jLabel1.setBounds(-20, -40, 840, 590);
 
         jLayeredPane1.add(Eliminar);
 
@@ -329,6 +336,7 @@ public class RegistroCuerpo2 extends javax.swing.JPanel {
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
