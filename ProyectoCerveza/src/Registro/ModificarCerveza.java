@@ -39,7 +39,7 @@ public class ModificarCerveza extends javax.swing.JPanel {
     }
     public final void LlenarCerveza()
     {
-       jComboBox7.removeAllItems();
+       CB_Nombre.removeAllItems();
        llavesCerveza.clear();
        
             try {
@@ -49,7 +49,7 @@ public class ModificarCerveza extends javax.swing.JPanel {
                 ResultSet rs = cstmt.executeQuery("call getCerveza");
                 while(rs.next()){
                    llavesCerveza.add(rs.getInt(1));
-                   jComboBox7.addItem(rs.getString("Descripcion"));
+                   CB_Nombre.addItem(rs.getString("Descripcion"));
                 } 
               con.close();
             } catch (SQLException ex) {
@@ -189,11 +189,11 @@ public class ModificarCerveza extends javax.swing.JPanel {
     {
             try {
                 Connection con = proyectocerveza.dbConnection.conectDB();
-                int idFamilia=(int)llavesCerveza.get(jComboBox7.getSelectedIndex());
+                int idFamilia=(int)llavesCerveza.get(CB_Nombre.getSelectedIndex());
                 Statement cstmt = con.createStatement();
                 ResultSet rs = cstmt.executeQuery("call getDatosCerveza("+idFamilia+")");
                 while(rs.next()){
-                       TF_Descripcion2.setText(rs.getString(1));
+                       TF_Temperatura.setText(rs.getString(1));
                        jComboBox2.setSelectedIndex(rs.getInt(3)-1);
                        jComboBox1.setSelectedIndex(rs.getInt(4)-1);
                        jComboBox4.setSelectedIndex(rs.getInt(5)-1);
@@ -213,16 +213,20 @@ public class ModificarCerveza extends javax.swing.JPanel {
    
    }
 public final void ModficarCerveza(){
-        int idCerveza=(int) llavesCerveza.get(jComboBox7.getSelectedIndex());
-        String Temp=TF_Descripcion2.getText();
+        int idCerveza=(int) llavesCerveza.get(CB_Nombre.getSelectedIndex());
+        String Temp=TF_Temperatura.getText();
+        String Temp2=CB_Nombre.getSelectedItem().toString();
         //El modificar es muy parecido al codigo del insert ud pasa por parametro todo los datos como estan
         //y ademas manda el idCerveza que esta arriba 
         Connection con= null;
         con= proyectocerveza.dbConnection.conectDB();
             try {
-                CallableStatement proc= con.prepareCall("Aqui el query");
+                // In pDescripcion varchar(45),In pTemperatura varchar(45),
+		//
+                CallableStatement proc= con.prepareCall("call modificar_cerveza(?,?,?,?,?,?,?,?)");
                 proc.setInt(1, idCerveza);
-                proc.setString(2, Temp);
+                proc.setString(2, Temp2);//Nombre
+                proc.setString(3, Temp);//Temperatura
                 proc.setInt(4, (int) llavesCuerpo.get(jComboBox1.getSelectedIndex()));
                 proc.setInt(5, (int) llavesColor.get(jComboBox2.getSelectedIndex()));
                 proc.setInt(6, (int) llavesFermentacion.get(jComboBox3.getSelectedIndex()));
@@ -252,20 +256,20 @@ public final void ModficarCerveza(){
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<String>();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<String>();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<String>();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        jComboBox5 = new javax.swing.JComboBox<String>();
+        jComboBox6 = new javax.swing.JComboBox<String>();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        TF_Descripcion2 = new javax.swing.JTextField();
+        TF_Temperatura = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -274,7 +278,7 @@ public final void ModficarCerveza(){
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox<>();
+        CB_Nombre = new javax.swing.JComboBox<String>();
         jLabel12 = new javax.swing.JLabel();
 
         setLayout(null);
@@ -285,7 +289,7 @@ public final void ModficarCerveza(){
         add(jLabel1);
         jLabel1.setBounds(60, 70, 80, 16);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -306,7 +310,7 @@ public final void ModficarCerveza(){
         add(jLabel3);
         jLabel3.setBounds(60, 160, 80, 16);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox2);
         jComboBox2.setBounds(200, 160, 160, 20);
 
@@ -316,7 +320,7 @@ public final void ModficarCerveza(){
         add(jLabel4);
         jLabel4.setBounds(57, 210, 100, 16);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox3);
         jComboBox3.setBounds(200, 210, 160, 20);
 
@@ -326,7 +330,7 @@ public final void ModficarCerveza(){
         add(jLabel5);
         jLabel5.setBounds(57, 260, 100, 16);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox4);
         jComboBox4.setBounds(200, 260, 160, 20);
 
@@ -336,7 +340,7 @@ public final void ModficarCerveza(){
         add(jLabel6);
         jLabel6.setBounds(57, 320, 100, 16);
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox5ActionPerformed(evt);
@@ -345,7 +349,7 @@ public final void ModficarCerveza(){
         add(jComboBox5);
         jComboBox5.setBounds(200, 310, 160, 20);
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox6);
         jComboBox6.setBounds(200, 360, 160, 20);
 
@@ -361,14 +365,14 @@ public final void ModficarCerveza(){
         add(jLabel9);
         jLabel9.setBounds(57, 400, 100, 16);
 
-        TF_Descripcion2.setBackground(new java.awt.Color(222, 222, 172));
-        TF_Descripcion2.addActionListener(new java.awt.event.ActionListener() {
+        TF_Temperatura.setBackground(new java.awt.Color(222, 222, 172));
+        TF_Temperatura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_Descripcion2ActionPerformed(evt);
+                TF_TemperaturaActionPerformed(evt);
             }
         });
-        add(TF_Descripcion2);
-        TF_Descripcion2.setBounds(200, 400, 140, 20);
+        add(TF_Temperatura);
+        TF_Temperatura.setBounds(200, 400, 140, 20);
 
         jButton1.setText("Modificar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -439,27 +443,28 @@ public final void ModficarCerveza(){
         add(jLabel11);
         jLabel11.setBounds(280, 20, 200, 30);
 
-        jComboBox7.setBackground(new java.awt.Color(248, 248, 163));
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox7.addActionListener(new java.awt.event.ActionListener() {
+        CB_Nombre.setBackground(new java.awt.Color(248, 248, 163));
+        CB_Nombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CB_Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox7ActionPerformed(evt);
+                CB_NombreActionPerformed(evt);
             }
         });
-        add(jComboBox7);
-        jComboBox7.setBounds(200, 60, 340, 30);
+        add(CB_Nombre);
+        CB_Nombre.setBounds(200, 60, 340, 30);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         add(jLabel12);
         jLabel12.setBounds(0, 0, 860, 530);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TF_Descripcion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_Descripcion2ActionPerformed
+    private void TF_TemperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_TemperaturaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_Descripcion2ActionPerformed
+    }//GEN-LAST:event_TF_TemperaturaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        ModficarCerveza();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -506,19 +511,20 @@ public final void ModficarCerveza(){
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
+    private void CB_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_NombreActionPerformed
         // TODO add your handling code here:
-        if(evt.getSource()==jComboBox7){
-            if(jComboBox7.getSelectedItem()!=null){
+        if(evt.getSource()==CB_Nombre){
+            if(CB_Nombre.getSelectedItem()!=null){
                 LlenarDatos();
             }
         }
     
-    }//GEN-LAST:event_jComboBox7ActionPerformed
+    }//GEN-LAST:event_CB_NombreActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TF_Descripcion2;
+    private javax.swing.JComboBox<String> CB_Nombre;
+    private javax.swing.JTextField TF_Temperatura;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -532,7 +538,6 @@ public final void ModficarCerveza(){
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
