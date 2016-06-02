@@ -389,7 +389,13 @@ public class RegistroPersona extends javax.swing.JPanel {
 
     private void BT_Agregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_Agregar1ActionPerformed
         // TODO add your handling code here:
-        InsertPersona();
+        
+        if (TF_Identificacion.getText().length()==0 || TF_Nombre.getText().length()==0 || TF_Apellido1.getText().length()==0 || TF_Apellido2.getText().length()==0 ){
+            JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            InsertPersona();
+        }
     }//GEN-LAST:event_BT_Agregar1ActionPerformed
 
 

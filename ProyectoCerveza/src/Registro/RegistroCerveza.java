@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author Luis Diego
@@ -192,6 +193,14 @@ public final void InsertCerveza(){
     
     
     
+    }
+    private static boolean isNumeric(String cadena){
+            try {
+                    Integer.parseInt(cadena);
+                    return true;
+            } catch (NumberFormatException nfe){
+                    return false;
+            }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -475,8 +484,11 @@ public final void InsertCerveza(){
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if (TF_Descripcion1.getText().length()==0 || TF_Descripcion2.getText().length()==0 || TF_Descripcion3.getText().length()==0){
+        if (TF_Descripcion1.getText().length()==0  || TF_Descripcion2.getText().length()==0 || TF_Descripcion3.getText().length()==0){
             JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE);
+        }
+        else if(isNumeric(TF_Descripcion2.getText()) || isNumeric(TF_Descripcion3.getText())){
+            JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos con datos correctos.",null,JOptionPane.ERROR_MESSAGE);
         }
         else{
             InsertCerveza();

@@ -195,7 +195,7 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         jLabel1.setOpaque(true);
         Registro.add(jLabel1);
-        jLabel1.setBounds(0, 0, 800, 550);
+        jLabel1.setBounds(0, 0, 780, 550);
 
         jLayeredPane1.add(Registro);
 

@@ -134,7 +134,7 @@ public class ModificarPrecio extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton5);
-        jButton5.setBounds(500, 300, 130, 50);
+        jButton5.setBounds(320, 310, 130, 50);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));

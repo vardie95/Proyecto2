@@ -450,7 +450,13 @@ public class ModificarPersona extends javax.swing.JPanel {
                 case JOptionPane.NO_OPTION:
                 break;
                 case JOptionPane.YES_OPTION:
-                ModificarPersona();
+                    if (TF_Nombre.getText().length()==0 || TF_Apellido1.getText().length()==0 || TF_Apellido2.getText().length()==0 ){
+                        JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE);
+                    }
+                    else{
+                        ModificarPersona();
+                    }
+                
                 break;
                 case JOptionPane.CLOSED_OPTION:
                 break;

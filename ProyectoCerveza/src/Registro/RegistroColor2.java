@@ -50,7 +50,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
     public void ModificarColor(){
         Connection con= null;
             int pID=(int) llavesColor.get(jComboBox1.getSelectedIndex());
-            String puesto=jTextField6.getText();
+            String puesto=TF_Nuevo.getText();
             con= proyectocerveza.dbConnection.conectDB();
             try {
                 
@@ -59,7 +59,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
                 proc.setString(2, puesto);
                 proc.execute();
                 JOptionPane.showMessageDialog(this, "Color Modificado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
-                jTextField6.setText("");
+                TF_Nuevo.setText("");
                 con.close();
                 
             } catch (SQLException ex) {
@@ -110,7 +110,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
         Modificar = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        TF_Nuevo = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
@@ -197,9 +197,9 @@ public class RegistroColor2 extends javax.swing.JPanel {
         Modificar.add(jLabel5);
         jLabel5.setBounds(190, 190, 100, 31);
 
-        jTextField6.setBackground(new java.awt.Color(217, 217, 148));
-        Modificar.add(jTextField6);
-        jTextField6.setBounds(290, 190, 225, 31);
+        TF_Nuevo.setBackground(new java.awt.Color(217, 217, 148));
+        Modificar.add(TF_Nuevo);
+        TF_Nuevo.setBounds(290, 190, 225, 31);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Modificar.add(jComboBox1);
@@ -253,6 +253,11 @@ public class RegistroColor2 extends javax.swing.JPanel {
         jLabel4.setBounds(190, 140, 74, 31);
 
         jButton11.setText("Eliminar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
         Eliminar.add(jButton11);
         jButton11.setBounds(220, 320, 130, 50);
 
@@ -316,15 +321,26 @@ public class RegistroColor2 extends javax.swing.JPanel {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        ModificarColor();
-        LlenarColor();
+        if (TF_Nuevo.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            ModificarColor();
+            LlenarColor();
+        }
+        
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Eliminar;
     private javax.swing.JPanel Modificar;
     private javax.swing.JPanel Registro;
+    private javax.swing.JTextField TF_Nuevo;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton4;
@@ -346,6 +362,5 @@ public class RegistroColor2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }

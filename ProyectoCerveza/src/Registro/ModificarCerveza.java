@@ -193,6 +193,7 @@ public class ModificarCerveza extends javax.swing.JPanel {
                 Statement cstmt = con.createStatement();
                 ResultSet rs = cstmt.executeQuery("call getDatosCerveza("+idFamilia+")");
                 while(rs.next()){
+                       TF_Nombre.setText(CB_Nombre.getSelectedItem().toString());
                        TF_Temperatura.setText(rs.getString(1));
                        jComboBox2.setSelectedIndex(rs.getInt(3)-1);
                        jComboBox1.setSelectedIndex(rs.getInt(4)-1);
@@ -215,7 +216,7 @@ public class ModificarCerveza extends javax.swing.JPanel {
 public final void ModficarCerveza(){
         int idCerveza=(int) llavesCerveza.get(CB_Nombre.getSelectedIndex());
         String Temp=TF_Temperatura.getText();
-        String Temp2=CB_Nombre.getSelectedItem().toString();
+        String Temp2=TF_Nombre.getText();
         //El modificar es muy parecido al codigo del insert ud pasa por parametro todo los datos como estan
         //y ademas manda el idCerveza que esta arriba 
         Connection con= null;
@@ -271,23 +272,19 @@ public final void ModficarCerveza(){
         jLabel9 = new javax.swing.JLabel();
         TF_Temperatura = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         CB_Nombre = new javax.swing.JComboBox<String>();
+        TF_Nombre = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
 
         setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Nombre");
+        jLabel1.setText("Nuevo Nombre:");
         add(jLabel1);
-        jLabel1.setBounds(60, 70, 80, 16);
+        jLabel1.setBounds(60, 110, 120, 16);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -296,49 +293,49 @@ public final void ModficarCerveza(){
             }
         });
         add(jComboBox1);
-        jComboBox1.setBounds(200, 110, 160, 20);
+        jComboBox1.setBounds(200, 150, 160, 20);
 
         jLabel2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Cuerpo");
+        jLabel2.setText("Cuerpo:");
         add(jLabel2);
-        jLabel2.setBounds(60, 110, 80, 20);
+        jLabel2.setBounds(60, 150, 80, 20);
 
         jLabel3.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Color");
+        jLabel3.setText("Color:");
         add(jLabel3);
-        jLabel3.setBounds(60, 160, 80, 16);
+        jLabel3.setBounds(60, 200, 80, 16);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox2);
-        jComboBox2.setBounds(200, 160, 160, 20);
+        jComboBox2.setBounds(200, 200, 160, 20);
 
         jLabel4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Fermentación: ");
         add(jLabel4);
-        jLabel4.setBounds(57, 210, 100, 16);
+        jLabel4.setBounds(60, 250, 100, 16);
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox3);
-        jComboBox3.setBounds(200, 210, 160, 20);
+        jComboBox3.setBounds(200, 250, 160, 20);
 
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Estilo: ");
         add(jLabel5);
-        jLabel5.setBounds(57, 260, 100, 16);
+        jLabel5.setBounds(60, 300, 100, 16);
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox4);
-        jComboBox4.setBounds(200, 260, 160, 20);
+        jComboBox4.setBounds(200, 300, 160, 20);
 
         jLabel6.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Familia: ");
         add(jLabel6);
-        jLabel6.setBounds(57, 320, 100, 16);
+        jLabel6.setBounds(60, 360, 100, 16);
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox5.addActionListener(new java.awt.event.ActionListener() {
@@ -347,23 +344,23 @@ public final void ModficarCerveza(){
             }
         });
         add(jComboBox5);
-        jComboBox5.setBounds(200, 310, 160, 20);
+        jComboBox5.setBounds(200, 350, 160, 20);
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox6);
-        jComboBox6.setBounds(200, 360, 160, 20);
+        jComboBox6.setBounds(200, 400, 160, 20);
 
         jLabel8.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Tipo: ");
         add(jLabel8);
-        jLabel8.setBounds(57, 370, 100, 16);
+        jLabel8.setBounds(60, 410, 100, 16);
 
         jLabel9.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Temperatura: ");
         add(jLabel9);
-        jLabel9.setBounds(57, 400, 100, 16);
+        jLabel9.setBounds(60, 440, 100, 16);
 
         TF_Temperatura.setBackground(new java.awt.Color(222, 222, 172));
         TF_Temperatura.addActionListener(new java.awt.event.ActionListener() {
@@ -372,7 +369,7 @@ public final void ModficarCerveza(){
             }
         });
         add(TF_Temperatura);
-        TF_Temperatura.setBounds(200, 400, 140, 20);
+        TF_Temperatura.setBounds(200, 440, 140, 20);
 
         jButton1.setText("Modificar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -382,60 +379,6 @@ public final void ModficarCerveza(){
         });
         add(jButton1);
         jButton1.setBounds(560, 190, 120, 50);
-
-        jButton3.setText("Otro");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        add(jButton3);
-        jButton3.setBounds(380, 110, 80, 23);
-
-        jButton4.setText("Otro");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        add(jButton4);
-        jButton4.setBounds(380, 210, 80, 23);
-
-        jButton5.setText("Otro");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        add(jButton5);
-        jButton5.setBounds(380, 260, 80, 23);
-
-        jButton6.setText("Otro");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        add(jButton6);
-        jButton6.setBounds(380, 310, 80, 23);
-
-        jButton7.setText("Otro");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        add(jButton7);
-        jButton7.setBounds(380, 360, 80, 23);
-
-        jButton8.setText("Otro");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        add(jButton8);
-        jButton8.setBounds(380, 160, 80, 23);
 
         jLabel11.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -453,6 +396,21 @@ public final void ModficarCerveza(){
         add(CB_Nombre);
         CB_Nombre.setBounds(200, 60, 340, 30);
 
+        TF_Nombre.setBackground(new java.awt.Color(222, 222, 172));
+        TF_Nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_NombreActionPerformed(evt);
+            }
+        });
+        add(TF_Nombre);
+        TF_Nombre.setBounds(200, 110, 250, 20);
+
+        jLabel7.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Nombre");
+        add(jLabel7);
+        jLabel7.setBounds(60, 70, 80, 16);
+
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         add(jLabel12);
         jLabel12.setBounds(0, 0, 860, 530);
@@ -463,40 +421,26 @@ public final void ModficarCerveza(){
     }//GEN-LAST:event_TF_TemperaturaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        ModficarCerveza();
+        // TODO add your handling code here
+        int confirmacion=JOptionPane.showConfirmDialog(this,"¿Esta Seguro que desea Modificar esta persona?");
+       switch (confirmacion) {
+                case JOptionPane.NO_OPTION:
+                break;
+                case JOptionPane.YES_OPTION:
+                if (TF_Temperatura.getText().length()==0 || TF_Nombre.getText().length()==0 ){
+                    JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE);
+                }
+                else{
+                    ModficarCerveza();
+                }
+                break;
+                case JOptionPane.CLOSED_OPTION:
+                break;
+                default:
+                break;
+            }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        new Registro.RegistroCuerpo2().setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        new Registro.RegistroFermentacion().setVisible(true);        
-    
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        new Registro.RegistroEstilo().setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        new Registro.RegistroTipo().setVisible(true);
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-        new Registro.RegistroColor().setVisible(true);
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        new Registro.RegistroFamilia().setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
         // TODO add your handling code here:
@@ -521,17 +465,16 @@ public final void ModficarCerveza(){
     
     }//GEN-LAST:event_CB_NombreActionPerformed
 
+    private void TF_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_NombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_NombreActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CB_Nombre;
+    private javax.swing.JTextField TF_Nombre;
     private javax.swing.JTextField TF_Temperatura;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -546,6 +489,7 @@ public final void ModficarCerveza(){
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
