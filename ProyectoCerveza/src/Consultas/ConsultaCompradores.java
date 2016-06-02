@@ -115,7 +115,7 @@ public class ConsultaCompradores extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         add(jLabel1);
-        jLabel1.setBounds(-20, -40, 840, 590);
+        jLabel1.setBounds(0, -30, 840, 590);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BT_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_BuscarActionPerformed

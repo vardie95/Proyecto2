@@ -182,7 +182,7 @@ public class RegistroCuerpo2 extends javax.swing.JPanel {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         jLabel7.setPreferredSize(new java.awt.Dimension(812, 600));
         Registro.add(jLabel7);
-        jLabel7.setBounds(0, 0, 830, 580);
+        jLabel7.setBounds(0, -10, 830, 580);
 
         jLayeredPane1.add(Registro);
 
@@ -279,7 +279,7 @@ public class RegistroCuerpo2 extends javax.swing.JPanel {
         jLayeredPane1.add(Eliminar);
 
         add(jLayeredPane1);
-        jLayeredPane1.setBounds(0, 0, 840, 430);
+        jLayeredPane1.setBounds(0, 0, 840, 480);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed

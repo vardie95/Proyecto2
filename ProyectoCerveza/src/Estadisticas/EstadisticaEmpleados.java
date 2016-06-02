@@ -28,6 +28,7 @@ public class EstadisticaEmpleados extends javax.swing.JPanel {
         initComponents();
         TotalEmpleados();
         CB_Nombre.removeAllItems();
+        llenarpais();
         
         
     }
@@ -112,7 +113,6 @@ private void TotalEmpleados(){
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         TotalEmpleados = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setLayout(null);
@@ -129,6 +129,8 @@ private void TotalEmpleados(){
         add(jLabel2);
         jLabel2.setBounds(110, 270, 80, 20);
 
+        BT_Analizar.setBackground(new java.awt.Color(102, 102, 102));
+        BT_Analizar.setForeground(new java.awt.Color(255, 255, 255));
         BT_Analizar.setText("Analizar");
         BT_Analizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +147,7 @@ private void TotalEmpleados(){
         jLabel3.setBounds(110, 320, 140, 14);
 
         Cantidad.setEditable(false);
-        Cantidad.setBackground(new java.awt.Color(153, 255, 153));
+        Cantidad.setBackground(new java.awt.Color(217, 217, 148));
         add(Cantidad);
         Cantidad.setBounds(270, 320, 40, 20);
 
@@ -154,6 +156,11 @@ private void TotalEmpleados(){
         CB_Nombre.setBounds(220, 270, 90, 20);
 
         CB_Lugar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "País", "Provincia", "Cantón", "Distrito" }));
+        CB_Lugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_LugarActionPerformed(evt);
+            }
+        });
         add(CB_Lugar);
         CB_Lugar.setBounds(220, 230, 90, 20);
 
@@ -170,18 +177,9 @@ private void TotalEmpleados(){
         jLabel4.setBounds(300, 110, 140, 15);
 
         TotalEmpleados.setEditable(false);
-        TotalEmpleados.setBackground(new java.awt.Color(153, 255, 153));
+        TotalEmpleados.setBackground(new java.awt.Color(217, 217, 148));
         add(TotalEmpleados);
         TotalEmpleados.setBounds(460, 110, 40, 20);
-
-        jButton1.setText("Seleccionar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        add(jButton1);
-        jButton1.setBounds(340, 230, 110, 23);
 
         jLabel5.setBackground(new java.awt.Color(51, 51, 51));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
@@ -197,13 +195,13 @@ private void TotalEmpleados(){
         
     }//GEN-LAST:event_BT_AnalizarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void CB_LugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_LugarActionPerformed
         // TODO add your handling code here:
         if ("País".equals(CB_Lugar.getSelectedItem().toString())){
             llenarpais();
          
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_CB_LugarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -212,7 +210,6 @@ private void TotalEmpleados(){
     private javax.swing.JComboBox<String> CB_Nombre;
     private javax.swing.JTextField Cantidad;
     private javax.swing.JTextField TotalEmpleados;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;

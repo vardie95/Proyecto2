@@ -157,6 +157,8 @@ public class RegistroCanton extends javax.swing.JPanel {
         Registro.add(jLabel2);
         jLabel2.setBounds(190, 280, 80, 20);
 
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Agregar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,6 +168,8 @@ public class RegistroCanton extends javax.swing.JPanel {
         Registro.add(jButton1);
         jButton1.setBounds(139, 383, 120, 50);
 
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Modificar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,6 +179,8 @@ public class RegistroCanton extends javax.swing.JPanel {
         Registro.add(jButton2);
         jButton2.setBounds(310, 383, 130, 50);
 
+        jButton3.setBackground(new java.awt.Color(102, 102, 102));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Eliminar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -384,7 +390,7 @@ public class RegistroCanton extends javax.swing.JPanel {
         jLayeredPane1.add(Modificar);
 
         add(jLayeredPane1);
-        jLayeredPane1.setBounds(8, -1, 770, 450);
+        jLayeredPane1.setBounds(-2, -1, 810, 490);
     }// </editor-fold>//GEN-END:initComponents
 
     private void CB_PaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_PaisActionPerformed

@@ -371,6 +371,8 @@ public final void ModficarCerveza(){
         add(TF_Temperatura);
         TF_Temperatura.setBounds(200, 440, 140, 20);
 
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Modificar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -382,7 +384,7 @@ public final void ModficarCerveza(){
 
         jLabel11.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Registro Cerveza");
+        jLabel11.setText("Modificar Cerveza");
         add(jLabel11);
         jLabel11.setBounds(280, 20, 200, 30);
 

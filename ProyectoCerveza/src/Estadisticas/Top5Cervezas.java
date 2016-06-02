@@ -88,7 +88,7 @@ private void UpdateTable(){
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         add(jLabel1);
-        jLabel1.setBounds(-20, -40, 840, 590);
+        jLabel1.setBounds(0, -40, 840, 590);
     }// </editor-fold>//GEN-END:initComponents
 
 

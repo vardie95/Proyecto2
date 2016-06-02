@@ -181,6 +181,8 @@ public class RegistroDistrito extends javax.swing.JPanel {
         Registro.add(jLabel6);
         jLabel6.setBounds(200, 260, 80, 20);
 
+        jButton5.setBackground(new java.awt.Color(102, 102, 102));
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Modificar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,6 +192,8 @@ public class RegistroDistrito extends javax.swing.JPanel {
         Registro.add(jButton5);
         jButton5.setBounds(330, 360, 130, 50);
 
+        jButton6.setBackground(new java.awt.Color(102, 102, 102));
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Eliminar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,6 +209,8 @@ public class RegistroDistrito extends javax.swing.JPanel {
         Registro.add(jLabel12);
         jLabel12.setBounds(320, 50, 180, 22);
 
+        jButton7.setBackground(new java.awt.Color(102, 102, 102));
+        jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("Agregar");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,7 +266,7 @@ public class RegistroDistrito extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         Registro.add(jLabel1);
-        jLabel1.setBounds(-20, -40, 840, 590);
+        jLabel1.setBounds(0, -30, 840, 590);
 
         jLayeredPane1.add(Registro);
 
@@ -434,7 +440,7 @@ public class RegistroDistrito extends javax.swing.JPanel {
         jLayeredPane1.add(Eliminar);
 
         add(jLayeredPane1);
-        jLayeredPane1.setBounds(0, 0, 780, 510);
+        jLayeredPane1.setBounds(0, 0, 820, 510);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

@@ -228,12 +228,6 @@ public final void InsertCerveza(){
         jLabel9 = new javax.swing.JLabel();
         TF_Descripcion2 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         TF_Descripcion3 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -341,6 +335,8 @@ public final void InsertCerveza(){
         add(TF_Descripcion2);
         TF_Descripcion2.setBounds(200, 400, 140, 20);
 
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Agregar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -349,60 +345,6 @@ public final void InsertCerveza(){
         });
         add(jButton2);
         jButton2.setBounds(560, 200, 120, 50);
-
-        jButton3.setText("Otro");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        add(jButton3);
-        jButton3.setBounds(380, 110, 80, 23);
-
-        jButton4.setText("Otro");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        add(jButton4);
-        jButton4.setBounds(380, 210, 80, 23);
-
-        jButton5.setText("Otro");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        add(jButton5);
-        jButton5.setBounds(380, 260, 80, 23);
-
-        jButton6.setText("Otro");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        add(jButton6);
-        jButton6.setBounds(380, 310, 80, 23);
-
-        jButton7.setText("Otro");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        add(jButton7);
-        jButton7.setBounds(380, 360, 80, 23);
-
-        jButton8.setText("Otro");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        add(jButton8);
-        jButton8.setBounds(380, 160, 80, 23);
 
         jLabel10.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -438,40 +380,9 @@ public final void InsertCerveza(){
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_Descripcion2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        new Registro.RegistroCuerpo2().setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        new Registro.RegistroFermentacion().setVisible(true);        
-    
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        new Registro.RegistroEstilo().setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        new Registro.RegistroTipo().setVisible(true);
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-        new Registro.RegistroColor().setVisible(true);
-    }//GEN-LAST:event_jButton8ActionPerformed
-
     private void TF_Descripcion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_Descripcion3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_Descripcion3ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        new Registro.RegistroFamilia().setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
         // TODO add your handling code here:
@@ -506,12 +417,6 @@ public final void InsertCerveza(){
     private javax.swing.JTextField TF_Descripcion2;
     private javax.swing.JTextField TF_Descripcion3;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;

@@ -164,6 +164,8 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         Registro.add(jLabel12);
         jLabel12.setBounds(290, 60, 180, 22);
 
+        jButton4.setBackground(new java.awt.Color(102, 102, 102));
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Agregar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,6 +175,8 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         Registro.add(jButton4);
         jButton4.setBounds(160, 330, 120, 50);
 
+        jButton5.setBackground(new java.awt.Color(102, 102, 102));
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Modificar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,6 +186,8 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         Registro.add(jButton5);
         jButton5.setBounds(330, 330, 130, 50);
 
+        jButton6.setBackground(new java.awt.Color(102, 102, 102));
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Eliminar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,7 +201,7 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         jLabel1.setOpaque(true);
         Registro.add(jLabel1);
-        jLabel1.setBounds(0, 0, 780, 550);
+        jLabel1.setBounds(0, 0, 820, 550);
 
         jLayeredPane1.add(Registro);
 
@@ -309,7 +315,7 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         jLayeredPane1.add(Eliminar);
 
         add(jLayeredPane1);
-        jLayeredPane1.setBounds(0, 0, 780, 420);
+        jLayeredPane1.setBounds(0, 0, 840, 470);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

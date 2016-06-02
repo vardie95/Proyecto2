@@ -46,6 +46,8 @@ public class ConsultaLugar extends javax.swing.JPanel {
         add(jLabel11);
         jLabel11.setBounds(190, 50, 370, 22);
 
+        BT_Buscar.setBackground(new java.awt.Color(102, 102, 102));
+        BT_Buscar.setForeground(new java.awt.Color(255, 255, 255));
         BT_Buscar.setText("Buscar");
         BT_Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +95,7 @@ public class ConsultaLugar extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         add(jLabel1);
-        jLabel1.setBounds(-20, -40, 840, 590);
+        jLabel1.setBounds(0, -30, 840, 590);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BT_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_BuscarActionPerformed

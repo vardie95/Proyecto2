@@ -180,7 +180,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         Registro.add(jLabel3);
-        jLabel3.setBounds(-20, -40, 840, 590);
+        jLabel3.setBounds(0, -40, 840, 590);
 
         jLayeredPane1.add(Registro);
 
@@ -281,7 +281,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
         jLayeredPane1.add(Eliminar);
 
         add(jLayeredPane1);
-        jLayeredPane1.setBounds(0, 0, 840, 430);
+        jLayeredPane1.setBounds(0, 0, 840, 540);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
