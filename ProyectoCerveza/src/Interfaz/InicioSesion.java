@@ -141,7 +141,9 @@ public class InicioSesion extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if(ComprobarUsuario()){
-        new Inicio().setVisible(true);}
+        new Inicio().setVisible(true);
+        dispose();
+        }
         else{
             JOptionPane.showMessageDialog(this, "Contraseña Incorrecta","El usuario o la contraseña son invalidos",JOptionPane.ERROR_MESSAGE);
         }

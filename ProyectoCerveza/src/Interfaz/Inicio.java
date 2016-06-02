@@ -67,7 +67,6 @@ public class Inicio extends javax.swing.JFrame {
         jM_Persona3 = new javax.swing.JMenuItem();
         jM_Persona4 = new javax.swing.JMenuItem();
         jM_Persona5 = new javax.swing.JMenuItem();
-        jM_Cerveza = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -257,17 +256,6 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenu3.add(jMenu8);
 
-        jM_Cerveza.setBackground(new java.awt.Color(102, 102, 102));
-        jM_Cerveza.setForeground(new java.awt.Color(255, 255, 255));
-        jM_Cerveza.setText("Cerveza");
-        jM_Cerveza.setPreferredSize(new java.awt.Dimension(150, 30));
-        jM_Cerveza.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jM_CervezaActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jM_Cerveza);
-
         jMenuItem2.setBackground(new java.awt.Color(102, 102, 102));
         jMenuItem2.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem2.setText("Cuerpo");
@@ -448,15 +436,6 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.repaint();
         jPanel1.revalidate();
     }//GEN-LAST:event_jM_PersonaActionPerformed
-
-    private void jM_CervezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_CervezaActionPerformed
-        // TODO add your handling code here:
-        RegistroCerveza panelIni= new RegistroCerveza();
-        jPanel1.removeAll();
-        jPanel1.add(panelIni);
-        jPanel1.repaint();
-        jPanel1.revalidate();
-    }//GEN-LAST:event_jM_CervezaActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
@@ -711,7 +690,6 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem jM_Cerveza;
     private javax.swing.JMenuItem jM_Persona;
     private javax.swing.JMenuItem jM_Persona1;
     private javax.swing.JMenuItem jM_Persona2;
