@@ -18,6 +18,7 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
+        proyectocerveza.dbConnection.conectDB();
         PanelInicio panelIni= new PanelInicio();
         jPanel1.removeAll();
         jPanel1.add(panelIni);
