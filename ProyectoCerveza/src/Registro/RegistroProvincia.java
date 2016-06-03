@@ -5,17 +5,64 @@
  */
 package Registro;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Luis Diego
  */
 public class RegistroProvincia extends javax.swing.JPanel {
+    ArrayList llave= new ArrayList();
 
     /**
      * Creates new form RegistroFermentacion
      */
     public RegistroProvincia() {
         initComponents();
+        llenarpais();
+    }
+    public final  void llenarpais() {
+        jComboBox1.removeAllItems();
+            try {
+            Connection con = proyectocerveza.dbConnection.conectDB();
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call getPais");
+                while(rs.next()){
+                   llave.add(rs.getInt(1));
+                   jComboBox1.addItem(rs.getString("Descripción"));
+                }
+                
+            } catch (SQLException ex) {
+               
+            }
+    }
+    public void InsertProvincia(){
+        Connection con= null;
+            String puesto=jTextField1.getText();
+            con= proyectocerveza.dbConnection.conectDB();
+            try {
+                int id_pais=(int) llave.get(jComboBox1.getSelectedIndex());
+                CallableStatement proc= con.prepareCall("{call insertProvincia(?,?)}");
+                proc.setInt(2, id_pais);
+                proc.setString(1,puesto);
+                proc.execute();
+                JOptionPane.showMessageDialog(this, "Provincia Agregada Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                jTextField1.setText("");
+                con.close();
+                
+            } catch (SQLException ex) {
+                 JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
+
+            }
     }
 
     /**
@@ -51,6 +98,11 @@ public class RegistroProvincia extends javax.swing.JPanel {
         jLabel2.setBounds(160, 220, 80, 20);
 
         jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         add(jButton1);
         jButton1.setBounds(160, 360, 120, 50);
 
@@ -67,10 +119,19 @@ public class RegistroProvincia extends javax.swing.JPanel {
         add(jLabel12);
         jLabel12.setBounds(320, 50, 180, 22);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox1);
         jComboBox1.setBounds(290, 140, 230, 30);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if (jTextField1.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE); 
+        }
+        else{
+            InsertProvincia();   
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,10 +5,16 @@
  */
 package Registro;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Luis Diego
  */
+
 public class RegistroPais extends javax.swing.JPanel {
 
     /**
@@ -16,6 +22,23 @@ public class RegistroPais extends javax.swing.JPanel {
      */
     public RegistroPais() {
         initComponents();
+    }
+    public void InsertPais(){
+        Connection con= null;
+            String puesto=jTextField2.getText();
+            con=proyectocerveza.dbConnection.conectDB();
+            try {
+                CallableStatement proc= con.prepareCall("{call insertPais(?)}");
+                proc.setString(1, puesto);
+                proc.execute();
+                JOptionPane.showMessageDialog(this, "País Agregado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                jTextField2.setText("");
+                con.close();
+                
+            } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
+
+            }
     }
 
     /**
@@ -45,6 +68,11 @@ public class RegistroPais extends javax.swing.JPanel {
         jTextField2.setBounds(290, 140, 225, 31);
 
         jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         add(jButton1);
         jButton1.setBounds(160, 360, 120, 50);
 
@@ -61,6 +89,16 @@ public class RegistroPais extends javax.swing.JPanel {
         add(jLabel12);
         jLabel12.setBounds(320, 50, 180, 22);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if (jTextField2.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE); 
+        }
+        else{
+            InsertPais();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
