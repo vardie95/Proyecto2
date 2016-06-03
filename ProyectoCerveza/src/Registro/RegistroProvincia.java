@@ -32,6 +32,7 @@ public class RegistroProvincia extends javax.swing.JPanel {
     }
     public final  void llenarpais() {
         jComboBox1.removeAllItems();
+        llave.clear();
             try {
             Connection con = proyectocerveza.dbConnection.conectDB();
                 Statement cstmt = con.createStatement();

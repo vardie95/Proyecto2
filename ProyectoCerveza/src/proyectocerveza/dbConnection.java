@@ -19,7 +19,6 @@ public class dbConnection {
         try{
           Class.forName("com.mysql.jdbc.Driver");
           Connection con= DriverManager.getConnection(conexion,"root","varazul95");
-          System.out.println("Conectado");
           return con;
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);

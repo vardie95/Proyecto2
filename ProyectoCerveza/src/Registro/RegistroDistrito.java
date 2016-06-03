@@ -5,17 +5,110 @@
  */
 package Registro;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Luis Diego
  */
 public class RegistroDistrito extends javax.swing.JPanel {
+    ArrayList llavesPais= new ArrayList();
+     ArrayList llavesProvincia= new ArrayList();
+     ArrayList llavesCanton= new ArrayList();
 
     /**
      * Creates new form RegistroFermentacion
      */
     public RegistroDistrito() {
         initComponents();
+        llenarpais();
+    }
+    public final  void llenarpais() 
+    {
+        CB_Pais.removeAllItems();
+        llavesPais.clear();
+            try {
+            Connection con = proyectocerveza.dbConnection.conectDB();
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call getPais");
+                while(rs.next()){
+                   llavesPais.add(rs.getInt(1));
+                   CB_Pais.addItem(rs.getString("Descripción"));
+                }
+                
+            } catch (SQLException ex) {
+               
+            }
+    }
+
+    public final void LlenarProvincia()
+    {
+       jComboBox1.removeAllItems();
+       llavesProvincia.clear();
+       
+            try {
+                Connection con = proyectocerveza.dbConnection.conectDB();
+                int id_pais=(int) llavesPais.get(CB_Pais.getSelectedIndex());
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call getProvincia("+id_pais+")");
+                while(rs.next()){
+                   llavesProvincia.add(rs.getInt(1));
+                   jComboBox1.addItem(rs.getString("Descripción"));
+                }
+                
+              con.close();
+            } catch (SQLException ex) {
+                
+            }
+   
+   }
+    
+    public final void LlenarCanton()
+    {
+       jComboBox2.removeAllItems();
+       llavesCanton.clear();
+       
+            try {
+                Connection con = proyectocerveza.dbConnection.conectDB();
+                int id_provincia=(int) llavesProvincia.get(jComboBox1.getSelectedIndex());
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call getCanton("+id_provincia+")");
+                while(rs.next()){
+                   llavesCanton.add(rs.getInt(1));
+                   jComboBox2.addItem(rs.getString("Descripción"));
+                }
+                
+              con.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+   
+   }
+    
+    public void InsertDistrito(){
+        Connection con= null;
+            String puesto=jTextField1.getText();
+            con= proyectocerveza.dbConnection.conectDB();
+            try {
+                int id_Canton=(int) llavesCanton.get(jComboBox2.getSelectedIndex());
+                CallableStatement proc= con.prepareCall("{call insertDistrito(?,?)}");
+                proc.setInt(1, id_Canton);
+                proc.setString(2,puesto);
+                proc.execute();
+                JOptionPane.showMessageDialog(this, "Distrito Agregado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                jTextField1.setText("");
+                con.close();
+                
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
+
+            }
     }
 
     /**
@@ -30,27 +123,25 @@ public class RegistroDistrito extends javax.swing.JPanel {
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        CB_Pais = new javax.swing.JComboBox<>();
         jComboBox1 = new javax.swing.JComboBox();
+        jComboBox2 = new javax.swing.JComboBox<>();
 
         setLayout(null);
         add(jTextField1);
-        jTextField1.setBounds(290, 210, 225, 31);
+        jTextField1.setBounds(280, 250, 225, 31);
 
-        jLabel1.setText("Cantón: ");
+        jLabel1.setText("Seleccione: ");
         add(jLabel1);
-        jLabel1.setBounds(160, 140, 74, 31);
+        jLabel1.setBounds(160, 100, 74, 31);
 
         jLabel2.setText("Distrito: ");
         add(jLabel2);
-        jLabel2.setBounds(160, 220, 80, 20);
-
-        jButton1.setText("Agregar");
-        add(jButton1);
-        jButton1.setBounds(160, 360, 120, 50);
+        jLabel2.setBounds(160, 260, 80, 20);
 
         jButton2.setText("Modificar");
         add(jButton2);
@@ -65,17 +156,78 @@ public class RegistroDistrito extends javax.swing.JPanel {
         add(jLabel11);
         jLabel11.setBounds(320, 50, 180, 22);
 
+        jButton4.setText("Agregar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        add(jButton4);
+        jButton4.setBounds(170, 360, 120, 50);
+
+        CB_Pais.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        CB_Pais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Costa Rica" }));
+        CB_Pais.setToolTipText("");
+        CB_Pais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_PaisActionPerformed(evt);
+            }
+        });
+        add(CB_Pais);
+        CB_Pais.setBounds(280, 100, 230, 30);
+
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         add(jComboBox1);
-        jComboBox1.setBounds(290, 140, 230, 30);
+        jComboBox1.setBounds(280, 150, 230, 30);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        add(jComboBox2);
+        jComboBox2.setBounds(280, 200, 230, 30);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        if (jTextField1.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            InsertDistrito();
+            
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void CB_PaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_PaisActionPerformed
+        // TODO add your handling code here:
+        if(evt.getSource()==CB_Pais){
+            if(CB_Pais.getSelectedItem()!=null){
+                LlenarProvincia();
+            }
+        }
+    }//GEN-LAST:event_CB_PaisActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        if(evt.getSource()==jComboBox1){
+            if(jComboBox1.getSelectedItem()!=null){
+                LlenarCanton();
+            }
+        }
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> CB_Pais;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
