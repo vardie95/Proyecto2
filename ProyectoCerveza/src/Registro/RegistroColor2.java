@@ -7,7 +7,10 @@ package Registro;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +18,7 @@ import javax.swing.JOptionPane;
  * @author Luis Diego
  */
 public class RegistroColor2 extends javax.swing.JPanel {
+    ArrayList llavesColor= new ArrayList();
 
     /**
      * Creates new form RegistroFermentacion
@@ -23,6 +27,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
         initComponents();
         Modificar.setVisible(false);
         Eliminar.setVisible(false);
+        
     }
     public void InsertCuerpo(){
         Connection con= null;
@@ -42,6 +47,47 @@ public class RegistroColor2 extends javax.swing.JPanel {
 
             }
     }
+    public void ModificarColor(){
+        Connection con= null;
+            int pID=(int) llavesColor.get(jComboBox1.getSelectedIndex());
+            String puesto=jTextField6.getText();
+            con= proyectocerveza.dbConnection.conectDB();
+            try {
+                
+                CallableStatement proc= con.prepareCall("{call modificarColor(?,?)}");
+                proc.setInt(1, pID);
+                proc.setString(2, puesto);
+                proc.execute();
+                JOptionPane.showMessageDialog(this, "Color Modificado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                jTextField6.setText("");
+                con.close();
+                
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
+
+            }
+    }
+     public final void LlenarColor()
+    {
+       jComboBox1.removeAllItems();
+       llavesColor.clear();
+       
+            try {
+                Connection con = proyectocerveza.dbConnection.conectDB();
+                
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call getColor");
+                while(rs.next()){
+                   llavesColor.add(rs.getInt(1));
+                   jComboBox1.addItem(rs.getString("Descripción"));
+                } 
+              con.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+                
+            }
+   
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,6 +106,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         Modificar = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -68,6 +115,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         Eliminar = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -81,6 +129,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
 
         Registro.setLayout(null);
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre: ");
         Registro.add(jLabel2);
         jLabel2.setBounds(160, 140, 74, 31);
@@ -90,10 +139,13 @@ public class RegistroColor2 extends javax.swing.JPanel {
         jTextField3.setBounds(290, 140, 225, 31);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Registro Color");
         Registro.add(jLabel12);
-        jLabel12.setBounds(320, 50, 180, 22);
+        jLabel12.setBounds(310, 60, 180, 22);
 
+        jButton4.setBackground(new java.awt.Color(102, 102, 102));
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Agregar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +155,8 @@ public class RegistroColor2 extends javax.swing.JPanel {
         Registro.add(jButton4);
         jButton4.setBounds(160, 330, 120, 50);
 
+        jButton5.setBackground(new java.awt.Color(102, 102, 102));
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Modificar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +166,8 @@ public class RegistroColor2 extends javax.swing.JPanel {
         Registro.add(jButton5);
         jButton5.setBounds(330, 330, 130, 50);
 
+        jButton6.setBackground(new java.awt.Color(102, 102, 102));
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Eliminar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,15 +177,23 @@ public class RegistroColor2 extends javax.swing.JPanel {
         Registro.add(jButton6);
         jButton6.setBounds(510, 330, 130, 50);
 
+        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        jLabel7.setOpaque(true);
+        Registro.add(jLabel7);
+        jLabel7.setBounds(0, -50, 850, 650);
+
         jLayeredPane1.add(Registro);
 
         Modificar.setLayout(null);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Modificar Color");
         Modificar.add(jLabel13);
         jLabel13.setBounds(320, 50, 180, 22);
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nuevo Color:");
         Modificar.add(jLabel5);
         jLabel5.setBounds(190, 190, 100, 31);
@@ -142,15 +206,25 @@ public class RegistroColor2 extends javax.swing.JPanel {
         Modificar.add(jComboBox1);
         jComboBox1.setBounds(290, 140, 220, 30);
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Color:");
         jLabel6.setToolTipText("");
         Modificar.add(jLabel6);
         jLabel6.setBounds(190, 140, 74, 31);
 
+        jButton8.setBackground(new java.awt.Color(102, 102, 102));
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Modificar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         Modificar.add(jButton8);
         jButton8.setBounds(240, 330, 130, 50);
 
+        jButton9.setBackground(new java.awt.Color(102, 102, 102));
+        jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setText("Volver");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +233,12 @@ public class RegistroColor2 extends javax.swing.JPanel {
         });
         Modificar.add(jButton9);
         jButton9.setBounds(420, 330, 130, 50);
+
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Modificar.add(jLabel1);
+        jLabel1.setBounds(0, 0, 840, 630);
 
         jLayeredPane1.add(Modificar);
 
@@ -216,6 +296,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
         // TODO add your handling code here:
         Modificar.setVisible(true);
         Registro.setVisible(false);
+        LlenarColor();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -229,6 +310,12 @@ public class RegistroColor2 extends javax.swing.JPanel {
         Registro.setVisible(true);
         Eliminar.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        ModificarColor();
+        LlenarColor();
+    }//GEN-LAST:event_jButton8ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -244,6 +331,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -251,6 +339,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField6;

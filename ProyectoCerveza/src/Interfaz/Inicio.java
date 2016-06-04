@@ -79,7 +79,7 @@ public class Inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cervecería");
-        setLocation(new java.awt.Point(300, 100));
+        setLocation(new java.awt.Point(300, 80));
         setMinimumSize(new java.awt.Dimension(800, 560));
 
         jPanel1.setToolTipText("Cerveceria");
@@ -338,7 +338,7 @@ public class Inicio extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
         );
 
         pack();
