@@ -5,6 +5,11 @@
  */
 package Registro;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Luis Diego
@@ -18,6 +23,24 @@ public class RegistroFamilia2 extends javax.swing.JPanel {
         initComponents();
         Modificar.setVisible(false);
         Eliminar.setVisible(false);
+    }
+    public void InsertFamilia(){
+        Connection con= null;
+            String puesto=jTextField3.getText();
+            con= proyectocerveza.dbConnection.conectDB();
+            try {
+                
+                CallableStatement proc= con.prepareCall("{call insertFamilia(?)}");
+                proc.setString(1, puesto);
+                proc.execute();
+                JOptionPane.showMessageDialog(this, "Familia Agregada Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                jTextField3.setText("");
+                con.close();
+                
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
+
+            }
     }
 
     /**
@@ -67,8 +90,13 @@ public class RegistroFamilia2 extends javax.swing.JPanel {
         jTextField3.setBounds(290, 140, 225, 31);
 
         jButton4.setText("Agregar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         Registro.add(jButton4);
-        jButton4.setBounds(160, 360, 120, 50);
+        jButton4.setBounds(160, 280, 120, 50);
 
         jButton5.setText("Modificar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +105,7 @@ public class RegistroFamilia2 extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton5);
-        jButton5.setBounds(330, 360, 130, 50);
+        jButton5.setBounds(340, 280, 130, 50);
 
         jButton6.setText("Eliminar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +114,7 @@ public class RegistroFamilia2 extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton6);
-        jButton6.setBounds(510, 360, 130, 50);
+        jButton6.setBounds(520, 280, 130, 50);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel12.setText("Registro Familia");
@@ -190,6 +218,17 @@ public class RegistroFamilia2 extends javax.swing.JPanel {
         Registro.setVisible(true);
         Eliminar.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        if (jTextField3.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            InsertFamilia();
+        }
+    
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

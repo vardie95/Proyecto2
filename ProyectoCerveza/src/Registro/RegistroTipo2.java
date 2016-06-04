@@ -5,21 +5,70 @@
  */
 package Registro;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Luis Diego
  */
 public class RegistroTipo2 extends javax.swing.JPanel {
+    ArrayList llavesFamilia= new ArrayList();
 
     /**
      * Creates new form RegistroFermentacion
      */
     public RegistroTipo2() {
         initComponents();
+        LlenarFamilia();
         Modificar.setVisible(false);
         Eliminar.setVisible(false);
     }
+    public final void LlenarFamilia()
+    {
+       jComboBox2.removeAllItems();
+       llavesFamilia.clear();
+       
+            try {
+                Connection con = proyectocerveza.dbConnection.conectDB();
+                
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call getFamilia");
+                while(rs.next()){
+                   llavesFamilia.add(rs.getInt(1));
+                   jComboBox2.addItem(rs.getString("Descripcion"));
+                } 
+              con.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+                
+            }
+   
+   }
+public void InsertTipo(){
+        Connection con= null;
+            String puesto=jTextField3.getText();
+            con= proyectocerveza.dbConnection.conectDB();
+            try {
+                int id_Familia=(int) llavesFamilia.get(jComboBox2.getSelectedIndex());
+                CallableStatement proc= con.prepareCall("{call insertTipo(?,?)}");
+                proc.setInt(2, id_Familia);
+                proc.setString(1,puesto);
+                proc.execute();
+                JOptionPane.showMessageDialog(this, "Tipo de Cerveza Agregado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                jTextField3.setText("");
+                con.close();
+                
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
 
+            }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,6 +128,11 @@ public class RegistroTipo2 extends javax.swing.JPanel {
         jTextField3.setBounds(290, 140, 225, 31);
 
         jButton4.setText("Agregar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         Registro.add(jButton4);
         jButton4.setBounds(160, 360, 120, 50);
 
@@ -101,6 +155,11 @@ public class RegistroTipo2 extends javax.swing.JPanel {
         jButton6.setBounds(510, 360, 130, 50);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
         Registro.add(jComboBox2);
         jComboBox2.setBounds(290, 210, 230, 30);
 
@@ -248,6 +307,20 @@ public class RegistroTipo2 extends javax.swing.JPanel {
         Registro.setVisible(true);
         Eliminar.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        if (jTextField3.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            InsertTipo();
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

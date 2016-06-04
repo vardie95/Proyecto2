@@ -131,9 +131,9 @@ public class RegistroDistrito extends javax.swing.JPanel {
         jButton6 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
-        CB_Pais1 = new javax.swing.JComboBox<String>();
+        CB_Pais1 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox();
-        jComboBox4 = new javax.swing.JComboBox<String>();
+        jComboBox4 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -144,13 +144,13 @@ public class RegistroDistrito extends javax.swing.JPanel {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        CB_Pais2 = new javax.swing.JComboBox<String>();
+        CB_Pais2 = new javax.swing.JComboBox<>();
         jComboBox5 = new javax.swing.JComboBox();
-        jComboBox6 = new javax.swing.JComboBox<String>();
+        jComboBox6 = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jComboBox9 = new javax.swing.JComboBox<String>();
+        jComboBox9 = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         Eliminar = new javax.swing.JPanel();
         jLayeredPane4 = new javax.swing.JLayeredPane();
@@ -158,13 +158,13 @@ public class RegistroDistrito extends javax.swing.JPanel {
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        CB_Pais3 = new javax.swing.JComboBox<String>();
+        CB_Pais3 = new javax.swing.JComboBox<>();
         jComboBox7 = new javax.swing.JComboBox();
-        jComboBox8 = new javax.swing.JComboBox<String>();
+        jComboBox8 = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jComboBox10 = new javax.swing.JComboBox<String>();
+        jComboBox10 = new javax.swing.JComboBox<>();
 
         setLayout(null);
 
@@ -215,7 +215,7 @@ public class RegistroDistrito extends javax.swing.JPanel {
         jButton7.setBounds(170, 360, 120, 50);
 
         CB_Pais1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        CB_Pais1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Costa Rica" }));
+        CB_Pais1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Costa Rica" }));
         CB_Pais1.setToolTipText("");
         CB_Pais1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,7 +234,12 @@ public class RegistroDistrito extends javax.swing.JPanel {
         Registro.add(jComboBox3);
         jComboBox3.setBounds(280, 150, 230, 30);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox4ActionPerformed(evt);
+            }
+        });
         Registro.add(jComboBox4);
         jComboBox4.setBounds(280, 200, 230, 30);
 
@@ -265,6 +270,11 @@ public class RegistroDistrito extends javax.swing.JPanel {
         jLabel10.setBounds(190, 310, 100, 20);
 
         jButton8.setText("Modificar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         Modificar.add(jButton8);
         jButton8.setBounds(220, 360, 130, 50);
 
@@ -283,7 +293,7 @@ public class RegistroDistrito extends javax.swing.JPanel {
         jLabel13.setBounds(320, 50, 180, 22);
 
         CB_Pais2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        CB_Pais2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Costa Rica" }));
+        CB_Pais2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Costa Rica" }));
         CB_Pais2.setToolTipText("");
         CB_Pais2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -302,7 +312,7 @@ public class RegistroDistrito extends javax.swing.JPanel {
         Modificar.add(jComboBox5);
         jComboBox5.setBounds(280, 150, 230, 30);
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Modificar.add(jComboBox6);
         jComboBox6.setBounds(280, 250, 230, 30);
 
@@ -318,7 +328,7 @@ public class RegistroDistrito extends javax.swing.JPanel {
         Modificar.add(jLabel16);
         jLabel16.setBounds(200, 210, 50, 14);
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Modificar.add(jComboBox9);
         jComboBox9.setBounds(280, 200, 230, 30);
 
@@ -346,6 +356,11 @@ public class RegistroDistrito extends javax.swing.JPanel {
         jButton11.setBounds(400, 360, 130, 50);
 
         jButton12.setText("Eliminar");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
         Eliminar.add(jButton12);
         jButton12.setBounds(220, 360, 130, 50);
 
@@ -355,7 +370,7 @@ public class RegistroDistrito extends javax.swing.JPanel {
         jLabel18.setBounds(320, 50, 180, 22);
 
         CB_Pais3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        CB_Pais3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Costa Rica" }));
+        CB_Pais3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Costa Rica" }));
         CB_Pais3.setToolTipText("");
         CB_Pais3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -374,7 +389,7 @@ public class RegistroDistrito extends javax.swing.JPanel {
         Eliminar.add(jComboBox7);
         jComboBox7.setBounds(280, 150, 230, 30);
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Eliminar.add(jComboBox8);
         jComboBox8.setBounds(280, 250, 230, 30);
 
@@ -390,7 +405,7 @@ public class RegistroDistrito extends javax.swing.JPanel {
         Eliminar.add(jLabel21);
         jLabel21.setBounds(203, 210, 50, 14);
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Eliminar.add(jComboBox10);
         jComboBox10.setBounds(280, 200, 230, 30);
 
@@ -402,14 +417,32 @@ public class RegistroDistrito extends javax.swing.JPanel {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        if (jTextField2.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            InsertDistrito();
+        }
+    
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void CB_Pais1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_Pais1ActionPerformed
         // TODO add your handling code here:
+        if(evt.getSource()==CB_Pais1){
+            if(CB_Pais1.getSelectedItem()!=null){
+                LlenarProvincia();
+            }
+        }
     }//GEN-LAST:event_CB_Pais1ActionPerformed
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
         // TODO add your handling code here:
+        if(evt.getSource()==jComboBox3){
+            if(jComboBox3.getSelectedItem()!=null){
+                LlenarCanton();
+            }
+        }
+        
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void CB_Pais2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_Pais2ActionPerformed
@@ -451,6 +484,18 @@ public class RegistroDistrito extends javax.swing.JPanel {
         Registro.setVisible(true);
         Eliminar.setVisible(false);
     }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
