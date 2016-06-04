@@ -119,10 +119,8 @@ public class RegistroGustoxPersona extends javax.swing.JPanel {
         con= proyectocerveza.dbConnection.conectDB();
         CallableStatement proc;
         try {
-            proc = con.prepareCall("{call insertGustosPersona(?,?,?)}");
-            proc.setInt(1, idPersona);
-            proc.setInt(2, idCerveza);
-            proc.setInt(3, Cantidad);
+            proc = con.prepareCall("insert into gustosxpersona(Cerveza_idCerveza,Persona_idPersona,cantidad) values("+idCerveza+","+idPersona+","+Cantidad+")");
+            proc.execute();
             jTextField4.setText("");
         } catch (SQLException ex) {
             Logger.getLogger(RegistroGustoxPersona.class.getName()).log(Level.SEVERE, null, ex);
@@ -186,6 +184,11 @@ public class RegistroGustoxPersona extends javax.swing.JPanel {
         jButton2.setBackground(new java.awt.Color(102, 102, 102));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Modificar Cantidad");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         add(jButton2);
         jButton2.setBounds(290, 440, 160, 40);
 
@@ -280,6 +283,7 @@ public class RegistroGustoxPersona extends javax.swing.JPanel {
         if(evt.getSource()==jComboBox1){
             if(jComboBox1.getSelectedItem()!=null){
                 LlenarCampos();
+                UpdateTable();
             }
         }
     
@@ -299,6 +303,10 @@ public class RegistroGustoxPersona extends javax.swing.JPanel {
             UpdateTable();
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -6,6 +6,11 @@
 package Consultas;
 
 import Registro.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -18,7 +23,31 @@ public class ConsultaCerveza extends javax.swing.JPanel {
      */
     public ConsultaCerveza() {
         initComponents();
+        UpdateTable();
     }
+    private void UpdateTable(){
+         String consulta;
+         String dato=PT_Nombre.getText();
+        Connection con = proyectocerveza.dbConnection.conectDB();
+        try {
+            Statement cstmt = con.createStatement();
+            if ("Nombre".equals(CB_Nombre.getSelectedItem().toString())){
+                 consulta="{call cerveceria.ConsultaCervezaNombre(\'"+dato+"\')}";
+            }else {
+                 consulta="";
+            }
+            ResultSet rs = cstmt.executeQuery(consulta);
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+            con.close();
+            rs.close();
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            
+        }
+  
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,17 +63,20 @@ public class ConsultaCerveza extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         BT_Buscar = new javax.swing.JButton();
         PT_Nombre = new javax.swing.JFormattedTextField();
-        CB_Nombre = new javax.swing.JComboBox<String>();
+        CB_Nombre = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(null);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Consulta Cerveza");
         add(jLabel11);
         jLabel11.setBounds(320, 50, 180, 22);
 
         jTable1.setBackground(new java.awt.Color(236, 236, 199));
+        jTable1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -59,8 +91,10 @@ public class ConsultaCerveza extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(30, 200, 740, 210);
+        jScrollPane1.setBounds(10, 200, 780, 210);
 
+        BT_Buscar.setBackground(new java.awt.Color(102, 102, 102));
+        BT_Buscar.setForeground(new java.awt.Color(255, 255, 255));
         BT_Buscar.setText("Buscar");
         BT_Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,9 +102,9 @@ public class ConsultaCerveza extends javax.swing.JPanel {
             }
         });
         add(BT_Buscar);
-        BT_Buscar.setBounds(530, 120, 80, 34);
+        BT_Buscar.setBounds(530, 120, 90, 40);
 
-        PT_Nombre.setBackground(new java.awt.Color(217, 217, 148));
+        PT_Nombre.setBackground(new java.awt.Color(242, 242, 118));
         PT_Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PT_NombreActionPerformed(evt);
@@ -79,23 +113,32 @@ public class ConsultaCerveza extends javax.swing.JPanel {
         add(PT_Nombre);
         PT_Nombre.setBounds(230, 150, 150, 20);
 
-        CB_Nombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nombre", "Tipo" }));
+        CB_Nombre.setBackground(new java.awt.Color(242, 242, 118));
+        CB_Nombre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Tipo" }));
         CB_Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CB_NombreActionPerformed(evt);
             }
         });
         add(CB_Nombre);
-        CB_Nombre.setBounds(230, 120, 99, 22);
+        CB_Nombre.setBounds(230, 120, 120, 22);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Buscar por: ");
         add(jLabel4);
         jLabel4.setBounds(120, 120, 100, 15);
+
+        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        jLabel1.setOpaque(true);
+        add(jLabel1);
+        jLabel1.setBounds(0, 0, 800, 550);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BT_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_BuscarActionPerformed
         // TODO add your handling code here:
+        UpdateTable();
        
     }//GEN-LAST:event_BT_BuscarActionPerformed
 
@@ -112,6 +155,7 @@ public class ConsultaCerveza extends javax.swing.JPanel {
     private javax.swing.JButton BT_Buscar;
     private javax.swing.JComboBox<String> CB_Nombre;
     private javax.swing.JFormattedTextField PT_Nombre;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
