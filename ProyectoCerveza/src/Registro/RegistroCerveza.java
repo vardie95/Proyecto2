@@ -5,11 +5,13 @@
  */
 package Registro;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +23,7 @@ public class RegistroCerveza extends javax.swing.JPanel {
     ArrayList llavesFermentacion= new ArrayList();
     ArrayList llavesEstilo= new ArrayList();
     ArrayList llavesTipo= new ArrayList();
+    ArrayList llavesColor= new ArrayList();
     /**
      * Creates new form RegistroCerveza
      */
@@ -30,6 +33,7 @@ public class RegistroCerveza extends javax.swing.JPanel {
         LlenarCuerpo();
         LlenarFermentacion();
         LlenarEstilo();
+        LlenarColor();
     }
     public final void LlenarFamilia()
     {
@@ -65,6 +69,27 @@ public class RegistroCerveza extends javax.swing.JPanel {
                 while(rs.next()){
                    llavesCuerpo.add(rs.getInt(1));
                    jComboBox1.addItem(rs.getString("Descripción"));
+                } 
+              con.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+                
+            }
+   
+   }
+    public final void LlenarColor()
+    {
+       jComboBox2.removeAllItems();
+       llavesColor.clear();
+       
+            try {
+                Connection con = proyectocerveza.dbConnection.conectDB();
+                
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call getColor");
+                while(rs.next()){
+                   llavesColor.add(rs.getInt(1));
+                   jComboBox2.addItem(rs.getString("Descripción"));
                 } 
               con.close();
             } catch (SQLException ex) {
@@ -136,7 +161,38 @@ public class RegistroCerveza extends javax.swing.JPanel {
             }
    
    }
+public final void InsertCerveza(){
+        String nombre=TF_Descripcion1.getText();
+        String Temp=TF_Descripcion2.getText();
+        String precio=TF_Descripcion3.getText();
+        Connection con= null;
+        con= proyectocerveza.dbConnection.conectDB();
+            try {
+                CallableStatement proc= con.prepareCall("{call insertCerveza(?,?,?,?,?,?,?,?)}");
+                proc.setString(1, nombre);
+                proc.setString(2, Temp);
+                proc.setString(3, precio);
+                proc.setInt(4, (int) llavesCuerpo.get(jComboBox1.getSelectedIndex()));
+                proc.setInt(5, (int) llavesColor.get(jComboBox2.getSelectedIndex()));
+                proc.setInt(6, (int) llavesFermentacion.get(jComboBox3.getSelectedIndex()));
+                proc.setInt(7, (int) llavesEstilo.get(jComboBox4.getSelectedIndex()));
+                proc.setInt(8, (int) llavesTipo.get(jComboBox6.getSelectedIndex()));
+                proc.execute();
+                JOptionPane.showMessageDialog(this," Cerveza Registrada Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                TF_Descripcion1.setText("");
+                TF_Descripcion2.setText("");
+                TF_Descripcion3.setText("");
+                con.close();
+                
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
 
+            }
+    
+    
+    
+    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -173,48 +229,61 @@ public class RegistroCerveza extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         TF_Descripcion3 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre");
         add(jLabel1);
-        jLabel1.setBounds(80, 70, 70, 14);
+        jLabel1.setBounds(60, 70, 80, 16);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox1);
         jComboBox1.setBounds(200, 110, 160, 20);
 
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cuerpo");
         add(jLabel2);
-        jLabel2.setBounds(80, 110, 70, 20);
+        jLabel2.setBounds(60, 110, 80, 20);
 
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Color");
         add(jLabel3);
-        jLabel3.setBounds(80, 160, 70, 14);
+        jLabel3.setBounds(60, 160, 80, 16);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox2);
         jComboBox2.setBounds(200, 160, 160, 20);
 
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Fermentación: ");
         add(jLabel4);
-        jLabel4.setBounds(80, 210, 87, 14);
+        jLabel4.setBounds(57, 210, 100, 16);
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox3);
         jComboBox3.setBounds(200, 210, 160, 20);
 
+        jLabel5.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Estilo: ");
         add(jLabel5);
-        jLabel5.setBounds(80, 260, 87, 14);
+        jLabel5.setBounds(57, 260, 100, 16);
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox4);
         jComboBox4.setBounds(200, 260, 160, 20);
 
+        jLabel6.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Familia: ");
         add(jLabel6);
-        jLabel6.setBounds(80, 320, 87, 14);
+        jLabel6.setBounds(57, 320, 100, 16);
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox5.addActionListener(new java.awt.event.ActionListener() {
@@ -229,7 +298,7 @@ public class RegistroCerveza extends javax.swing.JPanel {
         add(jComboBox6);
         jComboBox6.setBounds(200, 360, 160, 20);
 
-        TF_Descripcion1.setBackground(new java.awt.Color(217, 217, 148));
+        TF_Descripcion1.setBackground(new java.awt.Color(222, 222, 172));
         TF_Descripcion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_Descripcion1ActionPerformed(evt);
@@ -238,15 +307,19 @@ public class RegistroCerveza extends javax.swing.JPanel {
         add(TF_Descripcion1);
         TF_Descripcion1.setBounds(200, 60, 164, 20);
 
+        jLabel8.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Tipo: ");
         add(jLabel8);
-        jLabel8.setBounds(80, 370, 87, 14);
+        jLabel8.setBounds(57, 370, 100, 16);
 
+        jLabel9.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Temperatura: ");
         add(jLabel9);
-        jLabel9.setBounds(80, 400, 87, 14);
+        jLabel9.setBounds(57, 400, 100, 16);
 
-        TF_Descripcion2.setBackground(new java.awt.Color(217, 217, 148));
+        TF_Descripcion2.setBackground(new java.awt.Color(222, 222, 172));
         TF_Descripcion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_Descripcion2ActionPerformed(evt);
@@ -265,6 +338,11 @@ public class RegistroCerveza extends javax.swing.JPanel {
         jButton1.setBounds(560, 240, 120, 50);
 
         jButton2.setText("Agregar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         add(jButton2);
         jButton2.setBounds(560, 160, 120, 50);
 
@@ -322,11 +400,13 @@ public class RegistroCerveza extends javax.swing.JPanel {
         add(jButton8);
         jButton8.setBounds(380, 160, 80, 23);
 
+        jLabel10.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Precio:   ");
         add(jLabel10);
-        jLabel10.setBounds(380, 400, 87, 14);
+        jLabel10.setBounds(357, 400, 80, 16);
 
-        TF_Descripcion3.setBackground(new java.awt.Color(217, 217, 148));
+        TF_Descripcion3.setBackground(new java.awt.Color(222, 222, 172));
         TF_Descripcion3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_Descripcion3ActionPerformed(evt);
@@ -335,10 +415,15 @@ public class RegistroCerveza extends javax.swing.JPanel {
         add(TF_Descripcion3);
         TF_Descripcion3.setBounds(450, 400, 120, 20);
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Registro Cerveza");
         add(jLabel11);
-        jLabel11.setBounds(280, 20, 180, 22);
+        jLabel11.setBounds(280, 20, 200, 30);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        add(jLabel7);
+        jLabel7.setBounds(0, 0, 870, 530);
     }// </editor-fold>//GEN-END:initComponents
 
     private void TF_Descripcion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_Descripcion1ActionPerformed
@@ -397,6 +482,17 @@ public class RegistroCerveza extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jComboBox5ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        if (TF_Descripcion1.getText().length()==0 || TF_Descripcion2.getText().length()==0 || TF_Descripcion3.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            InsertCerveza();
+        }
+    
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TF_Descripcion1;
@@ -424,6 +520,7 @@ public class RegistroCerveza extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables

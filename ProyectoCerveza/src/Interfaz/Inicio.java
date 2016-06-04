@@ -58,6 +58,8 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem18 = new javax.swing.JMenuItem();
         jM_Persona = new javax.swing.JMenuItem();
         jM_Cerveza = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -83,8 +85,10 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.setToolTipText("Cerveceria");
         jPanel1.setLayout(new java.awt.CardLayout());
 
-        jMenuBar1.setPreferredSize(new java.awt.Dimension(56, 50));
+        jMenuBar1.setBackground(new java.awt.Color(102, 102, 102));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(56, 56));
 
+        jMenu1.setForeground(new java.awt.Color(255, 255, 255));
         jMenu1.setText("                   Inicio");
         jMenu1.setPreferredSize(new java.awt.Dimension(190, 19));
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -94,6 +98,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu1);
 
+        jMenu3.setForeground(new java.awt.Color(255, 255, 255));
         jMenu3.setText("               Registro");
         jMenu3.setPreferredSize(new java.awt.Dimension(190, 19));
         jMenu3.addActionListener(new java.awt.event.ActionListener() {
@@ -102,9 +107,16 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        jMenu2.setBackground(new java.awt.Color(102, 102, 102));
+        jMenu2.setForeground(new java.awt.Color(248, 246, 246));
         jMenu2.setText("Ubicación");
+        jMenu2.setOpaque(true);
+        jMenu2.setPreferredSize(new java.awt.Dimension(150, 30));
 
+        jMenuItem12.setBackground(new java.awt.Color(153, 153, 153));
+        jMenuItem12.setForeground(new java.awt.Color(253, 253, 253));
         jMenuItem12.setText("País");
+        jMenuItem12.setPreferredSize(new java.awt.Dimension(100, 25));
         jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem12ActionPerformed(evt);
@@ -112,7 +124,10 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem12);
 
+        jMenuItem11.setBackground(new java.awt.Color(153, 153, 153));
+        jMenuItem11.setForeground(new java.awt.Color(253, 253, 253));
         jMenuItem11.setText("Provincia");
+        jMenuItem11.setPreferredSize(new java.awt.Dimension(100, 25));
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem11ActionPerformed(evt);
@@ -120,7 +135,10 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem11);
 
+        jMenuItem10.setBackground(new java.awt.Color(153, 153, 153));
+        jMenuItem10.setForeground(new java.awt.Color(253, 253, 253));
         jMenuItem10.setText("Cantón");
+        jMenuItem10.setPreferredSize(new java.awt.Dimension(100, 25));
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem10ActionPerformed(evt);
@@ -128,7 +146,10 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem10);
 
+        jMenuItem9.setBackground(new java.awt.Color(153, 153, 153));
+        jMenuItem9.setForeground(new java.awt.Color(253, 253, 253));
         jMenuItem9.setText("Distrito");
+        jMenuItem9.setPreferredSize(new java.awt.Dimension(100, 25));
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem9ActionPerformed(evt);
@@ -138,8 +159,29 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenu3.add(jMenu2);
 
+        jMenu6.setBackground(new java.awt.Color(102, 102, 102));
+        jMenu6.setForeground(new java.awt.Color(248, 246, 246));
+        jMenu6.setText("Gustos Persona");
+        jMenu6.setOpaque(true);
+        jMenu6.setPreferredSize(new java.awt.Dimension(150, 30));
+
+        jMenuItem18.setBackground(new java.awt.Color(153, 153, 153));
+        jMenuItem18.setForeground(new java.awt.Color(253, 253, 253));
+        jMenuItem18.setText("Registrar Compra");
+        jMenuItem18.setPreferredSize(new java.awt.Dimension(150, 25));
+        jMenuItem18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem18ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem18);
+
+        jMenu3.add(jMenu6);
+
+        jM_Persona.setBackground(new java.awt.Color(102, 102, 102));
+        jM_Persona.setForeground(new java.awt.Color(255, 255, 255));
         jM_Persona.setText("Persona");
-        jM_Persona.setPreferredSize(new java.awt.Dimension(150, 20));
+        jM_Persona.setPreferredSize(new java.awt.Dimension(150, 30));
         jM_Persona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jM_PersonaActionPerformed(evt);
@@ -147,8 +189,10 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu3.add(jM_Persona);
 
+        jM_Cerveza.setBackground(new java.awt.Color(102, 102, 102));
+        jM_Cerveza.setForeground(new java.awt.Color(255, 255, 255));
         jM_Cerveza.setText("Cerveza");
-        jM_Cerveza.setPreferredSize(new java.awt.Dimension(150, 20));
+        jM_Cerveza.setPreferredSize(new java.awt.Dimension(150, 30));
         jM_Cerveza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jM_CervezaActionPerformed(evt);
@@ -156,7 +200,10 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu3.add(jM_Cerveza);
 
+        jMenuItem2.setBackground(new java.awt.Color(102, 102, 102));
+        jMenuItem2.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem2.setText("Cuerpo");
+        jMenuItem2.setPreferredSize(new java.awt.Dimension(150, 30));
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -164,8 +211,10 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem2);
 
+        jMenuItem4.setBackground(new java.awt.Color(102, 102, 102));
+        jMenuItem4.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem4.setText("Fermentación");
-        jMenuItem4.setPreferredSize(new java.awt.Dimension(150, 20));
+        jMenuItem4.setPreferredSize(new java.awt.Dimension(150, 30));
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -173,7 +222,10 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem4);
 
+        jMenuItem6.setBackground(new java.awt.Color(102, 102, 102));
+        jMenuItem6.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem6.setText("Estilo");
+        jMenuItem6.setPreferredSize(new java.awt.Dimension(150, 30));
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -181,7 +233,10 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem6);
 
+        jMenuItem7.setBackground(new java.awt.Color(102, 102, 102));
+        jMenuItem7.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem7.setText("Familia");
+        jMenuItem7.setPreferredSize(new java.awt.Dimension(150, 30));
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem7ActionPerformed(evt);
@@ -189,7 +244,10 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem7);
 
+        jMenuItem8.setBackground(new java.awt.Color(102, 102, 102));
+        jMenuItem8.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem8.setText("Color");
+        jMenuItem8.setPreferredSize(new java.awt.Dimension(150, 30));
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);
@@ -197,7 +255,10 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem8);
 
+        jMenuItem5.setBackground(new java.awt.Color(102, 102, 102));
+        jMenuItem5.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem5.setText("Tipo");
+        jMenuItem5.setPreferredSize(new java.awt.Dimension(150, 30));
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -207,6 +268,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu4.setForeground(new java.awt.Color(255, 255, 255));
         jMenu4.setText("               Consultas");
         jMenu4.setPreferredSize(new java.awt.Dimension(190, 19));
 
@@ -236,6 +298,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        jMenu5.setForeground(new java.awt.Color(255, 255, 255));
         jMenu5.setText("                  Estadística");
         jMenu5.setPreferredSize(new java.awt.Dimension(190, 19));
 
@@ -275,7 +338,7 @@ public class Inicio extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
 
         pack();
@@ -461,6 +524,17 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.revalidate();
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
+    private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
+        // TODO add your handling code here:
+        Registro.RegistroGustoxPersona panelIni= new Registro.RegistroGustoxPersona();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    
+        
+    }//GEN-LAST:event_jMenuItem18ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -505,6 +579,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
@@ -515,6 +590,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
+    private javax.swing.JMenuItem jMenuItem18;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
