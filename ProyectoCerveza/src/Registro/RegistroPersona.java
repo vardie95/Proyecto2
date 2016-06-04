@@ -183,48 +183,73 @@ public class RegistroPersona extends javax.swing.JPanel {
         BT_Agregar = new javax.swing.JButton();
         BT_AgregarFoto = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(null);
 
+        TF_Identificacion.setBackground(new java.awt.Color(244, 244, 179));
+        TF_Identificacion.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         TF_Identificacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_IdentificacionActionPerformed(evt);
             }
         });
         add(TF_Identificacion);
-        TF_Identificacion.setBounds(250, 50, 123, 20);
+        TF_Identificacion.setBounds(210, 60, 140, 20);
 
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Identificación:");
         add(jLabel1);
-        jLabel1.setBounds(140, 60, 90, 14);
-        add(TF_Nombre);
-        TF_Nombre.setBounds(250, 100, 167, 20);
-        add(TF_Apellido1);
-        TF_Apellido1.setBounds(250, 150, 167, 20);
-        add(TF_Apellido2);
-        TF_Apellido2.setBounds(250, 200, 167, 20);
+        jLabel1.setBounds(70, 60, 130, 16);
 
+        TF_Nombre.setBackground(new java.awt.Color(244, 244, 179));
+        TF_Nombre.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        add(TF_Nombre);
+        TF_Nombre.setBounds(210, 100, 180, 20);
+
+        TF_Apellido1.setBackground(new java.awt.Color(244, 244, 179));
+        TF_Apellido1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        add(TF_Apellido1);
+        TF_Apellido1.setBounds(210, 140, 180, 20);
+
+        TF_Apellido2.setBackground(new java.awt.Color(244, 244, 179));
+        TF_Apellido2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        add(TF_Apellido2);
+        TF_Apellido2.setBounds(210, 190, 180, 20);
+
+        TF_Direccion.setBackground(new java.awt.Color(244, 244, 179));
         TF_Direccion.setColumns(20);
+        TF_Direccion.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         TF_Direccion.setRows(5);
         jScrollPane1.setViewportView(TF_Direccion);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(120, 340, 443, 129);
+        jScrollPane1.setBounds(90, 350, 460, 129);
 
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre:");
         add(jLabel2);
-        jLabel2.setBounds(140, 100, 68, 14);
+        jLabel2.setBounds(70, 100, 110, 16);
 
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Apellido 1: ");
         add(jLabel3);
-        jLabel3.setBounds(140, 150, 68, 14);
+        jLabel3.setBounds(70, 140, 110, 16);
 
+        jLabel4.setBackground(new java.awt.Color(217, 217, 152));
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Dirección: ");
         add(jLabel4);
-        jLabel4.setBounds(120, 320, 68, 14);
+        jLabel4.setBounds(70, 330, 110, 16);
 
+        jComboBox1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "País" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,8 +257,9 @@ public class RegistroPersona extends javax.swing.JPanel {
             }
         });
         add(jComboBox1);
-        jComboBox1.setBounds(120, 280, 103, 20);
+        jComboBox1.setBounds(60, 270, 130, 20);
 
+        jComboBox2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Provincia" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,8 +267,9 @@ public class RegistroPersona extends javax.swing.JPanel {
             }
         });
         add(jComboBox2);
-        jComboBox2.setBounds(230, 280, 103, 20);
+        jComboBox2.setBounds(213, 270, 120, 20);
 
+        jComboBox3.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cantón" }));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,21 +277,26 @@ public class RegistroPersona extends javax.swing.JPanel {
             }
         });
         add(jComboBox3);
-        jComboBox3.setBounds(350, 280, 103, 20);
+        jComboBox3.setBounds(360, 270, 120, 20);
 
+        jComboBox4.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Distrito" }));
         add(jComboBox4);
-        jComboBox4.setBounds(460, 280, 103, 20);
+        jComboBox4.setBounds(510, 270, 120, 20);
 
-        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel5.setBackground(new java.awt.Color(244, 244, 179));
         jLabel5.setOpaque(true);
         add(jLabel5);
-        jLabel5.setBounds(610, 70, 110, 130);
+        jLabel5.setBounds(580, 60, 120, 130);
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Foto:");
         add(jLabel6);
-        jLabel6.setBounds(570, 70, 34, 14);
+        jLabel6.setBounds(540, 64, 34, 20);
 
+        BT_Agregar.setBackground(new java.awt.Color(102, 102, 102));
+        BT_Agregar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        BT_Agregar.setForeground(new java.awt.Color(255, 255, 255));
         BT_Agregar.setText("Agregar");
         BT_Agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,8 +304,11 @@ public class RegistroPersona extends javax.swing.JPanel {
             }
         });
         add(BT_Agregar);
-        BT_Agregar.setBounds(620, 340, 90, 40);
+        BT_Agregar.setBounds(600, 370, 100, 50);
 
+        BT_AgregarFoto.setBackground(new java.awt.Color(102, 102, 102));
+        BT_AgregarFoto.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        BT_AgregarFoto.setForeground(new java.awt.Color(255, 255, 255));
         BT_AgregarFoto.setText("Agregar Foto");
         BT_AgregarFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,15 +316,26 @@ public class RegistroPersona extends javax.swing.JPanel {
             }
         });
         add(BT_AgregarFoto);
-        BT_AgregarFoto.setBounds(610, 210, 110, 20);
+        BT_AgregarFoto.setBounds(580, 200, 119, 30);
 
+        jLabel8.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Apellido 2: ");
         add(jLabel8);
-        jLabel8.setBounds(140, 200, 68, 14);
+        jLabel8.setBounds(70, 190, 110, 16);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
-        add(jLabel7);
-        jLabel7.setBounds(0, 0, 830, 550);
+        jLabel11.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Registro Persona");
+        add(jLabel11);
+        jLabel11.setBounds(360, 20, 200, 30);
+
+        jLabel9.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel9.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        jLabel9.setOpaque(true);
+        add(jLabel9);
+        jLabel9.setBounds(-10, -70, 850, 670);
     }// </editor-fold>//GEN-END:initComponents
 
     private void TF_IdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_IdentificacionActionPerformed
@@ -372,13 +418,14 @@ public class RegistroPersona extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
