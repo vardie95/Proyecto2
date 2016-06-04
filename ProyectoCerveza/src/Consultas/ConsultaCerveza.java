@@ -24,6 +24,7 @@ public class ConsultaCerveza extends javax.swing.JPanel {
     public ConsultaCerveza() {
         initComponents();
         UpdateTable();
+        
     }
     private void UpdateTable(){
          String consulta;
@@ -34,7 +35,7 @@ public class ConsultaCerveza extends javax.swing.JPanel {
             if ("Nombre".equals(CB_Nombre.getSelectedItem().toString())){
                  consulta="{call cerveceria.ConsultaCervezaNombre(\'"+dato+"\')}";
             }else {
-                 consulta="";
+                 consulta="{call cerveceria.ConsultaTipoCerveza(\'"+dato+"\')}";
             }
             ResultSet rs = cstmt.executeQuery(consulta);
             jTable1.setModel(DbUtils.resultSetToTableModel(rs));

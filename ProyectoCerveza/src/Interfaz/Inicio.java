@@ -79,7 +79,7 @@ public class Inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cervecería");
-        setLocation(new java.awt.Point(250, 100));
+        setLocation(new java.awt.Point(300, 100));
         setMinimumSize(new java.awt.Dimension(800, 560));
 
         jPanel1.setToolTipText("Cerveceria");
