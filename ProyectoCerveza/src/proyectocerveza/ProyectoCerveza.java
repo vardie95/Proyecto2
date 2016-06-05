@@ -20,8 +20,7 @@ public class ProyectoCerveza {
         // TODO code application logic here
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
       public void run() {
-        new Inicio().setVisible(true);
-        //new Interfaz.InicioSesion().setVisible(true);
+        new Interfaz.InicioSesion().setVisible(true);
       }
     });
     }
