@@ -123,10 +123,10 @@ public class RegistroCuerpo2 extends javax.swing.JPanel {
         jComboBox2 = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(800, 550));
+        setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(null);
 
-        jLayeredPane1.setPreferredSize(new java.awt.Dimension(710, 550));
+        jLayeredPane1.setPreferredSize(new java.awt.Dimension(800, 700));
         jLayeredPane1.setLayout(new javax.swing.OverlayLayout(jLayeredPane1));
 
         Registro.setLayout(null);
@@ -180,8 +180,9 @@ public class RegistroCuerpo2 extends javax.swing.JPanel {
         jButton6.setBounds(510, 330, 130, 50);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        jLabel7.setPreferredSize(new java.awt.Dimension(812, 600));
         Registro.add(jLabel7);
-        jLabel7.setBounds(0, 0, 800, 470);
+        jLabel7.setBounds(0, 0, 830, 580);
 
         jLayeredPane1.add(Registro);
 

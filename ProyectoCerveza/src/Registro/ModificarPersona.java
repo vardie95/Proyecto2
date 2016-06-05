@@ -21,21 +21,26 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author Luis Diego
  */
-public class RegistroPersona extends javax.swing.JPanel {
+public class ModificarPersona extends javax.swing.JPanel {
     ArrayList llavesPais= new ArrayList();
      ArrayList llavesProvincia= new ArrayList();
      ArrayList llavesCanton= new ArrayList();
      ArrayList llavesDistrito= new ArrayList();
      String direccionArchivo=null;
      RegistroCerveza panelIni= new RegistroCerveza();
+     
+    ArrayList llavesPersona= new ArrayList();
+    ArrayList llavesNombre= new ArrayList();
+    ArrayList llavesApellido1= new ArrayList();
+    ArrayList llavesApellido2= new ArrayList();
 
     /**
      * Creates new form RegistroPersona
      */
-    public RegistroPersona() {
+    public ModificarPersona() {
         initComponents();
         llenarpais();
-        
+        LlenarIdentificacion();     
     }
     public final  void llenarpais() 
     {
@@ -54,7 +59,32 @@ public class RegistroPersona extends javax.swing.JPanel {
                
             }
     }
-
+    public final void LlenarIdentificacion()
+    {
+       jComboBox5.removeAllItems();
+       llavesPersona.clear();
+       
+            try {
+                Connection con = proyectocerveza.dbConnection.conectDB();
+                
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call getPersona");
+                while(rs.next()){
+                   int identificacion=rs.getInt(1);
+                   llavesPersona.add(rs.getInt(1));
+                   llavesNombre.add(rs.getString(2));
+                   llavesApellido1.add(rs.getString(3));
+                   llavesApellido2.add(rs.getString(4));
+                   jComboBox5.addItem(Integer.toString(identificacion));
+                } 
+              con.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+                
+            }
+   
+   }
+    
     public final void LlenarProvincia()
     {
        jComboBox2.removeAllItems();
@@ -117,10 +147,41 @@ public class RegistroPersona extends javax.swing.JPanel {
             } catch (SQLException ex) {
                 System.out.println(ex);
             }
+            
    
    }
-    public final void InsertPersona(){
-        int identificacion=Integer.parseInt(TF_Identificacion.getText());
+    
+    private void llenarDatos(){
+        try {
+                Connection con = proyectocerveza.dbConnection.conectDB();
+                int id_provincia=(int) llavesPersona.get(jComboBox5.getSelectedIndex());
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call getDatosPersona("+id_provincia+")");
+                while(rs.next()){
+                   TF_Nombre.setText(rs.getString(1));
+                   TF_Apellido1.setText(rs.getString(2));
+                   TF_Apellido2.setText(rs.getString(3));
+                   TF_Direccion.setText(rs.getString(4));
+                   direccionArchivo=rs.getString(5);
+                   ImageIcon image= new ImageIcon(direccionArchivo);
+                    jLabel5.setIcon(image);
+                    jComboBox1.setSelectedItem(llavesPais.get(rs.getInt(9)-1));
+                    jComboBox2.setSelectedItem(llavesProvincia.get(rs.getInt(8)-1));
+                    jComboBox3.setSelectedItem(llavesCanton.get(rs.getInt(7)-1));
+                    jComboBox4.setSelectedIndex(rs.getInt(6)-1);    
+                }
+                
+              con.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+    
+    
+    
+    
+    }
+    public final void ModificarPersona(){
+        int identificacion=Integer.parseInt(jComboBox5.getSelectedItem().toString());
         String Nombre= TF_Nombre.getText();
         String Apellido1=TF_Apellido1.getText();
         String Apellido2=TF_Apellido2.getText();
@@ -129,7 +190,7 @@ public class RegistroPersona extends javax.swing.JPanel {
         Connection con= null;
         con= proyectocerveza.dbConnection.conectDB();
             try {
-                CallableStatement proc= con.prepareCall("{call insertPersona(?,?,?,?,?,?,?)}");
+                CallableStatement proc= con.prepareCall("{call modificarPersona(?,?,?,?,?,?,?)}");
                 proc.setInt(1, identificacion);
                 proc.setString(2, Nombre);
                 proc.setString(3, Apellido1);
@@ -138,7 +199,6 @@ public class RegistroPersona extends javax.swing.JPanel {
                 proc.setString(6, direccionArchivo);
                 proc.setInt(7, idDistrito);
                 proc.execute();
-                TF_Identificacion.setText("");
                 TF_Nombre.setText("");
                 TF_Apellido1.setText("");
                 TF_Apellido2.setText("");
@@ -167,7 +227,6 @@ public class RegistroPersona extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TF_Identificacion = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         TF_Nombre = new javax.swing.JTextField();
         TF_Apellido1 = new javax.swing.JTextField();
@@ -187,21 +246,12 @@ public class RegistroPersona extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         BT_Agregar1 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
         setLayout(null);
-
-        TF_Identificacion.setBackground(new java.awt.Color(244, 244, 179));
-        TF_Identificacion.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        TF_Identificacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_IdentificacionActionPerformed(evt);
-            }
-        });
-        add(TF_Identificacion);
-        TF_Identificacion.setBounds(210, 60, 140, 20);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -307,7 +357,7 @@ public class RegistroPersona extends javax.swing.JPanel {
             }
         });
         add(BT_AgregarFoto);
-        BT_AgregarFoto.setBounds(580, 200, 115, 30);
+        BT_AgregarFoto.setBounds(570, 200, 140, 30);
 
         jLabel8.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -317,14 +367,14 @@ public class RegistroPersona extends javax.swing.JPanel {
 
         jLabel11.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Registro Persona");
+        jLabel11.setText("Modificar Persona");
         add(jLabel11);
-        jLabel11.setBounds(360, 20, 200, 30);
+        jLabel11.setBounds(340, 20, 200, 30);
 
         BT_Agregar1.setBackground(new java.awt.Color(102, 102, 102));
         BT_Agregar1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         BT_Agregar1.setForeground(new java.awt.Color(255, 255, 255));
-        BT_Agregar1.setText("Agregar");
+        BT_Agregar1.setText("Modificar");
         BT_Agregar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BT_Agregar1ActionPerformed(evt);
@@ -333,14 +383,20 @@ public class RegistroPersona extends javax.swing.JPanel {
         add(BT_Agregar1);
         BT_Agregar1.setBounds(600, 350, 100, 50);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
-        add(jLabel9);
-        jLabel9.setBounds(0, -10, 930, 590);
-    }// </editor-fold>//GEN-END:initComponents
+        jComboBox5.setBackground(new java.awt.Color(248, 248, 163));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox5ActionPerformed(evt);
+            }
+        });
+        add(jComboBox5);
+        jComboBox5.setBounds(210, 60, 280, 30);
 
-    private void TF_IdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_IdentificacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_IdentificacionActionPerformed
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        add(jLabel7);
+        jLabel7.setBounds(0, -10, 840, 590);
+    }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
@@ -382,15 +438,36 @@ public class RegistroPersona extends javax.swing.JPanel {
             direccionArchivo =fotoFile.getSelectedFile().getAbsolutePath();
             ImageIcon image= new ImageIcon(direccionArchivo);
             jLabel5.setIcon(image);
-       
+           
         
         }
     }//GEN-LAST:event_BT_AgregarFotoActionPerformed
 
     private void BT_Agregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_Agregar1ActionPerformed
         // TODO add your handling code here:
-        InsertPersona();
+        int confirmacion=JOptionPane.showConfirmDialog(this,"¿Esta Seguro que desea Modificar esta persona?");
+       switch (confirmacion) {
+                case JOptionPane.NO_OPTION:
+                break;
+                case JOptionPane.YES_OPTION:
+                ModificarPersona();
+                break;
+                case JOptionPane.CLOSED_OPTION:
+                break;
+                default:
+                break;
+            }
     }//GEN-LAST:event_BT_Agregar1ActionPerformed
+
+    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+        // TODO add your handling code here:
+        if(evt.getSource()==jComboBox5){
+            if(jComboBox5.getSelectedItem()!=null){
+                llenarDatos();
+            }
+        }
+
+    }//GEN-LAST:event_jComboBox5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -399,12 +476,12 @@ public class RegistroPersona extends javax.swing.JPanel {
     private javax.swing.JTextField TF_Apellido1;
     private javax.swing.JTextField TF_Apellido2;
     private javax.swing.JTextArea TF_Direccion;
-    private javax.swing.JTextField TF_Identificacion;
     private javax.swing.JTextField TF_Nombre;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -412,8 +489,8 @@ public class RegistroPersona extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

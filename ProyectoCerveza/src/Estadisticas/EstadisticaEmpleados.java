@@ -34,19 +34,18 @@ public class EstadisticaEmpleados extends javax.swing.JPanel {
     
     
 private void TotalEmpleados(){
-         String consulta;
         try {
             Connection con = proyectocerveza.dbConnection.conectDB();
             Statement cstmt = con.createStatement();
-            consulta="{call cerveceria.TotalEmpleados}";
-            
-            ResultSet rs = cstmt.executeQuery(consulta);
-            TotalEmpleados.setText(Integer.toString(rs.getInt(1)));
+            ResultSet rs = cstmt.executeQuery("{call cerveceria.TotalEmpleados}");
+            while(rs.next()){
+                TotalEmpleados.setText(Integer.toString(rs.getInt(1)));
+            }
             con.close();
             rs.close();
             
         } catch (SQLException ex) {
-            
+            System.out.println(ex);
             
         }
   

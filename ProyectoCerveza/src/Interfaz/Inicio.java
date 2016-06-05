@@ -60,7 +60,13 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem18 = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
         jM_Persona = new javax.swing.JMenuItem();
+        jM_Persona2 = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
+        jM_Persona3 = new javax.swing.JMenuItem();
+        jM_Persona4 = new javax.swing.JMenuItem();
+        jM_Persona5 = new javax.swing.JMenuItem();
         jM_Cerveza = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -68,6 +74,7 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jM_Persona1 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
@@ -179,16 +186,76 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenu3.add(jMenu6);
 
+        jMenu7.setBackground(new java.awt.Color(102, 102, 102));
+        jMenu7.setForeground(new java.awt.Color(248, 246, 246));
+        jMenu7.setText("Persona");
+        jMenu7.setOpaque(true);
+        jMenu7.setPreferredSize(new java.awt.Dimension(150, 30));
+
         jM_Persona.setBackground(new java.awt.Color(102, 102, 102));
         jM_Persona.setForeground(new java.awt.Color(255, 255, 255));
-        jM_Persona.setText("Persona");
+        jM_Persona.setText("Registrar");
         jM_Persona.setPreferredSize(new java.awt.Dimension(150, 30));
         jM_Persona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jM_PersonaActionPerformed(evt);
             }
         });
-        jMenu3.add(jM_Persona);
+        jMenu7.add(jM_Persona);
+
+        jM_Persona2.setBackground(new java.awt.Color(102, 102, 102));
+        jM_Persona2.setForeground(new java.awt.Color(255, 255, 255));
+        jM_Persona2.setText("Modificar");
+        jM_Persona2.setPreferredSize(new java.awt.Dimension(150, 30));
+        jM_Persona2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_Persona2ActionPerformed(evt);
+            }
+        });
+        jMenu7.add(jM_Persona2);
+
+        jMenu3.add(jMenu7);
+
+        jMenu8.setBackground(new java.awt.Color(102, 102, 102));
+        jMenu8.setForeground(new java.awt.Color(248, 246, 246));
+        jMenu8.setText("Cerveza");
+        jMenu8.setOpaque(true);
+        jMenu8.setPreferredSize(new java.awt.Dimension(150, 30));
+
+        jM_Persona3.setBackground(new java.awt.Color(102, 102, 102));
+        jM_Persona3.setForeground(new java.awt.Color(255, 255, 255));
+        jM_Persona3.setText("Registrar");
+        jM_Persona3.setPreferredSize(new java.awt.Dimension(150, 30));
+        jM_Persona3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_Persona3ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jM_Persona3);
+
+        jM_Persona4.setBackground(new java.awt.Color(102, 102, 102));
+        jM_Persona4.setForeground(new java.awt.Color(255, 255, 255));
+        jM_Persona4.setText("Modificar");
+        jM_Persona4.setPreferredSize(new java.awt.Dimension(150, 30));
+        jM_Persona4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_Persona4ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jM_Persona4);
+
+        jM_Persona5.setBackground(new java.awt.Color(102, 102, 102));
+        jM_Persona5.setForeground(new java.awt.Color(255, 255, 255));
+        jM_Persona5.setText("Modificar Precio");
+        jM_Persona5.setPreferredSize(new java.awt.Dimension(150, 30));
+        jM_Persona5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_Persona5ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jM_Persona5);
+
+        jMenu3.add(jMenu8);
 
         jM_Cerveza.setBackground(new java.awt.Color(102, 102, 102));
         jM_Cerveza.setForeground(new java.awt.Color(255, 255, 255));
@@ -266,6 +333,17 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         jMenu3.add(jMenuItem5);
+
+        jM_Persona1.setBackground(new java.awt.Color(102, 102, 102));
+        jM_Persona1.setForeground(new java.awt.Color(255, 255, 255));
+        jM_Persona1.setText("Empleado");
+        jM_Persona1.setPreferredSize(new java.awt.Dimension(150, 30));
+        jM_Persona1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_Persona1ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jM_Persona1);
 
         jMenuBar1.add(jMenu3);
 
@@ -550,6 +628,52 @@ public class Inicio extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem18ActionPerformed
 
+    private void jM_Persona1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_Persona1ActionPerformed
+        // TODO add your handling code here:
+        Registro.RegistroEmpleado panelIni= new Registro.RegistroEmpleado();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    }//GEN-LAST:event_jM_Persona1ActionPerformed
+
+    private void jM_Persona2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_Persona2ActionPerformed
+        // TODO add your handling code here:
+        Registro.ModificarPersona panelIni= new Registro.ModificarPersona();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    
+    }//GEN-LAST:event_jM_Persona2ActionPerformed
+
+    private void jM_Persona3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_Persona3ActionPerformed
+        // TODO add your handling code here:
+        Registro.RegistroCerveza panelIni= new Registro.RegistroCerveza();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    }//GEN-LAST:event_jM_Persona3ActionPerformed
+
+    private void jM_Persona4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_Persona4ActionPerformed
+        // TODO add your handling code here:
+        Registro.ModificarCerveza panelIni= new Registro.ModificarCerveza();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    }//GEN-LAST:event_jM_Persona4ActionPerformed
+
+    private void jM_Persona5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_Persona5ActionPerformed
+        // TODO add your handling code here:
+        Registro.ModificarPrecio panelIni= new Registro.ModificarPrecio();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    }//GEN-LAST:event_jM_Persona5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -589,12 +713,19 @@ public class Inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem jM_Cerveza;
     private javax.swing.JMenuItem jM_Persona;
+    private javax.swing.JMenuItem jM_Persona1;
+    private javax.swing.JMenuItem jM_Persona2;
+    private javax.swing.JMenuItem jM_Persona3;
+    private javax.swing.JMenuItem jM_Persona4;
+    private javax.swing.JMenuItem jM_Persona5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
