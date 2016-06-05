@@ -48,17 +48,17 @@ public class ModificarPrecio extends javax.swing.JPanel {
                
             }
     }
-    public void InsertProvincia(){
+    public void ModificarPrecio(){
         Connection con= null;
-            String puesto=jTextField2.getText();
+            int precio=Integer.parseInt(jTextField2.getText());
             con= proyectocerveza.dbConnection.conectDB();
             try {
-                int id_pais=(int) llave.get(jComboBox2.getSelectedIndex());
-                CallableStatement proc= con.prepareCall("{call insertProvincia(?,?)}");
-                proc.setInt(2, id_pais);
-                proc.setString(1,puesto);
+                int id_Cerveza=(int) llave.get(jComboBox2.getSelectedIndex());
+                CallableStatement proc= con.prepareCall("{call ModificarPrecio(?,?)}");
+                proc.setInt(1, id_Cerveza);
+                proc.setInt(2,precio);
                 proc.execute();
-                JOptionPane.showMessageDialog(this, "Provincia Agregada Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Precio Modificado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
                 jTextField2.setText("");
                 con.close();
                 
@@ -134,7 +134,7 @@ public class ModificarPrecio extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton5);
-        jButton5.setBounds(470, 310, 130, 50);
+        jButton5.setBounds(500, 300, 130, 50);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -252,8 +252,12 @@ public class ModificarPrecio extends javax.swing.JPanel {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        Modificar.setVisible(true);
-        Registro.setVisible(false);
+        if (jTextField2.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            ModificarPrecio();
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
