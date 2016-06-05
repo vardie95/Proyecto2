@@ -5,6 +5,7 @@
  */
 package Registro;
 
+import Interfaz.PanelInicio;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -26,6 +27,7 @@ public class RegistroPersona extends javax.swing.JPanel {
      ArrayList llavesCanton= new ArrayList();
      ArrayList llavesDistrito= new ArrayList();
      String direccionArchivo=null;
+     RegistroCerveza panelIni= new RegistroCerveza();
 
     /**
      * Creates new form RegistroPersona
@@ -33,6 +35,7 @@ public class RegistroPersona extends javax.swing.JPanel {
     public RegistroPersona() {
         initComponents();
         llenarpais();
+        
     }
     public final  void llenarpais() 
     {
@@ -184,6 +187,7 @@ public class RegistroPersona extends javax.swing.JPanel {
         BT_AgregarFoto = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        BT_Agregar1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 255, 255));
@@ -228,7 +232,7 @@ public class RegistroPersona extends javax.swing.JPanel {
         jScrollPane1.setViewportView(TF_Direccion);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(90, 350, 460, 129);
+        jScrollPane1.setBounds(90, 320, 460, 129);
 
         jLabel2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -247,7 +251,7 @@ public class RegistroPersona extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Dirección: ");
         add(jLabel4);
-        jLabel4.setBounds(70, 330, 110, 16);
+        jLabel4.setBounds(50, 300, 110, 16);
 
         jComboBox1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "País" }));
@@ -297,14 +301,14 @@ public class RegistroPersona extends javax.swing.JPanel {
         BT_Agregar.setBackground(new java.awt.Color(102, 102, 102));
         BT_Agregar.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         BT_Agregar.setForeground(new java.awt.Color(255, 255, 255));
-        BT_Agregar.setText("Agregar");
+        BT_Agregar.setText("Modificar");
         BT_Agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BT_AgregarActionPerformed(evt);
             }
         });
         add(BT_Agregar);
-        BT_Agregar.setBounds(600, 370, 100, 50);
+        BT_Agregar.setBounds(600, 390, 100, 50);
 
         BT_AgregarFoto.setBackground(new java.awt.Color(102, 102, 102));
         BT_AgregarFoto.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -330,12 +334,21 @@ public class RegistroPersona extends javax.swing.JPanel {
         add(jLabel11);
         jLabel11.setBounds(360, 20, 200, 30);
 
-        jLabel9.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel9.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        BT_Agregar1.setBackground(new java.awt.Color(102, 102, 102));
+        BT_Agregar1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        BT_Agregar1.setForeground(new java.awt.Color(255, 255, 255));
+        BT_Agregar1.setText("Agregar");
+        BT_Agregar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BT_Agregar1ActionPerformed(evt);
+            }
+        });
+        add(BT_Agregar1);
+        BT_Agregar1.setBounds(600, 320, 100, 50);
+
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
-        jLabel9.setOpaque(true);
         add(jLabel9);
-        jLabel9.setBounds(-10, -70, 850, 670);
+        jLabel9.setBounds(0, -10, 930, 590);
     }// </editor-fold>//GEN-END:initComponents
 
     private void TF_IdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_IdentificacionActionPerformed
@@ -354,19 +367,10 @@ public class RegistroPersona extends javax.swing.JPanel {
 
     private void BT_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_AgregarActionPerformed
         // TODO add your handling code here:
-        if (TF_Identificacion.getText().length()==0 ||TF_Nombre.getText().length()==0 ||TF_Apellido1.getText().length()==0 
-                ||TF_Apellido2.getText().length()==0 ||TF_Direccion.getText().length()==0   ){
-            JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE);
-        }
-        else{
-            try {
-                InsertPersona();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Identicación es solo un Campo Numerico",null,JOptionPane.ERROR_MESSAGE);
-                
-            }
-            
-        }
+        
+        
+       
+       
     }//GEN-LAST:event_BT_AgregarActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -404,9 +408,14 @@ public class RegistroPersona extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_BT_AgregarFotoActionPerformed
 
+    private void BT_Agregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_Agregar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BT_Agregar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BT_Agregar;
+    private javax.swing.JButton BT_Agregar1;
     private javax.swing.JButton BT_AgregarFoto;
     private javax.swing.JTextField TF_Apellido1;
     private javax.swing.JTextField TF_Apellido2;

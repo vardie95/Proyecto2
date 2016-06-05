@@ -7,7 +7,10 @@ package Registro;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +18,7 @@ import javax.swing.JOptionPane;
  * @author Luis Diego
  */
 public class RegistroEstilo2 extends javax.swing.JPanel {
+    ArrayList llavesEstilo=new ArrayList();
 
     /**
      * Creates new form RegistroFermentacion
@@ -35,6 +39,47 @@ public class RegistroEstilo2 extends javax.swing.JPanel {
                 proc.execute();
                 JOptionPane.showMessageDialog(this, "Estilo Agregado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
                 jTextField3.setText("");
+                con.close();
+                
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
+
+            }
+    }
+    public final void LlenarEstilo()
+    {
+       jComboBox1.removeAllItems();
+       llavesEstilo.clear();
+       
+            try {
+                Connection con = proyectocerveza.dbConnection.conectDB();
+                
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call getEstilo");
+                while(rs.next()){
+                   llavesEstilo.add(rs.getInt(1));
+                   jComboBox1.addItem(rs.getString("Descripción"));
+                } 
+              con.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+                
+            }
+   
+   }
+    public void ModificarCuerpo(){
+        Connection con= null;
+            int pID=(int) llavesEstilo.get(jComboBox1.getSelectedIndex());
+            String puesto=jTextField4.getText();
+            con= proyectocerveza.dbConnection.conectDB();
+            try {
+                
+                CallableStatement proc= con.prepareCall("{call modificarEstili(?,?)}");
+                proc.setInt(1, pID);
+                proc.setString(2, puesto);
+                proc.execute();
+                JOptionPane.showMessageDialog(this, "Estilo Modificado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                jTextField4.setText("");
                 con.close();
                 
             } catch (SQLException ex) {
@@ -134,6 +179,11 @@ public class RegistroEstilo2 extends javax.swing.JPanel {
         jTextField4.setBounds(290, 190, 225, 31);
 
         jButton8.setText("Modificar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         Modificar.add(jButton8);
         jButton8.setBounds(220, 320, 130, 50);
 
@@ -209,6 +259,7 @@ public class RegistroEstilo2 extends javax.swing.JPanel {
         // TODO add your handling code here:
         Modificar.setVisible(true);
         Registro.setVisible(false);
+        LlenarEstilo();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -228,6 +279,12 @@ public class RegistroEstilo2 extends javax.swing.JPanel {
         Registro.setVisible(true);
         Eliminar.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        ModificarCuerpo();
+        LlenarEstilo();
+    }//GEN-LAST:event_jButton8ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class RegistroTipo2 extends javax.swing.JPanel {
     ArrayList llavesFamilia= new ArrayList();
+    ArrayList llavesTipo= new ArrayList();
 
     /**
      * Creates new form RegistroFermentacion
@@ -32,6 +33,8 @@ public class RegistroTipo2 extends javax.swing.JPanel {
     public final void LlenarFamilia()
     {
        jComboBox2.removeAllItems();
+       jComboBox3.removeAllItems();
+       jComboBox5.removeAllItems();
        llavesFamilia.clear();
        
             try {
@@ -42,6 +45,8 @@ public class RegistroTipo2 extends javax.swing.JPanel {
                 while(rs.next()){
                    llavesFamilia.add(rs.getInt(1));
                    jComboBox2.addItem(rs.getString("Descripcion"));
+                   jComboBox3.addItem(rs.getString("Descripcion"));
+                   jComboBox5.addItem(rs.getString("Descripcion"));
                 } 
               con.close();
             } catch (SQLException ex) {
@@ -62,6 +67,49 @@ public void InsertTipo(){
                 proc.execute();
                 JOptionPane.showMessageDialog(this, "Tipo de Cerveza Agregado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
                 jTextField3.setText("");
+                con.close();
+                
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
+
+            }
+    }
+    public final void LlenarTipo()
+    {
+       jComboBox6.removeAllItems();
+       llavesTipo.clear();
+       
+            try {
+                Connection con = proyectocerveza.dbConnection.conectDB();
+                int idFamilia=(int)llavesFamilia.get(jComboBox3.getSelectedIndex());
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call gettipo("+idFamilia+")");
+                while(rs.next()){
+                   llavesTipo.add(rs.getInt(1));
+                   jComboBox6.addItem(rs.getString("Descripcion"));
+                } 
+              con.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+                
+            }
+   
+   }
+    
+    public void ModificarTipo(){
+        Connection con= null;
+            String puesto=jTextField6.getText();
+            con= proyectocerveza.dbConnection.conectDB();
+            try {
+                int id_Familia=(int) llavesFamilia.get(jComboBox5.getSelectedIndex());
+                int id_tipo=(int) llavesTipo.get(jComboBox6.getSelectedIndex());
+                CallableStatement proc= con.prepareCall("{call ModificarTipo(?,?,?)}");
+                proc.setInt(1, id_Familia);
+                proc.setString(2,puesto);
+                proc.setInt(3, id_tipo);
+                proc.execute();
+                JOptionPane.showMessageDialog(this, "Tipo de Cerveza Modificado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                jTextField6.setText("");
                 con.close();
                 
             } catch (SQLException ex) {
@@ -189,7 +237,7 @@ public void InsertTipo(){
         Modificar.add(jButton8);
         jButton8.setBounds(220, 360, 130, 50);
 
-        jButton9.setText("Eliminar");
+        jButton9.setText("Volver");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -199,6 +247,11 @@ public void InsertTipo(){
         jButton9.setBounds(400, 360, 130, 50);
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
         Modificar.add(jComboBox3);
         jComboBox3.setBounds(290, 110, 230, 30);
 
@@ -294,6 +347,9 @@ public void InsertTipo(){
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        ModificarTipo();
+        LlenarFamilia();
+        LlenarTipo();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -321,6 +377,15 @@ public void InsertTipo(){
             InsertTipo();
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+        if(evt.getSource()==jComboBox3){
+            if(jComboBox3.getSelectedItem()!=null){
+                LlenarTipo();
+            }
+        }
+    }//GEN-LAST:event_jComboBox3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

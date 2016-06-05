@@ -105,7 +105,7 @@ public class RegistroCuerpo2 extends javax.swing.JPanel {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         Modificar = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -178,9 +178,9 @@ public class RegistroCuerpo2 extends javax.swing.JPanel {
         Registro.add(jButton6);
         jButton6.setBounds(510, 330, 130, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
-        Registro.add(jLabel1);
-        jLabel1.setBounds(0, 0, 850, 520);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
+        Registro.add(jLabel7);
+        jLabel7.setBounds(0, 0, 800, 470);
 
         jLayeredPane1.add(Registro);
 
@@ -329,7 +329,6 @@ public class RegistroCuerpo2 extends javax.swing.JPanel {
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -338,6 +337,7 @@ public class RegistroCuerpo2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField6;

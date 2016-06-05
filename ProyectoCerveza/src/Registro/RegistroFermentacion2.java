@@ -7,7 +7,10 @@ package Registro;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author Luis Diego
  */
 public class RegistroFermentacion2 extends javax.swing.JPanel {
-
+    ArrayList llaverFermentacion =new ArrayList();
     /**
      * Creates new form RegistroFermentacion
      */
@@ -45,6 +48,51 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
 
             }
     }
+    public void ModificarFermentacion(){
+        Connection con= null;
+            int pID=(int) llaverFermentacion.get(jComboBox3.getSelectedIndex());
+            String puesto=jTextField6.getText();
+            String tiempo=jTextField3.getText();
+            con= proyectocerveza.dbConnection.conectDB();
+            try {
+                
+                CallableStatement proc= con.prepareCall("{call modificarFermentacion(?,?,?)}");
+                proc.setInt(1, pID);
+                proc.setString(2, puesto);
+                proc.setString(3, tiempo);
+                proc.execute();
+                JOptionPane.showMessageDialog(this, "Fermentación Modificada Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                jTextField6.setText("");
+                jTextField5.setText("");
+                con.close();
+                
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
+
+            }
+    }
+    
+     public final void LlenarFermentacion()
+    {
+       jComboBox3.removeAllItems();
+       llaverFermentacion.clear();
+       
+            try {
+                Connection con = proyectocerveza.dbConnection.conectDB();
+                
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call getFermentacion");
+                while(rs.next()){
+                   llaverFermentacion.add(rs.getInt(1));
+                   jComboBox3.addItem(rs.getString(2));
+                } 
+              con.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+                
+            }
+   
+   }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -163,6 +211,11 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         jLabel13.setBounds(280, 60, 200, 22);
 
         jButton8.setText("Modificar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         Modificar.add(jButton8);
         jButton8.setBounds(240, 330, 130, 50);
 
@@ -243,6 +296,7 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         // TODO add your handling code here:
         Modificar.setVisible(true);
         Registro.setVisible(false);
+        LlenarFermentacion();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -262,6 +316,12 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         Registro.setVisible(true);
         Eliminar.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        ModificarFermentacion();
+        LlenarFermentacion();
+    }//GEN-LAST:event_jButton8ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -7,7 +7,10 @@ package Registro;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +18,7 @@ import javax.swing.JOptionPane;
  * @author Luis Diego
  */
 public class RegistroFamilia2 extends javax.swing.JPanel {
+    ArrayList llavesFamilia=new ArrayList();
 
     /**
      * Creates new form RegistroFermentacion
@@ -42,7 +46,47 @@ public class RegistroFamilia2 extends javax.swing.JPanel {
 
             }
     }
+    public final void LlenarFamilia()
+    {
+       jComboBox1.removeAllItems();
+       llavesFamilia.clear();
+       
+            try {
+                Connection con = proyectocerveza.dbConnection.conectDB();
+                
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call getFamilia");
+                while(rs.next()){
+                   llavesFamilia.add(rs.getInt(1));
+                   jComboBox1.addItem(rs.getString("Descripcion"));
+                } 
+              con.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+                
+            }
+   
+   }
+    public void ModificarFamilia(){
+        Connection con= null;
+            int pID=(int) llavesFamilia.get(jComboBox1.getSelectedIndex());
+            String puesto=jTextField4.getText();
+            con= proyectocerveza.dbConnection.conectDB();
+            try {
+                
+                CallableStatement proc= con.prepareCall("{call modificarFamilia(?,?)}");
+                proc.setInt(1, pID);
+                proc.setString(2, puesto);
+                proc.execute();
+                JOptionPane.showMessageDialog(this, "Familia Modificada Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                jTextField4.setText("");
+                con.close();
+                
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
 
+            }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -134,6 +178,11 @@ public class RegistroFamilia2 extends javax.swing.JPanel {
         jTextField4.setBounds(290, 210, 225, 31);
 
         jButton8.setText("Modificar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         Modificar.add(jButton8);
         jButton8.setBounds(220, 360, 130, 50);
 
@@ -199,12 +248,14 @@ public class RegistroFamilia2 extends javax.swing.JPanel {
         // TODO add your handling code here:
         Modificar.setVisible(true);
         Registro.setVisible(false);
+        LlenarFamilia();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         Registro.setVisible(false);
         Eliminar.setVisible(true);
+       
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -229,6 +280,12 @@ public class RegistroFamilia2 extends javax.swing.JPanel {
         }
     
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        ModificarFamilia();
+        LlenarFamilia();
+    }//GEN-LAST:event_jButton8ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
