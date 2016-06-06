@@ -5,6 +5,13 @@
  */
 package Interfaz;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 
 
 /**
@@ -18,6 +25,30 @@ public class InicioSesion extends javax.swing.JFrame {
      */
     public InicioSesion() {
         initComponents();
+    }
+    private boolean ComprobarUsuario(){
+        try {
+            String usuario=jTextField1.getText();
+            String contraseña=jPasswordField1.getText();
+            Connection con = proyectocerveza.dbConnection.conectDB();
+            Statement cstmt;
+            cstmt = con.createStatement();
+            String comprobar=null;
+            ResultSet rs= cstmt.executeQuery("{call comprobarUsuario(\'"+usuario+"\',\'"+contraseña+"\')}");
+            while(rs.next()){
+                 comprobar=rs.getString(1);
+            }
+            con.close();
+            if(usuario.equals(comprobar))
+                return true;
+            else
+                return false;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return false;
+            
+        }
+        
     }
    
 
@@ -109,7 +140,11 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new Inicio().setVisible(true);
+        if(ComprobarUsuario()){
+        new Inicio().setVisible(true);}
+        else{
+            JOptionPane.showMessageDialog(this, "Contraseña Incorrecta","El usuario o la contraseña son invalidos",JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
