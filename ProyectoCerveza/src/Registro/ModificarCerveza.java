@@ -222,8 +222,6 @@ public final void ModficarCerveza(){
         Connection con= null;
         con= proyectocerveza.dbConnection.conectDB();
             try {
-                // In pDescripcion varchar(45),In pTemperatura varchar(45),
-		//
                 CallableStatement proc= con.prepareCall("call modificar_cerveza(?,?,?,?,?,?,?,?)");
                 proc.setInt(1, idCerveza);
                 proc.setString(2, Temp2);//Nombre

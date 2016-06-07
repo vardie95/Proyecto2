@@ -82,6 +82,7 @@ public class InicioSesion extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
+        jTextField1.setBackground(new java.awt.Color(252, 252, 118));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -89,6 +90,8 @@ public class InicioSesion extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField1);
         jTextField1.setBounds(350, 210, 160, 30);
+
+        jPasswordField1.setBackground(new java.awt.Color(252, 252, 118));
         getContentPane().add(jPasswordField1);
         jPasswordField1.setBounds(350, 250, 160, 30);
 
