@@ -7,7 +7,10 @@ package Registro;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,7 +19,8 @@ import javax.swing.JOptionPane;
  */
 
 public class RegistroPais extends javax.swing.JPanel {
-
+    ArrayList llave= new ArrayList();
+    ArrayList llavesPais= new ArrayList();
     /**
      * Creates new form RegistroFermentacion
      */
@@ -25,6 +29,25 @@ public class RegistroPais extends javax.swing.JPanel {
         Modificar.setVisible(false);
         Eliminar.setVisible(false);
     }
+    
+    public final  void llenarpais() 
+    {
+        CB_Pais.removeAllItems();
+        llavesPais.clear();
+            try {
+            Connection con = proyectocerveza.dbConnection.conectDB();
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call getPais");
+                while(rs.next()){
+                   llavesPais.add(rs.getInt(1));
+                   CB_Pais.addItem(rs.getString("Descripción"));
+                }
+                
+            } catch (SQLException ex) {
+               
+            }
+    }
+
     
     public void InsertPais(){
         Connection con= null;
@@ -43,6 +66,26 @@ public class RegistroPais extends javax.swing.JPanel {
 
             }
     
+    }
+public void ModificarPais(){
+        Connection con= null;
+            
+            con= proyectocerveza.dbConnection.conectDB();
+            try {
+                int id_Pais=(int) llavesPais.get(CB_Pais.getSelectedIndex());
+                CallableStatement proc= con.prepareCall("{call modificar_pais(?,?)}");
+                proc.setInt(1, id_Pais);
+                proc.setString(2,TF_Nuevo.getText());
+                proc.execute();
+                JOptionPane.showMessageDialog(this, "Precio Modificado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                TF_Nuevo.setText("");
+                
+                con.close();
+                llenarpais();
+            } catch (SQLException ex) {
+                 JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
+
+            }
     }
 
     /**
@@ -65,11 +108,11 @@ public class RegistroPais extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         Modificar = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        TF_Nuevo = new javax.swing.JTextField();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        CB_Pais = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         Eliminar = new javax.swing.JPanel();
@@ -147,9 +190,9 @@ public class RegistroPais extends javax.swing.JPanel {
         Modificar.add(jLabel3);
         jLabel3.setBounds(210, 200, 74, 31);
 
-        jTextField4.setBackground(new java.awt.Color(217, 217, 148));
-        Modificar.add(jTextField4);
-        jTextField4.setBounds(290, 200, 225, 31);
+        TF_Nuevo.setBackground(new java.awt.Color(217, 217, 148));
+        Modificar.add(TF_Nuevo);
+        TF_Nuevo.setBounds(290, 200, 225, 31);
 
         jButton8.setText("Modificar");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -175,9 +218,9 @@ public class RegistroPais extends javax.swing.JPanel {
         Modificar.add(jLabel14);
         jLabel14.setBounds(300, 50, 180, 22);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Modificar.add(jComboBox1);
-        jComboBox1.setBounds(290, 140, 220, 30);
+        CB_Pais.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Modificar.add(CB_Pais);
+        CB_Pais.setBounds(290, 140, 220, 30);
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Pais: ");
@@ -243,6 +286,13 @@ public class RegistroPais extends javax.swing.JPanel {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        if (TF_Nuevo.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            ModificarPais();
+        }
+        
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -253,6 +303,7 @@ public class RegistroPais extends javax.swing.JPanel {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        llenarpais();
         Registro.setVisible(false);
         Modificar.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -271,9 +322,11 @@ public class RegistroPais extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox CB_Pais;
     private javax.swing.JPanel Eliminar;
     private javax.swing.JPanel Modificar;
     private javax.swing.JPanel Registro;
+    private javax.swing.JTextField TF_Nuevo;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton4;
@@ -281,7 +334,6 @@ public class RegistroPais extends javax.swing.JPanel {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
@@ -295,6 +347,5 @@ public class RegistroPais extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }

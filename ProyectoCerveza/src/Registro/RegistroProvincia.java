@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
  */
 public class RegistroProvincia extends javax.swing.JPanel {
     ArrayList llave= new ArrayList();
+    ArrayList llavesProvincia= new ArrayList();
 
     /**
      * Creates new form RegistroFermentacion
@@ -48,6 +49,30 @@ public class RegistroProvincia extends javax.swing.JPanel {
                
             }
     }
+    
+     public final void LlenarProvincia()
+    {
+       CB_Provincia.removeAllItems();
+       llavesProvincia.clear();
+       
+            try {
+                Connection con = proyectocerveza.dbConnection.conectDB();
+                int id_pais=(int) llave.get(CB_Pais.getSelectedIndex());
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call getProvincia("+id_pais+")");
+                while(rs.next()){
+                   llavesProvincia.add(rs.getInt(1));
+                   CB_Provincia.addItem(rs.getString("Descripción"));
+                }
+                
+              con.close();
+            } catch (SQLException ex) {
+                
+            }
+   
+   }
+    
+    
     public void InsertProvincia(){
         Connection con= null;
             String puesto=jTextField2.getText();
@@ -94,9 +119,9 @@ public class RegistroProvincia extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
+        CB_Provincia = new javax.swing.JComboBox();
         jButton13 = new javax.swing.JButton();
-        jComboBox5 = new javax.swing.JComboBox();
+        CB_Pais = new javax.swing.JComboBox();
         jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Eliminar = new javax.swing.JPanel();
@@ -203,8 +228,8 @@ public class RegistroProvincia extends javax.swing.JPanel {
         Modificar.add(jLabel14);
         jLabel14.setBounds(320, 50, 180, 22);
 
-        Modificar.add(jComboBox3);
-        jComboBox3.setBounds(290, 200, 230, 30);
+        Modificar.add(CB_Provincia);
+        CB_Provincia.setBounds(290, 200, 230, 30);
 
         jButton13.setText("Volver");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -215,8 +240,8 @@ public class RegistroProvincia extends javax.swing.JPanel {
         Modificar.add(jButton13);
         jButton13.setBounds(430, 360, 130, 50);
 
-        Modificar.add(jComboBox5);
-        jComboBox5.setBounds(290, 140, 230, 30);
+        Modificar.add(CB_Pais);
+        CB_Pais.setBounds(290, 140, 230, 30);
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Provincia: ");
@@ -225,7 +250,7 @@ public class RegistroProvincia extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         Modificar.add(jLabel2);
-        jLabel2.setBounds(0, -40, 840, 590);
+        jLabel2.setBounds(0, -30, 840, 590);
 
         jLayeredPane1.add(Modificar);
 
@@ -313,6 +338,8 @@ public class RegistroProvincia extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox CB_Pais;
+    private javax.swing.JComboBox CB_Provincia;
     private javax.swing.JPanel Eliminar;
     private javax.swing.JPanel Modificar;
     private javax.swing.JPanel Registro;
@@ -324,9 +351,7 @@ public class RegistroProvincia extends javax.swing.JPanel {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
-    private javax.swing.JComboBox jComboBox5;
     private javax.swing.JComboBox jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

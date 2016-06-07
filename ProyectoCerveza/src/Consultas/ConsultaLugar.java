@@ -6,6 +6,11 @@
 package Consultas;
 
 import Registro.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -19,7 +24,36 @@ public class ConsultaLugar extends javax.swing.JPanel {
     public ConsultaLugar() {
         initComponents();
     }
-
+private void UpdateTable(){
+         String consulta;
+         String dato=PT_Nombre.getText();
+        Connection con = proyectocerveza.dbConnection.conectDB();
+        try {
+            Statement cstmt = con.createStatement();
+            if ("País".equals(CB_Ubicacion.getSelectedItem().toString())){
+                 consulta="{call cerveceria.consulta_pais(\'"+dato+"\')}";
+            }
+            else if ("Provincia".equals(CB_Ubicacion.getSelectedItem().toString())){
+                 consulta="{call cerveceria.consulta_provincia(\'"+dato+"\')}";
+            }
+            else if ("Cantón".equals(CB_Ubicacion.getSelectedItem().toString())){
+                 consulta="{call cerveceria.consulta_canton(\'"+dato+"\')}";
+            }
+            else {
+                 consulta="{call cerveceria.consulta_distrito(\'"+dato+"\')}";
+            }
+            ResultSet rs = cstmt.executeQuery(consulta);
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+            con.close();
+            rs.close();
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            
+        }
+  
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -100,7 +134,7 @@ public class ConsultaLugar extends javax.swing.JPanel {
 
     private void BT_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_BuscarActionPerformed
         // TODO add your handling code here:
-       
+       UpdateTable();
     }//GEN-LAST:event_BT_BuscarActionPerformed
 
     private void PT_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PT_NombreActionPerformed

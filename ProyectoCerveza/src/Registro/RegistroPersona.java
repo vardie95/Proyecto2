@@ -177,10 +177,10 @@ public class RegistroPersona extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox2 = new javax.swing.JComboBox<String>();
+        jComboBox3 = new javax.swing.JComboBox<String>();
+        jComboBox4 = new javax.swing.JComboBox<String>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         BT_AgregarFoto = new javax.swing.JButton();
@@ -253,7 +253,7 @@ public class RegistroPersona extends javax.swing.JPanel {
         jLabel4.setBounds(50, 300, 110, 16);
 
         jComboBox1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "País" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "País" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -263,7 +263,7 @@ public class RegistroPersona extends javax.swing.JPanel {
         jComboBox1.setBounds(60, 270, 130, 20);
 
         jComboBox2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Provincia" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Provincia" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -273,7 +273,7 @@ public class RegistroPersona extends javax.swing.JPanel {
         jComboBox2.setBounds(213, 270, 120, 20);
 
         jComboBox3.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cantón" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cantón" }));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox3ActionPerformed(evt);
@@ -283,19 +283,19 @@ public class RegistroPersona extends javax.swing.JPanel {
         jComboBox3.setBounds(360, 270, 120, 20);
 
         jComboBox4.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Distrito" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Distrito" }));
         add(jComboBox4);
         jComboBox4.setBounds(510, 270, 120, 20);
 
         jLabel5.setBackground(new java.awt.Color(244, 244, 179));
         jLabel5.setOpaque(true);
         add(jLabel5);
-        jLabel5.setBounds(580, 60, 120, 130);
+        jLabel5.setBounds(560, 60, 120, 130);
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Foto:");
         add(jLabel6);
-        jLabel6.setBounds(540, 64, 34, 20);
+        jLabel6.setBounds(520, 60, 34, 20);
 
         BT_AgregarFoto.setBackground(new java.awt.Color(102, 102, 102));
         BT_AgregarFoto.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -307,7 +307,7 @@ public class RegistroPersona extends javax.swing.JPanel {
             }
         });
         add(BT_AgregarFoto);
-        BT_AgregarFoto.setBounds(580, 200, 115, 30);
+        BT_AgregarFoto.setBounds(560, 200, 140, 30);
 
         jLabel8.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -319,7 +319,7 @@ public class RegistroPersona extends javax.swing.JPanel {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Registro Persona");
         add(jLabel11);
-        jLabel11.setBounds(360, 20, 200, 30);
+        jLabel11.setBounds(330, 10, 200, 30);
 
         BT_Agregar1.setBackground(new java.awt.Color(102, 102, 102));
         BT_Agregar1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N

@@ -27,12 +27,39 @@ public class EstadisticaEmpleados extends javax.swing.JPanel {
     public EstadisticaEmpleados() {
         initComponents();
         TotalEmpleados();
-        CB_Nombre.removeAllItems();
-        llenarpais();
-        
-        
     }
-    
+    private void UpdateTable(){
+         String consulta;
+         String dato=PT_Nombre.getText();
+        Connection con = proyectocerveza.dbConnection.conectDB();
+        try {
+            Statement cstmt = con.createStatement();
+            if ("País".equals(CB_Ubicacion.getSelectedItem().toString())){
+                 consulta="{call cerveceria.cantidad_pais(\'"+dato+"\')}";
+            }
+            else if ("Provincia".equals(CB_Ubicacion.getSelectedItem().toString())){
+                 consulta="{call cerveceria.cantidad_provincia(\'"+dato+"\')}";
+            }
+            else if ("Cantón".equals(CB_Ubicacion.getSelectedItem().toString())){
+                 consulta="{call cerveceria.cantidad_canton(\'"+dato+"\')}";
+            }
+            else {
+                 consulta="{call cerveceria.cantidad_distrito(\'"+dato+"\')}";
+            }
+            ResultSet rs = cstmt.executeQuery(consulta);
+            while(rs.next()){
+                Cantidad.setText(Integer.toString(rs.getInt(1)));
+            }
+            con.close();
+            rs.close();
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            
+        }
+  
+    }
+  
     
 private void TotalEmpleados(){
         try {
@@ -51,45 +78,8 @@ private void TotalEmpleados(){
         }
   
     }
-     private void UpdateTable(){
-         String consulta = null;
-         String dato=CB_Nombre.getSelectedItem().toString();
-        Connection con = proyectocerveza.dbConnection.conectDB();
-        try {
-            Statement cstmt = con.createStatement();
-            if ("Pais".equals(CB_Nombre.getSelectedItem().toString())){
-                 //consulta="{call cerveceria.estadistica_pais}";
-            }
-           
-            ResultSet rs = cstmt.executeQuery(consulta);
-            Cantidad.setText(Integer.toString(rs.getInt(1)));
-            con.close();
-            rs.close();
-            
-        } catch (SQLException ex) {
-            System.out.println(ex);
-            
-        }
-     }
      
-     public final  void llenarpais() 
-    {
-        CB_Nombre.removeAllItems();
-        llavesPais.clear();
-            try {
-            Connection con = proyectocerveza.dbConnection.conectDB();
-                Statement cstmt = con.createStatement();
-                ResultSet rs = cstmt.executeQuery("call getPais");
-                while(rs.next()){
-                   llavesPais.add(rs.getInt(1));
-                   CB_Nombre.addItem(rs.getString("Descripción"));
-                }
-                
-            } catch (SQLException ex) {
-               
-            }
-    }
-
+    
      
   
     
@@ -108,11 +98,11 @@ private void TotalEmpleados(){
         BT_Analizar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         Cantidad = new javax.swing.JTextField();
-        CB_Nombre = new javax.swing.JComboBox<String>();
-        CB_Lugar = new javax.swing.JComboBox<String>();
+        CB_Ubicacion = new javax.swing.JComboBox<String>();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         TotalEmpleados = new javax.swing.JTextField();
+        PT_Nombre = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         setLayout(null);
@@ -151,18 +141,14 @@ private void TotalEmpleados(){
         add(Cantidad);
         Cantidad.setBounds(270, 320, 40, 20);
 
-        CB_Nombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "País", "Provincia", "Cantón", "Distrito" }));
-        add(CB_Nombre);
-        CB_Nombre.setBounds(220, 270, 90, 20);
-
-        CB_Lugar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "País", "Provincia", "Cantón", "Distrito" }));
-        CB_Lugar.addActionListener(new java.awt.event.ActionListener() {
+        CB_Ubicacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "País", "Provincia", "Cantón", "Distrito" }));
+        CB_Ubicacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CB_LugarActionPerformed(evt);
+                CB_UbicacionActionPerformed(evt);
             }
         });
-        add(CB_Lugar);
-        CB_Lugar.setBounds(220, 230, 90, 20);
+        add(CB_Ubicacion);
+        CB_Ubicacion.setBounds(220, 230, 90, 20);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -181,6 +167,15 @@ private void TotalEmpleados(){
         add(TotalEmpleados);
         TotalEmpleados.setBounds(460, 110, 40, 20);
 
+        PT_Nombre.setBackground(new java.awt.Color(217, 217, 148));
+        PT_Nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PT_NombreActionPerformed(evt);
+            }
+        });
+        add(PT_Nombre);
+        PT_Nombre.setBounds(220, 270, 90, 20);
+
         jLabel5.setBackground(new java.awt.Color(51, 51, 51));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         jLabel5.setOpaque(true);
@@ -190,25 +185,28 @@ private void TotalEmpleados(){
 
     private void BT_AnalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_AnalizarActionPerformed
         // TODO add your handling code here:
-    
+    UpdateTable();
 
         
     }//GEN-LAST:event_BT_AnalizarActionPerformed
 
-    private void CB_LugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_LugarActionPerformed
+    private void CB_UbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_UbicacionActionPerformed
         // TODO add your handling code here:
-        if ("País".equals(CB_Lugar.getSelectedItem().toString())){
-            llenarpais();
+        
          
-        }
-    }//GEN-LAST:event_CB_LugarActionPerformed
+        
+    }//GEN-LAST:event_CB_UbicacionActionPerformed
+
+    private void PT_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PT_NombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PT_NombreActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BT_Analizar;
-    private javax.swing.JComboBox<String> CB_Lugar;
-    private javax.swing.JComboBox<String> CB_Nombre;
+    private javax.swing.JComboBox<String> CB_Ubicacion;
     private javax.swing.JTextField Cantidad;
+    private javax.swing.JTextField PT_Nombre;
     private javax.swing.JTextField TotalEmpleados;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
