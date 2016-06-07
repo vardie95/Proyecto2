@@ -26,7 +26,7 @@ public class ConsultaLugar extends javax.swing.JPanel {
     }
 private void UpdateTable(){
          String consulta;
-         String dato=PT_Nombre.getText();
+         String dato='%'+PT_Nombre.getText()+'%';
         Connection con = proyectocerveza.dbConnection.conectDB();
         try {
             Statement cstmt = con.createStatement();

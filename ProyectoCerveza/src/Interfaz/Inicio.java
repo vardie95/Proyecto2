@@ -67,13 +67,15 @@ public class Inicio extends javax.swing.JFrame {
         jM_Persona3 = new javax.swing.JMenuItem();
         jM_Persona4 = new javax.swing.JMenuItem();
         jM_Persona5 = new javax.swing.JMenuItem();
+        jMenu9 = new javax.swing.JMenu();
+        jM_Persona1 = new javax.swing.JMenuItem();
+        jM_Persona7 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jM_Persona1 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
@@ -256,6 +258,36 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenu3.add(jMenu8);
 
+        jMenu9.setBackground(new java.awt.Color(102, 102, 102));
+        jMenu9.setForeground(new java.awt.Color(248, 246, 246));
+        jMenu9.setText("Empleado");
+        jMenu9.setOpaque(true);
+        jMenu9.setPreferredSize(new java.awt.Dimension(150, 30));
+
+        jM_Persona1.setBackground(new java.awt.Color(102, 102, 102));
+        jM_Persona1.setForeground(new java.awt.Color(255, 255, 255));
+        jM_Persona1.setText("Registro");
+        jM_Persona1.setPreferredSize(new java.awt.Dimension(150, 30));
+        jM_Persona1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_Persona1ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jM_Persona1);
+
+        jM_Persona7.setBackground(new java.awt.Color(102, 102, 102));
+        jM_Persona7.setForeground(new java.awt.Color(255, 255, 255));
+        jM_Persona7.setText("Usuario");
+        jM_Persona7.setPreferredSize(new java.awt.Dimension(150, 30));
+        jM_Persona7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jM_Persona7ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jM_Persona7);
+
+        jMenu3.add(jMenu9);
+
         jMenuItem2.setBackground(new java.awt.Color(102, 102, 102));
         jMenuItem2.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem2.setText("Cuerpo");
@@ -321,17 +353,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         jMenu3.add(jMenuItem5);
-
-        jM_Persona1.setBackground(new java.awt.Color(102, 102, 102));
-        jM_Persona1.setForeground(new java.awt.Color(255, 255, 255));
-        jM_Persona1.setText("Empleado");
-        jM_Persona1.setPreferredSize(new java.awt.Dimension(150, 30));
-        jM_Persona1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jM_Persona1ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jM_Persona1);
 
         jMenuBar1.add(jMenu3);
 
@@ -653,6 +674,15 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.revalidate();
     }//GEN-LAST:event_jM_Persona5ActionPerformed
 
+    private void jM_Persona7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jM_Persona7ActionPerformed
+        // TODO add your handling code here:
+        Registro.RegistroUsuario panelIni= new Registro.RegistroUsuario();
+        jPanel1.removeAll();
+        jPanel1.add(panelIni);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    }//GEN-LAST:event_jM_Persona7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -696,6 +726,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jM_Persona3;
     private javax.swing.JMenuItem jM_Persona4;
     private javax.swing.JMenuItem jM_Persona5;
+    private javax.swing.JMenuItem jM_Persona7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -704,6 +735,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;

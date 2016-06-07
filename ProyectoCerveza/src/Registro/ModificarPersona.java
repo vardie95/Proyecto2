@@ -166,9 +166,9 @@ public class ModificarPersona extends javax.swing.JPanel {
                    ImageIcon image= new ImageIcon(direccionArchivo);
                     jLabel5.setIcon(image);
                     jComboBox1.setSelectedItem(llavesPais.get(rs.getInt(9)-1));
-                    jComboBox2.setSelectedItem(llavesProvincia.get(rs.getInt(8)-1));
-                    jComboBox3.setSelectedItem(llavesCanton.get(rs.getInt(7)-1));
-                    jComboBox4.setSelectedIndex(rs.getInt(6)-1);    
+                    jComboBox2.setSelectedItem(rs.getString(8));
+                    jComboBox3.setSelectedItem(rs.getString(7));
+                    jComboBox4.setSelectedItem(rs.getString(6));
                 }
                 
               con.close();
