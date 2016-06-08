@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 
@@ -25,6 +26,7 @@ public class InicioSesion extends javax.swing.JFrame {
      */
     public InicioSesion() {
         initComponents();
+
     }
     private boolean ComprobarUsuario(){
         try {
@@ -72,7 +74,9 @@ public class InicioSesion extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inicio de Sesión");
         setBackground(new java.awt.Color(0, 0, 0));
-        setLocation(new java.awt.Point(500, 125));
+        setIconImage(getIconImage());
+        setIconImages(null);
+        setLocation(new java.awt.Point(400, 150));
         setMinimumSize(new java.awt.Dimension(580, 380));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -111,7 +115,7 @@ public class InicioSesion extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Iniciar Sesión");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(360, 170, 140, 30);
+        jLabel3.setBounds(360, 160, 140, 30);
 
         jButton1.setBackground(new java.awt.Color(102, 102, 102));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,7 +130,7 @@ public class InicioSesion extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/logo.jpg"))); // NOI18N
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 0, 600, 410);
+        jLabel4.setBounds(0, 0, 600, 380);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
