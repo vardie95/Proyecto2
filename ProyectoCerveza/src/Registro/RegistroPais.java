@@ -77,7 +77,7 @@ public void ModificarPais(){
                 proc.setInt(1, id_Pais);
                 proc.setString(2,TF_Nuevo.getText());
                 proc.execute();
-                JOptionPane.showMessageDialog(this, "Precio Modificado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Pais Modificado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
                 TF_Nuevo.setText("");
                 
                 con.close();
@@ -194,6 +194,8 @@ public void ModificarPais(){
         Modificar.add(TF_Nuevo);
         TF_Nuevo.setBounds(290, 200, 225, 31);
 
+        jButton8.setBackground(new java.awt.Color(102, 102, 102));
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Modificar");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,6 +205,8 @@ public void ModificarPais(){
         Modificar.add(jButton8);
         jButton8.setBounds(220, 360, 130, 50);
 
+        jButton9.setBackground(new java.awt.Color(102, 102, 102));
+        jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setText("Volver");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,6 +244,8 @@ public void ModificarPais(){
         Eliminar.add(jLabel5);
         jLabel5.setBounds(210, 170, 74, 31);
 
+        jButton10.setBackground(new java.awt.Color(102, 102, 102));
+        jButton10.setForeground(new java.awt.Color(255, 255, 255));
         jButton10.setText("Volver");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,6 +255,8 @@ public void ModificarPais(){
         Eliminar.add(jButton10);
         jButton10.setBounds(420, 360, 130, 50);
 
+        jButton11.setBackground(new java.awt.Color(102, 102, 102));
+        jButton11.setForeground(new java.awt.Color(255, 255, 255));
         jButton11.setText("Eliminar");
         Eliminar.add(jButton11);
         jButton11.setBounds(230, 360, 130, 50);

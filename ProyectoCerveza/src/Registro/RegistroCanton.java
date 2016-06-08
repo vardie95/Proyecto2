@@ -23,6 +23,7 @@ public class RegistroCanton extends javax.swing.JPanel {
      ArrayList llavesPais= new ArrayList();
      ArrayList llavesProvincia= new ArrayList();
      ArrayList llavesCanton= new ArrayList();
+     boolean modificar=false;
     /**
      * Creates new form RegistroFermentacion
      */
@@ -31,6 +32,7 @@ public class RegistroCanton extends javax.swing.JPanel {
         Eliminar.setVisible(false);
         Modificar.setVisible(false);
         llenarpais();
+        LlenarProvincia();
        
     }
     
@@ -62,7 +64,11 @@ public class RegistroCanton extends javax.swing.JPanel {
        
             try {
                 Connection con = proyectocerveza.dbConnection.conectDB();
-                int id_pais=(int) llavesPais.get(CB_Pais.getSelectedIndex());
+                int id_pais;
+                if (modificar)
+                    id_pais=(int) llavesPais.get(CB_Pais2.getSelectedIndex());
+                else
+                    id_pais=(int) llavesPais.get(CB_Pais.getSelectedIndex());
                 Statement cstmt = con.createStatement();
                 ResultSet rs = cstmt.executeQuery("call getProvincia("+id_pais+")");
                 while(rs.next()){
@@ -121,6 +127,27 @@ public class RegistroCanton extends javax.swing.JPanel {
             }
     
     }
+    public void ModificarCanton(){
+        Connection con= null;
+            
+            con= proyectocerveza.dbConnection.conectDB();
+            try {
+                int id_Canton=(int) llavesCanton.get(CB_Canton2.getSelectedIndex());
+                CallableStatement proc= con.prepareCall("{call modificar_canton(?,?)}");
+                proc.setInt(1, id_Canton);
+                proc.setString(2,TF_Nuevo.getText());
+                proc.execute();
+                JOptionPane.showMessageDialog(this, "Cantón Modificado Exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                TF_Nuevo.setText("");
+                
+                con.close();
+                LlenarCanton();
+            } catch (SQLException ex) {
+                 JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
+
+            }
+    }
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -166,7 +193,7 @@ public class RegistroCanton extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         CB_Canton2 = new javax.swing.JComboBox();
-        TF_Canton = new javax.swing.JTextField();
+        TF_Nuevo = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
 
@@ -269,6 +296,8 @@ public class RegistroCanton extends javax.swing.JPanel {
         Eliminar.add(jLabel5);
         jLabel5.setBounds(220, 240, 80, 20);
 
+        jButton5.setBackground(new java.awt.Color(102, 102, 102));
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Volver");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,6 +307,8 @@ public class RegistroCanton extends javax.swing.JPanel {
         Eliminar.add(jButton5);
         jButton5.setBounds(405, 354, 120, 50);
 
+        jButton7.setBackground(new java.awt.Color(102, 102, 102));
+        jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("Eliminar");
         Eliminar.add(jButton7);
         jButton7.setBounds(219, 354, 130, 50);
@@ -342,6 +373,8 @@ public class RegistroCanton extends javax.swing.JPanel {
         Modificar.add(jLabel8);
         jLabel8.setBounds(210, 220, 80, 20);
 
+        jButton6.setBackground(new java.awt.Color(102, 102, 102));
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Volver");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -351,7 +384,14 @@ public class RegistroCanton extends javax.swing.JPanel {
         Modificar.add(jButton6);
         jButton6.setBounds(405, 354, 120, 50);
 
+        jButton8.setBackground(new java.awt.Color(102, 102, 102));
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Modificar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         Modificar.add(jButton8);
         jButton8.setBounds(219, 354, 130, 50);
 
@@ -400,9 +440,9 @@ public class RegistroCanton extends javax.swing.JPanel {
         Modificar.add(CB_Canton2);
         CB_Canton2.setBounds(290, 210, 230, 30);
 
-        TF_Canton.setBackground(new java.awt.Color(217, 217, 148));
-        Modificar.add(TF_Canton);
-        TF_Canton.setBounds(290, 270, 225, 31);
+        TF_Nuevo.setBackground(new java.awt.Color(217, 217, 148));
+        Modificar.add(TF_Nuevo);
+        TF_Nuevo.setBounds(290, 270, 225, 31);
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Nuevo Canton: ");
@@ -439,9 +479,8 @@ public class RegistroCanton extends javax.swing.JPanel {
         // TODO add your handling code here:
         Registro.setVisible(false);
         Modificar.setVisible(true);
-        llenarpais();
-        LlenarProvincia();
         LlenarCanton();
+        modificar=true;
        
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -464,10 +503,13 @@ public class RegistroCanton extends javax.swing.JPanel {
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
+        LlenarCanton();
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void CB_Pais1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_Pais1ActionPerformed
         // TODO add your handling code here:
+        LlenarProvincia();
+        LlenarCanton();
     }//GEN-LAST:event_CB_Pais1ActionPerformed
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
@@ -484,10 +526,18 @@ public class RegistroCanton extends javax.swing.JPanel {
         // TODO add your handling code here:
         Modificar.setVisible(false);
         Registro.setVisible(true);
+        modificar=false;
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void CB_Provincia2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_Provincia2ActionPerformed
         // TODO add your handling code here:
+        if(evt.getSource()==CB_Provincia2){
+            if(CB_Provincia2.getSelectedItem()!=null){
+                LlenarCanton();
+            }
+            else
+                CB_Canton2.removeAllItems();
+        }
     }//GEN-LAST:event_CB_Provincia2ActionPerformed
 
     private void CB_Pais2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_Pais2ActionPerformed
@@ -497,11 +547,24 @@ public class RegistroCanton extends javax.swing.JPanel {
                 LlenarProvincia();
             }
         }
+        
+        
+        
     }//GEN-LAST:event_CB_Pais2ActionPerformed
 
     private void CB_Canton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_Canton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CB_Canton2ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        if (TF_Nuevo.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            ModificarCanton();
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -514,7 +577,7 @@ public class RegistroCanton extends javax.swing.JPanel {
     private javax.swing.JPanel Eliminar;
     private javax.swing.JPanel Modificar;
     private javax.swing.JPanel Registro;
-    private javax.swing.JTextField TF_Canton;
+    private javax.swing.JTextField TF_Nuevo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
