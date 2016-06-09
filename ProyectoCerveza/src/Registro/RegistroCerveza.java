@@ -212,17 +212,17 @@ public final void InsertCerveza(){
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<String>();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<String>();
+        jComboBox3 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<String>();
+        jComboBox4 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<String>();
-        jComboBox6 = new javax.swing.JComboBox<String>();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jComboBox6 = new javax.swing.JComboBox<>();
         TF_Descripcion1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -241,14 +241,15 @@ public final void InsertCerveza(){
         add(jLabel1);
         jLabel1.setBounds(60, 70, 80, 16);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setBackground(new java.awt.Color(251, 251, 140));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
         add(jComboBox1);
-        jComboBox1.setBounds(200, 110, 160, 20);
+        jComboBox1.setBounds(200, 110, 210, 20);
 
         jLabel2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -262,9 +263,10 @@ public final void InsertCerveza(){
         add(jLabel3);
         jLabel3.setBounds(60, 160, 80, 16);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setBackground(new java.awt.Color(251, 251, 140));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox2);
-        jComboBox2.setBounds(200, 160, 160, 20);
+        jComboBox2.setBounds(200, 160, 210, 20);
 
         jLabel4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -272,9 +274,10 @@ public final void InsertCerveza(){
         add(jLabel4);
         jLabel4.setBounds(60, 210, 100, 16);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setBackground(new java.awt.Color(251, 251, 140));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox3);
-        jComboBox3.setBounds(200, 210, 160, 20);
+        jComboBox3.setBounds(200, 210, 210, 20);
 
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -282,9 +285,10 @@ public final void InsertCerveza(){
         add(jLabel5);
         jLabel5.setBounds(60, 260, 100, 16);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.setBackground(new java.awt.Color(251, 251, 140));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox4);
-        jComboBox4.setBounds(200, 260, 160, 20);
+        jComboBox4.setBounds(200, 260, 210, 20);
 
         jLabel6.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -292,18 +296,20 @@ public final void InsertCerveza(){
         add(jLabel6);
         jLabel6.setBounds(60, 320, 100, 16);
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox5.setBackground(new java.awt.Color(251, 251, 140));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox5ActionPerformed(evt);
             }
         });
         add(jComboBox5);
-        jComboBox5.setBounds(200, 310, 160, 20);
+        jComboBox5.setBounds(200, 310, 210, 20);
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox6.setBackground(new java.awt.Color(251, 251, 140));
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(jComboBox6);
-        jComboBox6.setBounds(200, 360, 160, 20);
+        jComboBox6.setBounds(200, 360, 210, 20);
 
         TF_Descripcion1.setBackground(new java.awt.Color(222, 222, 172));
         TF_Descripcion1.addActionListener(new java.awt.event.ActionListener() {
@@ -324,7 +330,7 @@ public final void InsertCerveza(){
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Temperatura: ");
         add(jLabel9);
-        jLabel9.setBounds(60, 410, 100, 16);
+        jLabel9.setBounds(60, 400, 100, 16);
 
         TF_Descripcion2.setBackground(new java.awt.Color(222, 222, 172));
         TF_Descripcion2.addActionListener(new java.awt.event.ActionListener() {
@@ -333,7 +339,7 @@ public final void InsertCerveza(){
             }
         });
         add(TF_Descripcion2);
-        TF_Descripcion2.setBounds(200, 410, 140, 20);
+        TF_Descripcion2.setBounds(200, 400, 140, 20);
 
         jButton2.setBackground(new java.awt.Color(102, 102, 102));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -350,7 +356,7 @@ public final void InsertCerveza(){
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Precio:   ");
         add(jLabel10);
-        jLabel10.setBounds(60, 450, 80, 16);
+        jLabel10.setBounds(60, 430, 80, 16);
 
         TF_Descripcion3.setBackground(new java.awt.Color(222, 222, 172));
         TF_Descripcion3.addActionListener(new java.awt.event.ActionListener() {
@@ -359,7 +365,7 @@ public final void InsertCerveza(){
             }
         });
         add(TF_Descripcion3);
-        TF_Descripcion3.setBounds(200, 450, 120, 20);
+        TF_Descripcion3.setBounds(200, 440, 120, 20);
 
         jLabel11.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));

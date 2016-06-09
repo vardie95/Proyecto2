@@ -105,7 +105,6 @@ public class RegistroColor2 extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         Modificar = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -154,7 +153,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton4);
-        jButton4.setBounds(160, 330, 120, 50);
+        jButton4.setBounds(190, 330, 120, 50);
 
         jButton5.setBackground(new java.awt.Color(102, 102, 102));
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,18 +164,7 @@ public class RegistroColor2 extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton5);
-        jButton5.setBounds(330, 330, 130, 50);
-
-        jButton6.setBackground(new java.awt.Color(102, 102, 102));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Eliminar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        Registro.add(jButton6);
-        jButton6.setBounds(510, 330, 130, 50);
+        jButton5.setBounds(490, 330, 130, 50);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         Registro.add(jLabel3);
@@ -307,12 +295,6 @@ public class RegistroColor2 extends javax.swing.JPanel {
         LlenarColor();
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        Registro.setVisible(false);
-        Eliminar.setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
         Registro.setVisible(true);
@@ -345,7 +327,6 @@ public class RegistroColor2 extends javax.swing.JPanel {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox1;

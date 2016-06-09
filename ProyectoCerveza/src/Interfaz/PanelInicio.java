@@ -34,7 +34,7 @@ public class PanelInicio extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 204, 204));
+        setBackground(new java.awt.Color(36, 36, 36));
         setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -54,7 +54,7 @@ public class PanelInicio extends javax.swing.JPanel {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Beer1.jpg"))); // NOI18N
         add(jLabel3);
-        jLabel3.setBounds(160, 140, 400, 300);
+        jLabel3.setBounds(170, 140, 400, 300);
 
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -70,7 +70,7 @@ public class PanelInicio extends javax.swing.JPanel {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
         add(jLabel4);
-        jLabel4.setBounds(0, -10, 900, 560);
+        jLabel4.setBounds(10, -20, 920, 570);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

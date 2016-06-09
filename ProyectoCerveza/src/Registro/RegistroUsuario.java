@@ -51,7 +51,49 @@ public final void LlenarIdentificacion()
             }
    
    }
+
+public final void LlenarUsuario()
+    {
+       CB_Pais.removeAllItems();   
+            try {
+                Connection con = proyectocerveza.dbConnection.conectDB();
+                
+                Statement cstmt = con.createStatement();
+                ResultSet rs = cstmt.executeQuery("call SelectUsuarios");
+                while(rs.next()){
+                   int identificacion=rs.getInt(1); 
+                   CB_Pais.addItem(Integer.toString(identificacion));
+                } 
+              con.close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+                
+            }
+   
+   }
     
+public void ModificarUsuario(){
+        Connection con= null;
+            int empleado=Integer.parseInt(CB_Pais.getSelectedItem().toString());
+            String contraseña=jPasswordField3.getText();
+            con= proyectocerveza.dbConnection.conectDB();
+            try {
+                
+                CallableStatement proc= con.prepareCall("{call modificarContraseña(?,?)}");
+                proc.setInt(1, empleado);
+                proc.setString(2, contraseña);
+                proc.execute();
+                JOptionPane.showMessageDialog(this, "Contraseña Modificada exitosamente",null,JOptionPane.INFORMATION_MESSAGE);
+                jPasswordField2.setText("");
+                jPasswordField1.setText("");
+                con.close();
+                
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error:"+ex,null,JOptionPane.ERROR_MESSAGE);
+
+            }
+    }
+
      public void InsertUsuario(){
         Connection con= null;
             int empleado=Integer.parseInt(jComboBox1.getSelectedItem().toString());
@@ -89,7 +131,6 @@ public final void LlenarIdentificacion()
         jLabel2 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jPasswordField1 = new javax.swing.JPasswordField();
@@ -136,7 +177,7 @@ public final void LlenarIdentificacion()
             }
         });
         Registro.add(jButton4);
-        jButton4.setBounds(160, 360, 120, 50);
+        jButton4.setBounds(190, 350, 120, 50);
 
         jButton5.setBackground(new java.awt.Color(102, 102, 102));
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
@@ -147,18 +188,7 @@ public final void LlenarIdentificacion()
             }
         });
         Registro.add(jButton5);
-        jButton5.setBounds(330, 360, 130, 50);
-
-        jButton6.setBackground(new java.awt.Color(102, 102, 102));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Eliminar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        Registro.add(jButton6);
-        jButton6.setBounds(510, 360, 130, 50);
+        jButton5.setBounds(470, 350, 130, 50);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -201,6 +231,8 @@ public final void LlenarIdentificacion()
 
         Modificar.setLayout(null);
 
+        jButton8.setBackground(new java.awt.Color(102, 102, 102));
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Modificar");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,6 +242,8 @@ public final void LlenarIdentificacion()
         Modificar.add(jButton8);
         jButton8.setBounds(220, 360, 130, 50);
 
+        jButton9.setBackground(new java.awt.Color(102, 102, 102));
+        jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setText("Volver");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -244,12 +278,12 @@ public final void LlenarIdentificacion()
         jPasswordField3.setBounds(270, 200, 250, 30);
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Contraseña Anterior:");
+        jLabel10.setText("Contraseña Nueva:");
         Modificar.add(jLabel10);
         jLabel10.setBounds(140, 200, 120, 31);
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText(" Contraseña Nueva:");
+        jLabel11.setText("Confirme Contraseña:");
         Modificar.add(jLabel11);
         jLabel11.setBounds(130, 250, 120, 31);
 
@@ -321,6 +355,19 @@ public final void LlenarIdentificacion()
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        if (jPasswordField3.getText().length()==0 ||jPasswordField4.getText().length()==0  ){
+            JOptionPane.showMessageDialog(this, "Debe de llenar todos los campos obligatorios.",null,JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            if(jPasswordField3.getText().equals(jPasswordField4.getText())){
+                ModificarUsuario();
+            }else{
+                JOptionPane.showMessageDialog(this, "La contraseña y la confirmación de contraseña no son iguales",null,JOptionPane.ERROR_MESSAGE);
+            }
+            
+        }
+    
+    
         
         
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -335,13 +382,8 @@ public final void LlenarIdentificacion()
         // TODO add your handling code here:
         Registro.setVisible(false);
         Modificar.setVisible(true);
+        LlenarUsuario();
     }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        Registro.setVisible(false);
-        Eliminar.setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
@@ -367,7 +409,6 @@ public final void LlenarIdentificacion()
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;

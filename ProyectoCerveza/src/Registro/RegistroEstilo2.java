@@ -103,7 +103,6 @@ public class RegistroEstilo2 extends javax.swing.JPanel {
         jTextField3 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Modificar = new javax.swing.JPanel();
@@ -147,7 +146,7 @@ public class RegistroEstilo2 extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton4);
-        jButton4.setBounds(160, 330, 120, 50);
+        jButton4.setBounds(180, 330, 120, 50);
 
         jButton5.setBackground(new java.awt.Color(102, 102, 102));
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
@@ -158,18 +157,7 @@ public class RegistroEstilo2 extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton5);
-        jButton5.setBounds(330, 330, 130, 50);
-
-        jButton6.setBackground(new java.awt.Color(102, 102, 102));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Eliminar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        Registro.add(jButton6);
-        jButton6.setBounds(510, 330, 130, 50);
+        jButton5.setBounds(480, 330, 130, 50);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -183,6 +171,8 @@ public class RegistroEstilo2 extends javax.swing.JPanel {
 
         jLayeredPane1.add(Registro);
 
+        Modificar.setBackground(new java.awt.Color(102, 102, 102));
+        Modificar.setForeground(new java.awt.Color(255, 255, 255));
         Modificar.setLayout(null);
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -194,6 +184,8 @@ public class RegistroEstilo2 extends javax.swing.JPanel {
         Modificar.add(jTextField4);
         jTextField4.setBounds(290, 190, 225, 31);
 
+        jButton8.setBackground(new java.awt.Color(102, 102, 102));
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Modificar");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,6 +195,8 @@ public class RegistroEstilo2 extends javax.swing.JPanel {
         Modificar.add(jButton8);
         jButton8.setBounds(220, 320, 130, 50);
 
+        jButton9.setBackground(new java.awt.Color(102, 102, 102));
+        jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setText("Volver");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,12 +284,6 @@ public class RegistroEstilo2 extends javax.swing.JPanel {
         LlenarEstilo();
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        Registro.setVisible(false);
-        Eliminar.setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         Modificar.setVisible(false);
@@ -323,7 +311,6 @@ public class RegistroEstilo2 extends javax.swing.JPanel {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox1;

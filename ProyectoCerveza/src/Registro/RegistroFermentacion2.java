@@ -111,7 +111,6 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Modificar = new javax.swing.JPanel();
         jTextField5 = new javax.swing.JTextField();
@@ -173,7 +172,7 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton4);
-        jButton4.setBounds(160, 330, 120, 50);
+        jButton4.setBounds(190, 330, 120, 50);
 
         jButton5.setBackground(new java.awt.Color(102, 102, 102));
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
@@ -184,18 +183,7 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton5);
-        jButton5.setBounds(330, 330, 130, 50);
-
-        jButton6.setBackground(new java.awt.Color(102, 102, 102));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Eliminar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        Registro.add(jButton6);
-        jButton6.setBounds(510, 330, 130, 50);
+        jButton5.setBounds(470, 330, 130, 50);
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/fondoCerveza.jpg"))); // NOI18N
@@ -231,6 +219,8 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         Modificar.add(jLabel13);
         jLabel13.setBounds(280, 60, 200, 22);
 
+        jButton8.setBackground(new java.awt.Color(102, 102, 102));
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Modificar");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,6 +230,8 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         Modificar.add(jButton8);
         jButton8.setBounds(240, 330, 130, 50);
 
+        jButton9.setBackground(new java.awt.Color(102, 102, 102));
+        jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setText("Volver");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -336,12 +328,6 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
         LlenarFermentacion();
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        Registro.setVisible(false);
-        Eliminar.setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         Modificar.setVisible(false);
@@ -369,7 +355,6 @@ public class RegistroFermentacion2 extends javax.swing.JPanel {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox2;

@@ -84,11 +84,13 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
         jMenuItem17 = new javax.swing.JMenuItem();
+        jMenu10 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cervecería");
         setLocation(new java.awt.Point(300, 80));
         setMinimumSize(new java.awt.Dimension(800, 560));
+        setResizable(false);
 
         jPanel1.setToolTipText("Cerveceria");
         jPanel1.setLayout(new java.awt.CardLayout());
@@ -430,17 +432,28 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu5);
 
+        jMenu10.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/logout-xxl.png"))); // NOI18N
+        jMenu10.setText("                   ");
+        jMenu10.setPreferredSize(new java.awt.Dimension(50, 19));
+        jMenu10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu10MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu10);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 799, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 809, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
         );
 
         pack();
@@ -683,6 +696,12 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.revalidate();
     }//GEN-LAST:event_jM_Persona7ActionPerformed
 
+    private void jMenu10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu10MouseClicked
+        // TODO add your handling code here:
+        new InicioSesion().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenu10MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -728,6 +747,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jM_Persona5;
     private javax.swing.JMenuItem jM_Persona7;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;

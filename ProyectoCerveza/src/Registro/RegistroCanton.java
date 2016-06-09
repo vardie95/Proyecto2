@@ -165,10 +165,9 @@ public class RegistroCanton extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         CB_Provincia = new javax.swing.JComboBox();
-        CB_Pais = new javax.swing.JComboBox<String>();
+        CB_Pais = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -178,7 +177,7 @@ public class RegistroCanton extends javax.swing.JPanel {
         jButton7 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox();
-        CB_Pais1 = new javax.swing.JComboBox<String>();
+        CB_Pais1 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox();
@@ -189,7 +188,7 @@ public class RegistroCanton extends javax.swing.JPanel {
         jButton8 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         CB_Provincia2 = new javax.swing.JComboBox();
-        CB_Pais2 = new javax.swing.JComboBox<String>();
+        CB_Pais2 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         CB_Canton2 = new javax.swing.JComboBox();
@@ -208,7 +207,7 @@ public class RegistroCanton extends javax.swing.JPanel {
         jTextField1.setBounds(270, 280, 225, 31);
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Canton: ");
+        jLabel2.setText("Cantón: ");
         Registro.add(jLabel2);
         jLabel2.setBounds(190, 280, 80, 20);
 
@@ -221,7 +220,7 @@ public class RegistroCanton extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton1);
-        jButton1.setBounds(139, 383, 120, 50);
+        jButton1.setBounds(190, 380, 120, 50);
 
         jButton2.setBackground(new java.awt.Color(102, 102, 102));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -232,18 +231,7 @@ public class RegistroCanton extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton2);
-        jButton2.setBounds(310, 383, 130, 50);
-
-        jButton3.setBackground(new java.awt.Color(102, 102, 102));
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Eliminar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        Registro.add(jButton3);
-        jButton3.setBounds(514, 383, 130, 50);
+        jButton2.setBounds(480, 380, 130, 50);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -261,7 +249,7 @@ public class RegistroCanton extends javax.swing.JPanel {
         CB_Provincia.setBounds(270, 220, 230, 30);
 
         CB_Pais.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        CB_Pais.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Costa Rica" }));
+        CB_Pais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Costa Rica" }));
         CB_Pais.setToolTipText("");
         CB_Pais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,7 +260,7 @@ public class RegistroCanton extends javax.swing.JPanel {
         CB_Pais.setBounds(270, 170, 230, 30);
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Pais:");
+        jLabel4.setText("País:");
         Registro.add(jLabel4);
         jLabel4.setBounds(190, 170, 50, 14);
 
@@ -329,7 +317,7 @@ public class RegistroCanton extends javax.swing.JPanel {
         jComboBox2.setBounds(286, 160, 230, 30);
 
         CB_Pais1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        CB_Pais1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Costa Rica" }));
+        CB_Pais1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Costa Rica" }));
         CB_Pais1.setToolTipText("");
         CB_Pais1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -411,7 +399,7 @@ public class RegistroCanton extends javax.swing.JPanel {
         CB_Provincia2.setBounds(290, 160, 230, 30);
 
         CB_Pais2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        CB_Pais2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Costa Rica" }));
+        CB_Pais2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Costa Rica" }));
         CB_Pais2.setToolTipText("");
         CB_Pais2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -516,12 +504,6 @@ public class RegistroCanton extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        Registro.setVisible(false);
-        Eliminar.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         Modificar.setVisible(false);
@@ -580,7 +562,6 @@ public class RegistroCanton extends javax.swing.JPanel {
     private javax.swing.JTextField TF_Nuevo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;

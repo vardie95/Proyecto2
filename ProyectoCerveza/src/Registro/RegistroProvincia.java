@@ -133,7 +133,6 @@ public class RegistroProvincia extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         CB_Pais = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
@@ -169,7 +168,7 @@ public class RegistroProvincia extends javax.swing.JPanel {
         jTextField2.setBounds(290, 210, 225, 31);
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Pais: ");
+        jLabel3.setText("País: ");
         Registro.add(jLabel3);
         jLabel3.setBounds(200, 140, 74, 31);
 
@@ -198,18 +197,7 @@ public class RegistroProvincia extends javax.swing.JPanel {
             }
         });
         Registro.add(jButton5);
-        jButton5.setBounds(330, 360, 130, 50);
-
-        jButton6.setBackground(new java.awt.Color(102, 102, 102));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Eliminar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        Registro.add(jButton6);
-        jButton6.setBounds(510, 360, 130, 50);
+        jButton5.setBounds(490, 360, 130, 50);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -233,7 +221,7 @@ public class RegistroProvincia extends javax.swing.JPanel {
         TF_Nuevo.setBounds(290, 270, 225, 31);
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Pais: ");
+        jLabel5.setText("País: ");
         Modificar.add(jLabel5);
         jLabel5.setBounds(190, 140, 74, 31);
 
@@ -361,12 +349,6 @@ public class RegistroProvincia extends javax.swing.JPanel {
         LlenarProvincia();
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        Registro.setVisible(false);
-        Eliminar.setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
         Modificar.setVisible(false);
@@ -408,7 +390,6 @@ public class RegistroProvincia extends javax.swing.JPanel {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox6;

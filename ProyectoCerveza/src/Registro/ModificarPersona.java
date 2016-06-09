@@ -6,12 +6,14 @@
 package Registro;
 
 import Interfaz.PanelInicio;
+import java.awt.Image;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -164,7 +166,8 @@ public class ModificarPersona extends javax.swing.JPanel {
                    TF_Direccion.setText(rs.getString(4));
                    direccionArchivo=rs.getString(5);
                    ImageIcon image= new ImageIcon(direccionArchivo);
-                    jLabel5.setIcon(image);
+                    Icon imageICON=new  ImageIcon(image.getImage().getScaledInstance(jLabel5.getWidth(), jLabel5.getHeight(), Image.SCALE_DEFAULT));
+                    jLabel5.setIcon(imageICON);
                     jComboBox1.setSelectedItem(llavesPais.get(rs.getInt(9)-1));
                     jComboBox2.setSelectedItem(rs.getString(8));
                     jComboBox3.setSelectedItem(rs.getString(7));
@@ -438,8 +441,9 @@ public class ModificarPersona extends javax.swing.JPanel {
         if(fotoFile.showOpenDialog(BT_AgregarFoto)==JFileChooser.APPROVE_OPTION){
             direccionArchivo =fotoFile.getSelectedFile().getAbsolutePath();
             ImageIcon image= new ImageIcon(direccionArchivo);
-            jLabel5.setIcon(image);
-           
+            Icon imageICON=new  ImageIcon(image.getImage().getScaledInstance(jLabel5.getWidth(), jLabel5.getHeight(), Image.SCALE_DEFAULT));
+            jLabel5.setIcon(imageICON);
+            
         
         }
     }//GEN-LAST:event_BT_AgregarFotoActionPerformed
